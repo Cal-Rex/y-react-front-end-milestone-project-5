@@ -1,102 +1,204 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Y
+## voting on the right answer, for anything
+_____________________________________________________________________
+## Table of Contents
+1. [INTRODUCTION](#introduction)
+2. [DESIGN](#design)
+- [UX](#ux)
+  - [Research](#research)
+- [Development Planes](#development-planes)
+  - [Strategy](#strategy)
+  - [Scope](#scope)
+  - [Structure](#structure) 
+  - [Skeleton](#skeleton)
+- [Colour Scheme](#colour-scheme)
+- [Typography](#typography)
+- [Imagery](#imagery)
 
-Welcome,
+3. [Project Development / Agile Sprints](#project-developlment--agile-sprints)
 
-This is the Code Institute student template for React apps on the Codeanywhere IDE. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.  
-DO NOT use this template if you are using the Gitpod IDE. Use the following command instead:  
-`npx create-react-app . --template git+https://github.com/Code-Institute-Org/cra-template-moments.git --use-npm`
+3. [FEATURES](#features)
+- [Design Features](#design-features)
+- [Visual Features](#visual-features)
+- [Gameplay + JS Features](#gameplay-features)
+- [404 and 500 Features](#404-and-500-error-pages)
+- [Features to Implement in Future](#features-to-implement-in-future)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **31st August, 2023**
+4. [BUGS](#bugs)
+- [Resolved Bugs](#resolved-bugs)
+- [Unresolved Bugs](#unresolved-bugs)
 
-## Codeanywhere Reminders
+5. [TECHNOLOGIES](#technologies)
+- [Languages Used](#languages-used)
+- [Frameworks](#frameworks--libraries--programs)
+- [Libraries](#frameworks--libraries--programs)
+- [Programs](#frameworks--libraries--programs)
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+6. [TESTING](testing.md)
 
-To log into the Heroku toolbelt CLI:
+Contained as a seperate document [here](testing.md)
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+7. [DEPLOYMENT](#deployment)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+Step-by-step guide on how to deploy
 
----
+8. [CREDITS](#credits)
 
-Happy coding!
+9. [ACKNOWLEDGEMENTS](#acknolwedgments)
 
-# Getting Started with Create React App
+__________________________________________
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Introduction
+"Y" is a satirical copy of a recently rebranded social media site. The site will allow users to post public questions or images, and ask the opinions of other authenticated users. Users can then vote on their favourite response. The response with the most votes will be deemed the "Right answer"
 
-## Available Scripts
+The site itself aims to operate just like any other standard social media platform where a user can create an account and personalize their identity. Make their own posts and interact with other user's content. 
 
-In the project directory, you can run:
+**This project is the fifth of the five projects to be created for the Diploma in Full Stack Software Development (Advanced Front-End)**
 
-### `npm install`
+## Project Purpose:
+This project aims to:
 
-Installs the required npm packages.
+1. Design an interactive Front-End web application using HTML, CSS and advanced JavaScript, based on component composition and separation of concerns.
+2. Explain the key role that specialist Front-End developers perform in modern software development/delivery teams.
+3. Create an Application Programming Interface for consumption by 3rd party applications.
+4. Create an Interactive Front-End application that consumes API data.
 
-### `npm start`
+## Criteria
 
-Runs the app in the development mode.\
-Open port 3000 to view it in the browser.
+[put learning outcome grids here]
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br />
 
-### `npm test`
+___
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Design
 
-### `npm run build`
+## UX
+### Research
+As Mentioned in the Introduction, the game is inspired by original text-based adventure games, table-top games, roguelike games and webcomics. styling inspiration and mechanic ideas where derived from viewing the following sources:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+As Mentioned in the Introduction, this site is a satirical take a recently rebranded social media site. however the following social media platforms were looked at for inspiration regarding site structure, style and implementation of features:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##### [Imgur]()
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##### [instagram]()
 
-### `npm run eject`
+##### [X / Twitter]()
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+##### [Facebook]()
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Development planes
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Strategy
 
-## Learn More
+#### User Stories
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Navigation**
+- _As a user, i want to be able to seemlessly navigate every page with a central navigation feature_
+- _As a user, i want to be prompted to log in to view content that can only be viewed by people with accounts_
+- _As a user, i want to be able to navigate through pages and posts with minimal waiting time_
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Authentication**
+- _as a user, i want to be able to create an account so tha i can access the platform_
+- _as a user, i want to be able to log in with my own account so i can partake in user-only features_
+- _as a user, i want to be able to see if i am logged in at any given moment, so i know to log out or switch accounts if i need to_
+- _as a user, i want to be able to remain logged-in to my account until i decide to sign out_
 
-### Code Splitting
+**Creating and viewing content**
+- _As a user, i want to be able to make my own posts/pose my own questions for people to interact with_
+- _As a user, i want to be able to view questions/posts people have posted_
+- _As a user, i want to be able to view comments/answers and their vote count_
+- _As a user, i want to be able to vote on answers that i think are the best for a question/post_
+- _As a user, i want to be able to see the Profiles of the people that make posts and comments_
+- _As a user, i want to be able to comment/answer other people's posts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**posts / individual posts**
+- _As a user, i want to view the most recent posts whenever i log in_
+- _As a user, i want to be able to filter posts by profiles that i am interested in_
+- _As a user, i want to be able to keep track of all the posts i have interacted with_
+- _As a user, i want to be able to seemlessley scroll through posts without having to wait for another page to load_
+- _As a user, i want to see what the most popular answer/comment is for a post when i am scrolling through posts to see what the general opinion is_
+- _As a user, i want to be able to view all the comments/answers to a post_
+- _As a user, i want to be able to edit any content that i publish, to amend spelling errors or upload a better picture_
+- _As a user, i want to be able to edit any comments that i make so i can amend spelling errors_
+- _As a user, i want to be able to see posts that have been voted on the most, to see what is trending on the site_
 
-### Analyzing the Bundle Size
+**Profiles**
+- _As a user, i want to be able to view other user's public profiles and see what they have contributed to_
+- _As a user, i want to be able to Follow other users, so i have easier access to the content they create_
+- _As a user, i want to be able to edit my own profile at any time, so i can keep my profile photo and details up to date_
+- _As a user, i want to see what the top-voted comments/answers a profile has made_
+- _As a user, i want to be able to see the questions/posts a profile has made so i can decide if i like their content_
+- _As a user, i want to be able to update my username and password to keep my account secure_
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Scope
+Based on the user stories, the following features have been considered for development:
 
-### Making a Progressive Web App
+1. profile component
+    - users can use this component to view a profile
+    - if they are the authenticated owner of a profile, they should have the option to update any of the publicly facing data
+    - if they aren't the owner, they can choose to follow or unfollow the profile
+    - the profile should list the content created by that user, both posts and most upvoted comments
+        - clicking on tiehr of these should take the user to the post
+2. homepage component
+    - users can use this component to see the most recently published content
+    - users can search and filter content in this component, to look for specific posts or posts made by a specific user
+3. post detail component
+    - this component should display a single post, but all of the answers/comments attached to it
+        - the top 3 most voted comments will be ordered first, then after that, they will be ordered by most recently published
+    - users will be able to comment, edit a comment, delete a comment and vote on comments from this component
+4. trending component
+    - this component will give pick from the top-3 most voted on posts and pick one at random, and return it in a post-detail style component, for users with larger screens to immediately view and contribute to.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Structure 
+### Skeleton
 
-### Advanced Configuration
+#### Wireframes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**mobile / smaller screens**
 
-### Deployment
+| Home page / post detail page | comments list page | profile / following list page |
+| :----------: | :----------: | :----------: |
+| ![home page / post detail page](/readme-assets/wireframes/wireframes-1.webp) | ![comments page](/readme-assets/wireframes/wireframes-3.webp) | ![profile and following pages](/readme-assets/wireframes/wireframes-2.webp) |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**desktop / larger screens**
 
-### `npm run build` fails to minify
+| home page | profile page |
+| :-------: | :----------: |
+| ![home page](/readme-assets/wireframes/wireframes-4.webp) | ![profile page](/readme-assets/wireframes/wireframes-5.webp) |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Colour Scheme
+## Typography
+## Imagery
+
+# Project Developlment | Agile Sprints
+
+
+
+# Features
+## Design Features
+## Visual Features
+## 404 and 500 Features
+## Features to Implement in Future
+
+# Bugs
+## Resolved Bugs
+## Unresolved Bugs
+
+# Technologies
+## Languages Used
+## Frameworks
+## Libraries
+## Programs
+
+# Testing
+Contained as a seperate document [here]()
+
+# DEPLOYMENT
+Step-by-step guide on how to deploy
+
+# Credits
+
+# Acknowledgements 
