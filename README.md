@@ -326,6 +326,8 @@ Due to the nature of this project being created in 2 seperate repositories, user
 ## Frameworks
 ## Libraries
 ## Programs
+- https://pep8ci.herokuapp.com/#
+- https://bennettfeely.com/clippy/
 
 # Testing
 Contained as a seperate document [here]()
@@ -337,6 +339,7 @@ Step-by-step guide on how to deploy
 
 - https://www.pluralsight.com/guides/override-react-bootstrap-with-custom-css-file
 - https://mui.com/system/spacing/
+- https://docs.djangoproject.com/en/4.2/ref/contrib/auth/#django.contrib.auth.models.User
 
 
 # Acknowledgements 

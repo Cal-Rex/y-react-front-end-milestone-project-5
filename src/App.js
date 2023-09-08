@@ -1,3 +1,4 @@
+import './api/axiosDefault'
 import Route from 'react-router-dom/Route'
 import Switch from 'react-router-dom/Switch'
 import logo from './logo.svg';
@@ -5,13 +6,14 @@ import styles from './App.module.css'
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import NavBar from './components/NavBar';
+import RegistrationForm from './pages/auth/RegistrationForm';
 
 
 function App() {
   return (
     <div className={styles.App}>
       <NavBar />
-      <Container className={styles.AppContainer}>
+      <Container fluid className={styles.AppContainer}>
       <Switch>
           <Route exact path="/" render={() => (
             <header className="App-header">
@@ -30,7 +32,8 @@ function App() {
           </header>
           )}/>
           <Route exact path="/login" render={() => <h1>Log In</h1>} />
-          <Route exact path="/register" render={() => <h1>Create an Account</h1>} />
+          <Route exact path="/register" render={() => <RegistrationForm />}/>
+          <Route render={() => <p>Sorry lad(y), this path is a dead end</p>}/>
       </Switch>
         
       </Container>
