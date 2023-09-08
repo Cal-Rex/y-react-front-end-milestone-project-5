@@ -1,0 +1,25 @@
+.NavBar * {
+    color: #fafafa !important;
+}
+
+.SearchBar {
+    background-color: #00000000;
+    border: 1px solid #fafafa;
+}
+
+.SearchBar:focus {
+    background-color: #00000000;
+    border: 1px solid #fafafa;
+    color: #fafafa;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.049);
+}
+
+/* links in navigation like login/register */
+.Navlinks {
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+.Navlinks:hover {
+    text-decoration: none;
+}

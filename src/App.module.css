@@ -1,0 +1,10 @@
+.App {
+    background-color: #1a1a1a;
+    min-height: 100vh;
+    color: #fafafa;
+}
+
+.AppContainer {
+    padding: 40px 0px 0px 0px;
+    width: 100%;
+}

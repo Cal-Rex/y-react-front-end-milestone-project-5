@@ -248,7 +248,7 @@ Due to the nature of this project being created in 2 seperate repositories, user
 
 | Tasks This Sprint | Sprint overview |
 | :---------------- | :-------------: |
-| create app base uing npm commands and connect to heroku. install React-bootstrap library and check connetivity. add rossorigin tag to manifest link in html to prevent an obsolete console error |  |
+| create app base uing npm commands and connect to heroku. install React-bootstrap library and check connetivity. add crossorigin tag to manifest link in html to prevent an obsolete console error, install react routing. |  |
 
 ### LO1: Design an interactive Front-End web application using HTML and CSS and advanced JavaScript, based on component composition and separation of concerns.
 1. > Design a Front-End for a Full-Stack web application that meets accessibility guidelines, follows the principles of UX design, meets its given purpose and provides a set of user interactions.
@@ -334,5 +334,9 @@ Contained as a seperate document [here]()
 Step-by-step guide on how to deploy
 
 # Credits
+
+- https://www.pluralsight.com/guides/override-react-bootstrap-with-custom-css-file
+- https://mui.com/system/spacing/
+
 
 # Acknowledgements 
