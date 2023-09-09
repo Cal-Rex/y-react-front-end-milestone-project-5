@@ -4,11 +4,20 @@ import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown } from '
 import styles from '../styles/NavBar.module.css'
 import NavLogo from '../assets/y-no-canvas-alpha.webp'
 import { CurrentUserContext } from '../App'
+import Avatar from './Avatar'
 
 
 const NavBar = () => {
     const currentUser = useContext(CurrentUserContext)
-    const authenticatedMenu = <>{currentUser?.username}</>
+    const authenticatedMenu = (
+        <>
+            <Avatar
+                src={currentUser?.profile_image}
+                height={45}
+                message={currentUser?.username}
+            />
+        </>
+    )
     const unauthenticatedMenu = (
         <>
             <NavLink className={styles.Navlinks} to="/login">
@@ -35,7 +44,7 @@ const NavBar = () => {
                     </Form>
                     <Nav className={`ml-auto`}>
                         {/* placeholder for avatar */}
-                        <img src={NavLogo} alt="logo" height="30" />
+                        {/* <img src={NavLogo} alt="logo" height="30" /> */}
 
                         {/* im going to make a desktop version layout for the nav bar
                         but i dont know how yet so i have commented out these components for now
