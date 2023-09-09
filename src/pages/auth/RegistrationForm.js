@@ -1,15 +1,9 @@
 import React, { useState } from 'react'
-import Link from 'react-router-dom/Link'
-import Alert from 'react-bootstrap/Alert'
-import Col from 'react-bootstrap/Col'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import { Link, useHistory } from 'react-router-dom'
+import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap'
 import styles from '../../styles/RegistrationForm.module.css'
 import btnStyles from '../../styles/Button.module.css'
 import axios from 'axios'
-import { useHistory } from "react-router"
 
 
 const RegistrationForm = () => {

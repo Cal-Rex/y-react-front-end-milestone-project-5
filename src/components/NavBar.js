@@ -1,17 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import NavLink from 'react-router-dom/NavLink'
-import Navbar from 'react-bootstrap/Navbar'
-import Container from 'react-bootstrap/Container'
-import Nav from 'react-bootstrap/Nav'
-import NavDropdown from 'react-bootstrap/NavDropdown'
-import Form from 'react-bootstrap/Form'
-import FormControl from 'react-bootstrap/FormControl'
-import Button from 'react-bootstrap/Button'
+import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import styles from '../styles/NavBar.module.css'
 import NavLogo from '../assets/y-no-canvas-alpha.webp'
+import { CurrentUserContext } from '../App'
 
 
 const NavBar = () => {
+    const currentUser = useContext(CurrentUserContext)
+    const authenticatedMenu = <>{currentUser?.username}</>
+    const unauthenticatedMenu = (
+        <>
+            <NavLink className={styles.Navlinks} to="/login">
+                Log In
+            </NavLink>
+            <NavLink className={styles.Navlinks} to="/register">
+                Register
+            </NavLink>
+        </>
+    )
+
     return (
         <Navbar className={styles.NavBar} sticky="top">
             <Container>
@@ -33,14 +41,8 @@ const NavBar = () => {
                         but i dont know how yet so i have commented out these components for now
                         and then revisit that structure when i deal with sizing */}
 
-                        <NavLink className={styles.Navlinks} to="/login">
-                            Log In
-                        </NavLink>
-                        <NavLink className={styles.Navlinks} to="/register">
-                            Register
-                        </NavLink>
-                        
-                        
+                        {currentUser ? authenticatedMenu : unauthenticatedMenu}
+
                         {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
