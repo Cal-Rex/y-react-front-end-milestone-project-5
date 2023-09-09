@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Link from 'react-router-dom/Link'
+import Alert from 'react-bootstrap/Alert'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -7,6 +8,9 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import styles from '../../styles/RegistrationForm.module.css'
 import btnStyles from '../../styles/Button.module.css'
+import axios from 'axios'
+import { useHistory } from "react-router"
+
 
 const RegistrationForm = () => {
     const [registrationData, setRegistrationData] = useState({
@@ -16,14 +20,11 @@ const RegistrationForm = () => {
         password1: '',
         password2: '',
     });
+    const [errors, setErrors] = useState({});
 
-    const {
-        username,
-        display_name,
-        email,
-        password1,
-        password2
-    } = registrationData;
+    const history = useHistory()
+
+    const { username, display_name, email, password1, password2 } = registrationData;
 
     const handleEmail = (event) => {
         setRegistrationData({
@@ -50,13 +51,27 @@ const RegistrationForm = () => {
         console.log(registrationData)
     }
 
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try { 
+            await axios.post('/dj-rest-auth/registration/', registrationData)
+            history.push('/login')
+        } catch (err) {
+            console.log(err)
+            setErrors(err.response?.data)
+        }
+    }
+
     return (
         <Container fluid>
             
             <Row>
                 <Col xs={{ span: 6, offset: 3 }} md={{ span: 4, offset: 4 }}>
 
-                    <Form className={styles.Form}>
+                    <Form onSubmit={handleSubmit} className={styles.Form}>
+                        {errors.username?.map((message, idx) => 
+                            <Alert variant="warning" key={idx}>{message}</Alert>
+                        )}
                         <Form.Group controlId="username">
                             <Form.Label className="d-none">Username</Form.Label>
                             <Form.Control
@@ -67,17 +82,10 @@ const RegistrationForm = () => {
                                 value={username}
                                 onChange={handleName}/>
                         </Form.Group>
-
-                        <Form.Group className="d-none" controlId="displayName">
-                            <Form.Label>Display Name</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="DisplayName"
-                                className={styles.Fields}
-                                value={display_name}
-                                onChange={handleChange}/>
-                        </Form.Group>
-
+                        
+                        {errors.email?.map((message, idx) => 
+                            <Alert variant="warning" key={idx}>{message}</Alert>
+                        )}
                         <Form.Group controlId="email">
                             <Form.Label className='d-none'>Email address</Form.Label>
                             <Form.Control
@@ -92,6 +100,9 @@ const RegistrationForm = () => {
                             </Form.Text>
                         </Form.Group>
 
+                        {errors.password1?.map((message, idx) => 
+                            <Alert variant="warning" key={idx}>{message}</Alert>
+                        )}
                         <Form.Group controlId="password1">
                             <Form.Label className='d-none'>Password</Form.Label>
                             <Form.Control
@@ -103,6 +114,10 @@ const RegistrationForm = () => {
                                 onChange={handleChange}
                                 />
                         </Form.Group>
+
+                        {errors.password2?.map((message, idx) => 
+                            <Alert variant="warning" key={idx}>{message}</Alert>
+                        )}
                         <Form.Group controlId="password2">
                             <Form.Label className='d-none'>Password</Form.Label>
                             <Form.Control
@@ -115,9 +130,14 @@ const RegistrationForm = () => {
                                 />
                         </Form.Group>
 
-                        <Button variant="primary" type="submit" className={btnStyles.Btn}>
+                        <Button variant="primary" type="submit" className={btnStyles.Btn} activeClassName={styles.BtnActive}>
                             Submit
                         </Button>
+                        {errors.non_field_errors?.map((message, idx) => (
+                        <Alert key={idx} variant="warning" className="mt-3">
+                            {message}
+                        </Alert>
+                        ))}
                     </Form>
 
                 </Col>

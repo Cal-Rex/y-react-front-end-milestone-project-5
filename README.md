@@ -248,7 +248,27 @@ Due to the nature of this project being created in 2 seperate repositories, user
 
 | Tasks This Sprint | Sprint overview |
 | :---------------- | :-------------: |
-| create app base uing npm commands and connect to heroku. install React-bootstrap library and check connetivity. add crossorigin tag to manifest link in html to prevent an obsolete console error, install react routing. |  |
+| create app base uing npm commands and connect to heroku. install React-bootstrap library and check connetivity. add crossorigin tag to manifest link in html to prevent an obsolete console error, install react routing. | ![sprint 7](/readme-assets/sprints/sprint-7-project-view.png) |
+
+## Milestone 8 - Create Navbar and user/account registration
+
+| Learning Outcomes / Acceptance Criteria covered in this milestone                                                                   |
+| :---------------------------------------------------------------------------------------------------------------------------------: |
+| Implement custom JSX (HTML, JavaScript and CSS) code to create a responsive, dynamic Front-End application consisting of one or more pages with relevant responses to user actions and a set of data manipulation functions. |
+| Implement modular use of components and separation of concerns by incorporating component-specific files (i.e. one JavaScript file and, where applicable, one CSS file per component). |
+| Include class and/or functional components to build the application. |
+| Write code that correctly handles user interactions such as clicks, changes to input fields etc. |
+
+| User Stories covered in this milestone                                                                | details |
+| :---------------------------------------------------------------------------------------------------- | :------ |
+| _As a user, i want to be able to seemlessly navigate every page with a central navigation feature_ | create navbar component that can house navigation links, login and sign up links in additon to a place that can house an avatar and a search bar |
+| _as a user, i want to be able to create an account so that i can access the platform_ | create a page that allows unauthenticated users to create an account which is stored in the database via the API. |
+
+| Tasks This Sprint | Sprint overview |
+| :---------------- | :-------------: |
+| Create a NavBar component using react bootstrap. create a registration form that creates new user records and profile records on the database. | ![sprint 8](/readme-assets/sprints/sprint-8-project-view.png) |
+
+
 
 ### LO1: Design an interactive Front-End web application using HTML and CSS and advanced JavaScript, based on component composition and separation of concerns.
 1. > Design a Front-End for a Full-Stack web application that meets accessibility guidelines, follows the principles of UX design, meets its given purpose and provides a set of user interactions.

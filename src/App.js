@@ -1,6 +1,5 @@
 import './api/axiosDefault'
-import Route from 'react-router-dom/Route'
-import Switch from 'react-router-dom/Switch'
+import { Route, Switch } from 'react-router-dom'
 import logo from './logo.svg';
 import styles from './App.module.css'
 import Button from 'react-bootstrap/Button';
