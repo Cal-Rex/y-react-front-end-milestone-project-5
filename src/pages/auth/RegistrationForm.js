@@ -4,6 +4,7 @@ import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap'
 import styles from '../../styles/RegistrationForm.module.css'
 import btnStyles from '../../styles/Button.module.css'
 import axios from 'axios'
+import { useSetCurrentUser } from '../../contexts/CurrentUserContext'
 
 
 const RegistrationForm = () => {
@@ -48,7 +49,8 @@ const RegistrationForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try { 
-            await axios.post('/dj-rest-auth/registration/', registrationData)
+            const {data} = await axios.post('/dj-rest-auth/registration/', registrationData)
+            console.log(data);
             history.push('/login')
         } catch (err) {
             console.log(err)
