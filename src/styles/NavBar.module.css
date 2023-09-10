@@ -1,3 +1,7 @@
+.NavBar {
+    justify-content: space-between !important;
+}
+
 .NavBar * {
     color: #fafafa !important;
 }
@@ -23,3 +27,4 @@
 .Navlinks:hover {
     text-decoration: none;
 }
+

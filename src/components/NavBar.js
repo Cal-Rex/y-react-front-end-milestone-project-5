@@ -28,7 +28,7 @@ const NavBar = () => {
                 height={45}
                 message={currentUser?.username}
             />
-            <Button onClick={handleLogOut}>Log Out</Button>
+            
         </>
     )
     const unauthenticatedMenu = (

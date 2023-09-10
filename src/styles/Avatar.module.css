@@ -15,3 +15,31 @@
 .Username {
     padding-right: 10px;
 }
+
+.AMButton {
+    background-color: #00000000;
+    border: none;
+    border-bottom: 1px solid #fafafa;
+    border-radius: 0;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0% 50%);
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0% 50%);
+    transition-property: clip-path, color, background-color;
+    transition-duration: 0.1s;
+    transition-timing-function: linear;
+}
+
+.AMButton:hover {
+    background-color: #fafafa;
+    color: #1a1a1a;
+    -webkit-clip-path: polygon(20% 0, 100% 0, 100% 70%, 80% 100%, 0 100%, 0 30%);
+    clip-path: polygon(20% 0, 100% 0, 100% 70%, 80% 100%, 0 100%, 0 30%);
+}
+
+.AMButton:focus {
+    background-color: #00000000 !important;
+    border: 1px solid !important;
+    border-color: #fafafa !important;
+    -webkit-clip-path: polygon(0 0, 80% 0, 100% 30%, 100% 100%, 20% 100%, 0 70%);
+    clip-path: polygon(0 0, 80% 0, 100% 30%, 100% 100%, 20% 100%, 0 70%);
+    box-shadow: 0 0 0 0.0rem rgba(0, 0, 0, 0) !important;
+}
