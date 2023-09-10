@@ -368,6 +368,7 @@ Due to the nature of this project being created in 2 seperate repositories, user
 ## Languages Used
 ## Frameworks
 ## Libraries
+- https://www.svgrepo.com/svg/5500/upload-file
 ## Programs
 - https://pep8ci.herokuapp.com/#
 - https://bennettfeely.com/clippy/
