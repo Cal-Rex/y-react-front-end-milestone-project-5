@@ -160,7 +160,7 @@ As Mentioned in the Introduction, this site is a satirical take a recently rebra
 - _As a user, i want to be able to navigate through pages and posts with minimal waiting time_
 
 **Authentication**
-- _as a user, i want to be able to create an account so tha i can access the platform_
+- _as a user, i want to be able to create an account so that i can access the platform_
 - _as a user, i want to be able to log in with my own account so i can partake in user-only features_
 - _as a user, i want to be able to see if i am logged in at any given moment, so i know to log out or switch accounts if i need to_
 - _as a user, i want to be able to remain logged-in to my account until i decide to sign out_
@@ -269,6 +269,29 @@ Due to the nature of this project being created in 2 seperate repositories, user
 | Create a NavBar component using react bootstrap. create a registration form that creates new user records and profile records on the database. | ![sprint 8](/readme-assets/sprints/sprint-8-project-view.png) |
 
 
+## Milestone 9 - Create login/logout features, manage authentication status
+
+| Learning Outcomes / Acceptance Criteria covered in this milestone                                                                   |
+| :---------------------------------------------------------------------------------------------------------------------------------: |
+| Implement custom JSX (HTML, JavaScript and CSS) code to create a responsive, dynamic Front-End application consisting of one or more pages with relevant responses to user actions and a set of data manipulation functions. |
+| Implement modular use of components and separation of concerns by incorporating component-specific files (i.e. one JavaScript file and, where applicable, one CSS file per component). |
+| Include class and/or functional components to build the application. |
+| Write code that correctly handles user interactions such as clicks, changes to input fields etc. |
+| Design a Front-End web application that lets the user initiate and control actions. |
+| All changes to the data should be notified to the relevant user on the Front-End application. |
+| Ensure that the current login state is evident to the user in the Front-End application. |
+
+
+| User Stories covered in this milestone                                                                | details |
+| :---------------------------------------------------------------------------------------------------- | :------ |
+| _as a user, i want to be able to log in with my own account so i can partake in user-only features_ | create a login form and page that can be navigated to from the navbar if a user is not logged in/authenticated |
+| _as a user, i want to be able to see if i am logged in at any given moment, so i know to log out or switch accounts if i need to_ | once logged in, instead of having the "log in" and "create account" options in the navbar, users will see their profile avatar and username. clicking ont he profile avatar will reveal a dropdown menu that will allow users to log out. |
+| _as a user, i want to be able to remain logged-in to my account until i decide to sign out_ | use of interceptors with axios will refresh the user's access token when interacting with elements on the site, preventing the user from logging out until 24 hours of inactivity. | 
+
+
+| Tasks This Sprint | Sprint overview |
+| :---------------- | :-------------: |
+| Create form that allows users to login with their new credentials. make the app use the useContext hook to establish the auhentication status of a user. create an avatar component, impolement the avatar component to be visible on the condition the user is logged in, create an event handler that handles the function of logging out and implement it as a dropdown option from the profile avatar when a user is logged in. prevent an authenticated user's access token from expiring with axios interceptors | ![sprint 9](/readme-assets/sprints/sprint-9-project-view.png) |
 
 ### LO1: Design an interactive Front-End web application using HTML and CSS and advanced JavaScript, based on component composition and separation of concerns.
 1. > Design a Front-End for a Full-Stack web application that meets accessibility guidelines, follows the principles of UX design, meets its given purpose and provides a set of user interactions.
