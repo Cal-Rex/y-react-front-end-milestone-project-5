@@ -4,11 +4,23 @@ import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown } from '
 import styles from '../styles/NavBar.module.css'
 import NavLogo from '../assets/y-no-canvas-alpha.webp'
 import Avatar from './Avatar'
-import { useCurrentUser } from '../contexts/CurrentUserContext'
+import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext'
+import axios from 'axios'
 
 
 const NavBar = () => {
     const currentUser = useCurrentUser();
+    const setCurrentUser = useSetCurrentUser();
+
+    const handleLogOut = async () => {
+        try {
+            await axios.post("dj-rest-auth/logout/");
+            setCurrentUser(null);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     const authenticatedMenu = (
         <>
             <Avatar
@@ -16,6 +28,7 @@ const NavBar = () => {
                 height={45}
                 message={currentUser?.username}
             />
+            <Button onClick={handleLogOut}>Log Out</Button>
         </>
     )
     const unauthenticatedMenu = (
