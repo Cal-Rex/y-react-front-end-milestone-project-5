@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext } from 'react';
+
 import './api/axiosDefault'
 import logo from './logo.svg';
 import styles from './App.module.css'
@@ -6,33 +6,14 @@ import { Route, Switch } from 'react-router-dom'
 import { Button, Container } from 'react-bootstrap';
 import NavBar from './components/NavBar';
 import RegistrationForm from './pages/auth/RegistrationForm';
-import axios from 'axios';
+
 import LogInForm from './pages/auth/LogInForm';
 
-export const CurrentUserContext = createContext();
-export const SetCurrentUserContext = createContext();
+
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null)
-
-
-
-  const handleMount = async () => {
-    try {
-      const { data } = await axios.get('dj-rest-auth/user/')
-      setCurrentUser(data);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  useEffect(() => {
-    handleMount();
-  }, [])
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
-      <SetCurrentUserContext.Provider value={setCurrentUser}>
         <div className={styles.App}>
           <NavBar />
           <Container fluid className={styles.AppContainer}>
@@ -60,8 +41,6 @@ function App() {
 
           </Container>
         </div>
-      </SetCurrentUserContext.Provider>
-    </CurrentUserContext.Provider>
   );
 }
 

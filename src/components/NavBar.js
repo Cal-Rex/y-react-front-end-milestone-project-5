@@ -1,14 +1,14 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import NavLink from 'react-router-dom/NavLink'
 import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import styles from '../styles/NavBar.module.css'
 import NavLogo from '../assets/y-no-canvas-alpha.webp'
-import { CurrentUserContext } from '../App'
 import Avatar from './Avatar'
+import { useCurrentUser } from '../contexts/CurrentUserContext'
 
 
 const NavBar = () => {
-    const currentUser = useContext(CurrentUserContext)
+    const currentUser = useCurrentUser();
     const authenticatedMenu = (
         <>
             <Avatar
