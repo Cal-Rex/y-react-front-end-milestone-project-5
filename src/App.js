@@ -8,6 +8,7 @@ import NavBar from './components/NavBar';
 import RegistrationForm from './pages/auth/RegistrationForm';
 
 import LogInForm from './pages/auth/LogInForm';
+import Loader from './assets/loader/Loader';
 
 
 
@@ -20,18 +21,7 @@ function App() {
             <Switch>
               <Route exact path="/" render={() => (
                 <header className="App-header">
-                  <img src={logo} className="App-logo" alt="logo" />
-                  <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                  </p>
-                  <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button variant="success">Success</Button>{' '}
-                  </a>
+                  <Loader />
                 </header>
               )} />
               <Route exact path="/login" render={() => <LogInForm />} />
