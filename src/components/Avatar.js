@@ -3,11 +3,13 @@ import styles from "../styles/Avatar.module.css";
 import { Button, Overlay } from "react-bootstrap";
 import { useSetCurrentUser } from '../contexts/CurrentUserContext'
 import axios from "axios";
+import useClickAwayToggle from "../api/hooks/useClickAwayToggle";
 
 
 const Avatar = (props) => {
     const { src, height = 45, message } = props;
-    const [show, setShow] = useState(false);
+    // const [show, setShow] = useState(false);
+    const {show, setShow, ref} = useClickAwayToggle();
     const target = useRef(null);
     const setCurrentUser = useSetCurrentUser();
 
@@ -29,10 +31,10 @@ const Avatar = (props) => {
                 height={height}
                 width={height}
                 alt="Profile Avatar"
-                ref={target}
+                ref={ref}
                 onClick={() => setShow(!show)}
             />
-            <Overlay target={target.current} show={show} placement="bottom-end">
+            <Overlay target={ref} show={show} placement="bottom-end">
                 {({ placement, arrowProps, show: _show, popper, ...props }) => (
                     <div
                         {...props}
