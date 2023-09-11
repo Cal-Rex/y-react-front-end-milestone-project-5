@@ -1,0 +1,17 @@
+.Footer {
+    justify-content: space-between !important;
+}
+
+.Footer * {
+    color: #fafafa !important;
+}
+
+.Navlinks {
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+.Navlinks:hover {
+    text-decoration: none;
+}
+

@@ -9,6 +9,7 @@ import RegistrationForm from './pages/auth/RegistrationForm';
 import PostQuestionForm from './pages/questions/PostQuestionForm';
 import LogInForm from './pages/auth/LogInForm';
 import Loader from './assets/loader/Loader';
+import Footer from './components/Footer';
 
 
 
@@ -31,6 +32,7 @@ function App() {
             </Switch>
 
           </Container>
+          <Footer />
         </div>
   );
 }
