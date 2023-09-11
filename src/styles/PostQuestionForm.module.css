@@ -1,3 +1,26 @@
-.Upload > img {
-    filter: drop-shadow(10px 8px 6px #fafafa61) !important;
+.ChangeImageBtn {
+    padding: 0.375rem .75rem;
+}
+
+.Title {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.InputField {
+    
+    background-color: #00000000;
+    color: #fafafa;
+}
+
+.InputField:focus {
+    background-color: #00000000;
+    color: #fafafa;
+    border: 1px solid #fafafa;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.049) !important;
+}
+
+.RightAlign {
+    width: 100%;
+    text-align: right;
 }
