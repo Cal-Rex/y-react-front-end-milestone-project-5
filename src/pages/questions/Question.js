@@ -37,6 +37,25 @@ const Question = (props) => {
         }
     }
 
+    const handleUnlike = async () => {
+        try {
+            await axiosRes.delete(`/likes/${liked_id}`)
+            setQuestions((prevQuestions) => ({
+                ...prevQuestions,
+                results: prevQuestions.results.map((question) => {
+                    return question.id === id 
+                    ? {
+                        ...question,
+                        likes_count: question.likes_count - 1,
+                        liked_id: null
+                    } : question
+                })
+            }))
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     return <Card className={styles.QuestionObject}>
         <Card.Body>
             <Media className={styles.QuestionObjectMedia}>
@@ -94,7 +113,7 @@ const Question = (props) => {
                                 </span>
                                 </OverlayTrigger>
                             ) : liked_id ? (
-                                <span onClick={() => { }} className={styles.Interaction}>
+                                <span onClick={handleUnlike} className={styles.Interaction}>
                                     <i class="fa-solid fa-heart fa-lg"></i>
                                 </span>
                             ) : currentUser ? (
