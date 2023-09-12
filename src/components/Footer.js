@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Col, Container, Form, FormControl, Nav, Navbar, NavLink, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import styles from '../styles/Footer.module.css'
 

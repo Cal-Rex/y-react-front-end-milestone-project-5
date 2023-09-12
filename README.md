@@ -293,6 +293,23 @@ Due to the nature of this project being created in 2 seperate repositories, user
 | :---------------- | :-------------: |
 | Create form that allows users to login with their new credentials. make the app use the useContext hook to establish the auhentication status of a user. create an avatar component, impolement the avatar component to be visible on the condition the user is logged in, create an event handler that handles the function of logging out and implement it as a dropdown option from the profile avatar when a user is logged in. prevent an authenticated user's access token from expiring with axios interceptors | ![sprint 9](/readme-assets/sprints/sprint-9-project-view.png) |
 
+
+## Milestone 10 - Create ability to make and view posts
+
+| Learning Outcomes / Acceptance Criteria covered in this milestone                                                                   |
+| :---------------------------------------------------------------------------------------------------------------------------------: |
+
+| User Stories covered in this milestone                                                                | details |
+| :---------------------------------------------------------------------------------------------------- | :------ |
+| _As a user, i want to view the most recent posts whenever i log in_ |  |
+| _As a user, i want to be able to seemlessley scroll through posts without having to wait for another page to load_ |  |
+| _As a user, i want to be able to make my own posts/pose my own questions for people to interact with_ |  |
+|  _As a user, i want to be able to view questions/posts people have posted_ |  |
+
+| Tasks This Sprint | Sprint overview |
+| :---------------- | :-------------: |
+| Create a form where users can create posts and a path to that form, add component to the homepage that lists posts by most recent, enable an infinite scroll on that component feed. | |
+
 ### LO1: Design an interactive Front-End web application using HTML and CSS and advanced JavaScript, based on component composition and separation of concerns.
 1. > Design a Front-End for a Full-Stack web application that meets accessibility guidelines, follows the principles of UX design, meets its given purpose and provides a set of user interactions.
 
