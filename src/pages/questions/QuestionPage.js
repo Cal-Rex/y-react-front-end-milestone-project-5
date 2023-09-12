@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom/cjs/react-router-dom'
 import { axiosReq } from '../../api/axiosDefault';
+import Question from './Question';
 
 function QuestionPage() {
     const {id} = useParams();
@@ -25,7 +26,8 @@ function QuestionPage() {
     return (
         <Container>
             <Row>
-                <Col>post
+                <Col>
+                <Question {...question.results[0]} setQuestion={setQuestion} questionPage />
                 </Col>
             </Row>
             <Row>
