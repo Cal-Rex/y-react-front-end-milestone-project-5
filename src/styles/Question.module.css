@@ -1,10 +1,14 @@
 .QuestionObject {
     background-color: #111111;
+    border-top: 1px solid #fafafa;
+    border-bottom: 1px solid #fafafa;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
-.QuestionObjectMedia {
+/* .QuestionObjectMedia {
     flex-direction: column;
-}
+} */
 
 .QuestionHead {
     padding-left: 0px;

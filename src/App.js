@@ -18,7 +18,7 @@ function App() {
   return (
         <div className={styles.App}>
           <NavBar />
-          <Container fluid className={styles.AppContainer}>
+          <Container className={styles.AppContainer}>
             <Switch>
               <Route exact path="/" render={() => (
                 <header className="App-header">
