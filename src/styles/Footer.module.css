@@ -1,5 +1,6 @@
 .Footer {
     justify-content: space-between !important;
+    padding-bottom: 15px;
 }
 
 .Footer * {
