@@ -16,7 +16,6 @@ function QuestionPage() {
                     axiosReq.get(`/posts/${id}`),
                 ])
                 setQuestion({results: [question]})
-                console.log(question)
             } catch (err) {
                 console.log(err)
             }
@@ -28,7 +27,7 @@ function QuestionPage() {
         <Container fluid className={styles.QuestionContainer}>
             <Row>
                 <Col xs={{span: 12}} sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }}>
-                    <Question {...question.results[0]} setQuestion={setQuestion} questionPage />
+                    <Question {...question.results[0]} setQuestions={setQuestion} questionPage />
                 </Col>
             </Row>
         </Container>

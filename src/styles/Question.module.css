@@ -28,3 +28,27 @@
 .HeadRightCol {
     text-align: right;
 }
+
+.QuestionMetrics {
+    padding: 0rem;
+    padding-top: 5px;
+}
+
+.Metric {
+    line-height: 1.1rem;
+}
+
+.Interactions {
+    text-align: right;
+}
+
+.Interaction {
+    padding-left: 10px;
+    text-decoration: none;
+    color: #fafafa;
+}
+
+/* .QMContainer {
+    padding-left: 0px;
+    padding-right: 0px;
+} */
