@@ -1,0 +1,10 @@
+.QuestionContainer {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+@media screen and (min-width: 500px) {
+    .QuestionContainer {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

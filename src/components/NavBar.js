@@ -23,12 +23,11 @@ const NavBar = () => {
 
     const authenticatedMenu = (
         <>
+            <div className={`${styles.Username}`}>{currentUser?.username}</div>
             <Avatar
                 src={currentUser?.profile_image}
                 height={45}
-                message={currentUser?.username}
             />
-            
         </>
     )
     const unauthenticatedMenu = (

@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom/cjs/react-router-dom'
 import { axiosReq } from '../../api/axiosDefault';
 import Question from './Question';
+import styles from '../../styles/QuestionPage.module.css'
 
 function QuestionPage() {
     const {id} = useParams();
@@ -24,18 +25,10 @@ function QuestionPage() {
     }, [id])
 
     return (
-        <Container>
+        <Container fluid className={styles.QuestionContainer}>
             <Row>
-                <Col>
-                <Question {...question.results[0]} setQuestion={setQuestion} questionPage />
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
+                <Col xs={{span: 12}} sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }}>
+                    <Question {...question.results[0]} setQuestion={setQuestion} questionPage />
                 </Col>
             </Row>
         </Container>

@@ -1,0 +1,26 @@
+.QuestionObject {
+    background-color: #111111;
+}
+
+.QuestionObjectMedia {
+    flex-direction: column;
+}
+
+.QuestionHead {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.QuestionAvatar {
+    display: flex;
+}
+
+.ProfileName {
+    padding-left: 0.5rem;
+    color: #fafafa;
+}
+
+
+.HeadRightCol {
+    text-align: right;
+}

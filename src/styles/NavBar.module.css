@@ -28,3 +28,11 @@
     text-decoration: none;
 }
 
+.Username {
+    display: inline-flex;
+    padding-right: 15px;
+    vertical-align: bottom;
+    align-items: center;
+    justify-content: flex-end;
+}
+
