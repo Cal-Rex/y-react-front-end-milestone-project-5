@@ -7,15 +7,15 @@ import styles from '../../styles/QuestionPage.module.css'
 
 function QuestionPage() {
     const {id} = useParams();
-    const [question, setQuestion] = useState({ results: [] });
+    const [questions, setQuestions] = useState({ results: [] });
 
     useEffect(() => {
         const handleMount = async () => {
             try {
-                const [{data: question}] = await Promise.all([
+                const [{data: questions}] = await Promise.all([
                     axiosReq.get(`/posts/${id}`),
                 ])
-                setQuestion({results: [question]})
+                setQuestions({results: [questions]})
             } catch (err) {
                 console.log(err)
             }
@@ -27,7 +27,7 @@ function QuestionPage() {
         <Container fluid className={styles.QuestionContainer}>
             <Row>
                 <Col xs={{span: 12}} sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }}>
-                    <Question {...question.results[0]} setQuestions={setQuestion} questionPage />
+                    <Question {...questions.results[0]} setQuestions={setQuestions} questionPage />
                 </Col>
             </Row>
         </Container>

@@ -10,21 +10,34 @@ import LogInForm from './pages/auth/LogInForm';
 import Loader from './assets/loader/Loader';
 import Footer from './components/Footer';
 import QuestionPage from './pages/questions/QuestionPage';
+import QuestionList from './pages/questions/QuestionList';
+import { useCurrentUser } from './contexts/CurrentUserContext';
+import Question from './pages/questions/Question';
 
 
 
 function App() {
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
 
   return (
         <div className={styles.App}>
           <NavBar />
           <Container className={styles.AppContainer}>
             <Switch>
-              <Route exact path="/" render={() => (
-                <header className="App-header">
-                  <Loader />
-                </header>
-              )} />
+              <Route exact path="/" render={
+                () => <QuestionList 
+                  message="We can't find anything that matches that criteria, captain." 
+                />
+              }/>
+              <Route exact path="/following" render={
+                () => <QuestionList 
+                  message="We can't find anything that matches that criteria, captain."
+                  filter={`owner__followed__owner__profile=${profile_id}&`} 
+                />
+              }/>
+              {/* for profile page, liked questions by user */}
+              {/* <QuestionList filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`} */}
               <Route exact path="/login" render={() => <LogInForm />} />
               <Route exact path="/register" render={() => <RegistrationForm />} />
               <Route exact path="/posts/:id" render={() => <QuestionPage />}/>
