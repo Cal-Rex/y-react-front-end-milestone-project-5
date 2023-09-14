@@ -1,0 +1,13 @@
+.Menu {
+    background-color: #111111;
+    text-align: right;
+}
+
+.Option {
+    color: #fafafa;
+}
+
+.Option:active {
+    background-color: #fafafa;
+    color: #111111;
+}

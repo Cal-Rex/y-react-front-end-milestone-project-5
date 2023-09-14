@@ -5,6 +5,7 @@ import { Card, Col, Container, Media, OverlayTrigger, Row, Tooltip } from 'react
 import Avatar from '../../components/Avatar';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosRes } from '../../api/axiosDefault';
+import { DropdownOptions } from '../../components/DropdownOptions';
 
 
 const Question = (props) => {
@@ -13,7 +14,7 @@ const Question = (props) => {
         is_owner, owner, profile_id, profile_image,
         comments_count, likes_count, liked_id,
         date_created, date_updated,
-        questionPage, setQuestions
+        questionCard, setQuestions
     } = props;
 
     const currentUser = useCurrentUser();
@@ -65,7 +66,7 @@ const Question = (props) => {
                             <div><Card.Title>{title}</Card.Title></div>
                         </Col>
                         <Col className={styles.HeadRightCol}>
-                            {questionPage && is_owner && "..."}
+                            {questionCard && is_owner && <DropdownOptions />}
                         </Col>
                     </Row>
                     <Row>

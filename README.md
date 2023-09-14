@@ -180,7 +180,7 @@ As Mentioned in the Introduction, this site is a satirical take a recently rebra
 - _As a user, i want to be able to seemlessley scroll through posts without having to wait for another page to load_
 - _As a user, i want to see what the most popular answer/comment is for a post when i am scrolling through posts to see what the general opinion is_
 - _As a user, i want to be able to view all the comments/answers to a post_
-- _As a user, i want to be able to edit any content that i publish, to amend spelling errors or upload a better picture_
+- _As a user, i want to be able to edit any questions that i publish, to amend spelling errors or upload a better picture_
 - _As a user, i want to be able to edit any comments that i make so i can amend spelling errors_
 - _As a user, i want to be able to see posts that have been voted on the most, to see what is trending on the site_
 
@@ -315,6 +315,26 @@ Due to the nature of this project being created in 2 seperate repositories, user
 | :---------------- | :-------------: |
 | Create a form where users can create posts and a path to that form, add component to the homepage that lists posts by most recent, enable an infinite scroll on that component feed. | ![sprint 10](/readme-assets/sprints/sprint-10-project-view.png) |
 
+
+## Milestone 11 - creating commens and editing posts/comments
+
+| Learning Outcomes / Acceptance Criteria covered in this milestone                                                                   |
+| :---------------------------------------------------------------------------------------------------------------------------------: |
+
+| User Stories covered in this milestone                                                                | details |
+| :---------------------------------------------------------------------------------------------------- | :------ |
+| _As a user, i want to be able to view comments/answers and their vote count_ |  |
+| _As a user, i want to be able to vote on answers that i think are the best for a question/post_ |  |
+| _As a user, i want to be able to edit any questions that i publish, to amend spelling errors or upload a better picture_ |  |
+| _As a user, i want to be able to edit any comments that i make so i can amend spelling errors_ |  |
+| _As a user, i want to be able to comment/answer other people's posts |  |
+| _As a user, i want to be able to vote on answers that i think are the best for a question/post_ |  |
+
+
+| Tasks This Sprint | Sprint overview |
+| :---------------- | :-------------: |
+
+
 ### LO1: Design an interactive Front-End web application using HTML and CSS and advanced JavaScript, based on component composition and separation of concerns.
 1. > Design a Front-End for a Full-Stack web application that meets accessibility guidelines, follows the principles of UX design, meets its given purpose and provides a set of user interactions.
 
@@ -390,6 +410,8 @@ Due to the nature of this project being created in 2 seperate repositories, user
 ## Languages Used
 ## Frameworks
 ## Libraries
+- 
+- [React Infinite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component)
 - https://www.svgrepo.com/svg/5500/upload-file
 ## Programs
 - https://pep8ci.herokuapp.com/#

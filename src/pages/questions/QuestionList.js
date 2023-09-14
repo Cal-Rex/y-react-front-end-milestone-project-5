@@ -46,7 +46,7 @@ const QuestionList = ({ message, filter = "" }) => {
                                         endMessage={<div style={{ textAlign: 'center' }}><p>You've reached the end!</p></div>}
                                     >
                                         {console.log(questions)}
-                                        {questions.results.map((question) => (<Question key={question.id} {...question} setQuestions={setQuestions} />))}
+                                        {questions.results.map((question) => (<Question key={question.id} {...question} setQuestions={setQuestions} questionCard />))}
                                     </InfiniteScroll>
                                 ) : <Asset src={NoResult} message={message} />
                             }
