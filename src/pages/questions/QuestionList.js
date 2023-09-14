@@ -8,6 +8,8 @@ import Loader from '../../assets/loader/Loader';
 import Question from './Question';
 import Asset from '../../components/Asset';
 import NoResult from '../../assets/no-result.webp'
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { fetchMoreData } from '../../utils/Utils';
 
 const QuestionList = ({ message, filter = "" }) => {
     const [questions, setQuestions] = useState({ results: [] });
@@ -31,14 +33,23 @@ const QuestionList = ({ message, filter = "" }) => {
         <Container fluid className={styles.QuestionContainer}>
             <Row>
                 <Col xs={{ span: 12 }} sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }}>
-                    {loadStatus? (
+                    {loadStatus ? (
                         <>
-                        {questions.results.length
-                            ? questions.results.map(question => (
-                                <Question key={question} {...question} setQuestions={setQuestions} />
-                            ))
-                            : <Asset src={NoResult} message={message} />
-                        }
+                            {questions.results.length
+                                ? (
+                                    <InfiniteScroll
+                                        dataLength={questions.results.length}
+                                        loader={<Asset loader />}
+                                        hasMore={!!questions.next}
+                                        next={() => fetchMoreData(questions, setQuestions)}
+                                        onScroll={() => console.log("User is scrolling...")}
+                                        endMessage={<div style={{ textAlign: 'center' }}><p>You've reached the end!</p></div>}
+                                    >
+                                        {console.log(questions)}
+                                        {questions.results.map((question) => (<Question key={question.id} {...question} setQuestions={setQuestions} />))}
+                                    </InfiniteScroll>
+                                ) : <Asset src={NoResult} message={message} />
+                            }
                         </>
                     ) : (<Loader />)}
                 </Col>
