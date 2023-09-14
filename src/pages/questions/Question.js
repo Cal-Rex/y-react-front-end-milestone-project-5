@@ -6,6 +6,7 @@ import Avatar from '../../components/Avatar';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosRes } from '../../api/axiosDefault';
 import { DropdownOptions } from '../../components/DropdownOptions';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 
 const Question = (props) => {
@@ -17,7 +18,24 @@ const Question = (props) => {
         questionCard, setQuestions
     } = props;
 
+    const history = useHistory();
+
     const currentUser = useCurrentUser();
+
+    const handleEdit = () => {
+        history.push(`/posts/${id}/edit`)
+    }
+
+    const handleDelete = () => {
+        const handleDelete = async () => {
+            try {
+                await axiosRes.delete(`/posts/${id}/`);
+                history.goBack()
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    }
 
     const handleLike = async () => {
         try {
@@ -66,7 +84,13 @@ const Question = (props) => {
                             <div><Card.Title>{title}</Card.Title></div>
                         </Col>
                         <Col className={styles.HeadRightCol}>
-                            {questionCard && is_owner && <DropdownOptions />}
+                            {questionCard 
+                                && is_owner 
+                                && <DropdownOptions 
+                                    handleEdit={handleEdit}
+                                    handleDelete={handleDelete}
+                                />
+                            }
                         </Col>
                     </Row>
                     <Row>
