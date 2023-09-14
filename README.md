@@ -298,17 +298,22 @@ Due to the nature of this project being created in 2 seperate repositories, user
 
 | Learning Outcomes / Acceptance Criteria covered in this milestone                                                                   |
 | :---------------------------------------------------------------------------------------------------------------------------------: |
+| Implement custom JSX (HTML, JavaScript and CSS) code to create a responsive, dynamic Front-End application consisting of one or more pages with relevant responses to user actions and a set of data manipulation functions. |
+| Write code that correctly handles user interactions such as clicks, changes to input fields etc. |
+| Design a Front-End web application that lets the user initiate and control actions. |
+| Display and manipulate API data on the Front-End application in a way that brings value to the user and aligns with the project's purpose. |
+| In the Front-End application, implement at least TWO forms, with validation, that allow users to create and edit resources in the Back-End API. |
 
 | User Stories covered in this milestone                                                                | details |
 | :---------------------------------------------------------------------------------------------------- | :------ |
-| _As a user, i want to view the most recent posts whenever i log in_ |  |
-| _As a user, i want to be able to seemlessley scroll through posts without having to wait for another page to load_ |  |
-| _As a user, i want to be able to make my own posts/pose my own questions for people to interact with_ |  |
-|  _As a user, i want to be able to view questions/posts people have posted_ |  |
+| _As a user, i want to view the most recent posts whenever i log in_ | the homepage lists the posts in the database and orders them by most recently posted |
+| _As a user, i want to be able to seemlessley scroll through posts without having to wait for another page to load_ | implement infinite scroll react component |
+| _As a user, i want to be able to make my own posts/pose my own questions for people to interact with_ | enable a create question form that allows users to post questions |
+|  _As a user, i want to be able to view questions/posts people have posted_ | see point 1 |
 
 | Tasks This Sprint | Sprint overview |
 | :---------------- | :-------------: |
-| Create a form where users can create posts and a path to that form, add component to the homepage that lists posts by most recent, enable an infinite scroll on that component feed. | |
+| Create a form where users can create posts and a path to that form, add component to the homepage that lists posts by most recent, enable an infinite scroll on that component feed. | ![sprint 10](/readme-assets/sprints/sprint-10-project-view.png) |
 
 ### LO1: Design an interactive Front-End web application using HTML and CSS and advanced JavaScript, based on component composition and separation of concerns.
 1. > Design a Front-End for a Full-Stack web application that meets accessibility guidelines, follows the principles of UX design, meets its given purpose and provides a set of user interactions.
