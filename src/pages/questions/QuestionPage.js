@@ -54,7 +54,13 @@ function QuestionPage() {
                     ) : null}
                     {comments.results.length ? (
                         comments.results.map(comment => {
-                            return <Comment key={comment.id} {...comment} />
+                            return <Comment 
+                                key={comment.id}
+                                {...comment}
+                                post={id}
+                                setQuestion={setQuestion}
+                                setComments={setComments}
+                        />
                     })
                     ) : currentUser ? (
                         <span>This question needs answered, make your pitch.</span>
