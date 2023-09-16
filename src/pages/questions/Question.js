@@ -152,7 +152,7 @@ const Question = (props) => {
                             )
                         }
 
-                        <Link to={`/login`}>
+                        <Link to={`/posts/${id}`}>
                             <span onClick={() => { }} className={styles.Interaction}>
                                 <i className="fa-regular fa-message fa-lg"></i>
                             </span>
