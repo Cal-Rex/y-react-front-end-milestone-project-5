@@ -13,7 +13,7 @@ function QuestionPage() {
     const { id } = useParams();
     const [question, setQuestion] = useState({ results: [] });
     const currentUser = useCurrentUser();
-    const profile_image = currentUser?.profile_image;
+    const profileImage = currentUser?.profile_image;
     const [comments, setComments] = useState({ results: [] });
 
     useEffect(() => {
@@ -44,7 +44,7 @@ function QuestionPage() {
                     {currentUser ? (
                         <PostCommentForm
                             profile_id={currentUser.profile_id}
-                            profile_image={profile_image}
+                            profile_image={profileImage}
                             post={id}
                             setQuestions={setQuestion}
                             setComments={setComments}
