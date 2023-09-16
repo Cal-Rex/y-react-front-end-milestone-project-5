@@ -10,6 +10,7 @@ import Asset from '../../components/Asset';
 import NoResult from '../../assets/no-result.webp'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/Utils';
+import FollowedProfiles from '../profiles/FollowedProfiles';
 
 const QuestionList = ({ message, filter = "" }) => {
     const [questions, setQuestions] = useState({ results: [] });
@@ -32,6 +33,9 @@ const QuestionList = ({ message, filter = "" }) => {
     return (
         <Container fluid className={styles.QuestionContainer}>
             <Row>
+                <Col xs={{ span: 12 }}>
+                    <FollowedProfiles />
+                </Col>
                 <Col xs={{ span: 12 }} sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }}>
                     {loadStatus ? (
                         <>

@@ -14,6 +14,7 @@ import QuestionList from './pages/questions/QuestionList';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import Question from './pages/questions/Question';
 import EditQuestionForm from './pages/questions/EditQuestionForm';
+import ProfilePage from './pages/profiles/ProfilePage';
 
 
 
@@ -44,6 +45,7 @@ function App() {
               <Route exact path="/posts/:id" render={() => <QuestionPage />}/>
               <Route exact path="/posts/create" render={() => <PostQuestionForm />} />
               <Route exact path="/posts/:id/edit" render={() => <EditQuestionForm />} />
+              <Route exact path="/profiles/:id" render={() => <ProfilePage />}/>
               <Route render={() => <p>Sorry lad(y), this path is a dead end</p>} />
             </Switch>
 

@@ -320,19 +320,26 @@ Due to the nature of this project being created in 2 seperate repositories, user
 
 | Learning Outcomes / Acceptance Criteria covered in this milestone                                                                   |
 | :---------------------------------------------------------------------------------------------------------------------------------: |
+| Implement custom JSX (HTML, JavaScript and CSS) code to create a responsive, dynamic Front-End application consisting of one or more pages with relevant responses to user actions and a set of data manipulation functions. |
+| Include class and/or functional components to build the application. |
+| Write code that correctly handles user interactions such as clicks, changes to input fields etc. |
+| Design a Front-End web application that lets the user initiate and control actions. |
+| Create a complete set of CRUD (create, read, update and delete) functionality on the Front-End for users to work with records from an API. |
+| All changes to the data should be notified to the relevant user on the Front-End application. |
+| In the Front-End application, implement at least TWO forms, with validation, that allow users to create and edit resources in the Back-End API. |
 
 | User Stories covered in this milestone                                                                | details |
 | :---------------------------------------------------------------------------------------------------- | :------ |
-| _As a user, i want to be able to view comments/answers and their vote count_ |  |
-| _As a user, i want to be able to vote on answers that i think are the best for a question/post_ |  |
-| _As a user, i want to be able to edit any questions that i publish, to amend spelling errors or upload a better picture_ |  |
-| _As a user, i want to be able to edit any comments that i make so i can amend spelling errors_ |  |
-| _As a user, i want to be able to comment/answer other people's posts |  |
-| _As a user, i want to be able to vote on answers that i think are the best for a question/post_ |  |
+| _As a user, i want to be able to view comments/answers and their vote count_ | display the comments of a post with a comments component that also contains the number of votes made on that comment |
+| _As a user, i want to be able to vote on answers that i think are the best for a question/post_ | put an icon in the post component that prompts users to make a vote on a post |
+| _As a user, i want to be able to edit any questions that i publish, to amend spelling errors or upload a better picture_ | add an edit form for questions/posts made |
+| _As a user, i want to be able to edit any comments that i make so i can amend spelling errors_ | create an edit form for comments |
+| _As a user, i want to be able to comment/answer other people's posts_ | create a form that alows users to comment on questions/posts |
 
 
 | Tasks This Sprint | Sprint overview |
 | :---------------- | :-------------: |
+| Create a form that allows users to edit posts, create a dropdown called DropdownOptions that allows users to access the edit post form and also delete a post.<br><br> Create a component to structure and view comment data and then utilise this in the PostPage component.<br><br> Create the vote functionality on comments and track the vote count changes, implement infinite scroll on comments within the PostPage component (this unfortunately bugged at this stage). <br><br>create a form that allows users to make a comment. <br><br>Create a form that allows users to edit a comment that they own. <br><br>Re-Use the DropdownOptions component to also create a dropdown for comments, allowing them to be edited or deleted if the current user is the owner of that comment. | ![sprint 11](/readme-assets/sprints/sprint-11-project-view.png) |
 
 
 ### LO1: Design an interactive Front-End web application using HTML and CSS and advanced JavaScript, based on component composition and separation of concerns.
