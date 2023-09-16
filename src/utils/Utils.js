@@ -1,4 +1,7 @@
-import { axiosReq } from "../api/axiosDefault"
+import { axiosReq, axiosRes } from "../api/axiosDefault"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
+
 
 export const fetchMoreData = async (resource, setResource) => {
     try {

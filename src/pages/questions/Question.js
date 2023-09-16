@@ -23,19 +23,17 @@ const Question = (props) => {
     const currentUser = useCurrentUser();
 
     const handleEdit = () => {
-        history.push(`/posts/${id}/edit`)
-    }
-
-    const handleDelete = () => {
-        const handleDelete = async () => {
-            try {
-                await axiosRes.delete(`/posts/${id}/`);
-                history.goBack()
-            } catch (err) {
-                console.log(err);
-            }
+        history.push(`/posts/${id}/edit`);
+      };
+    
+      const handleDelete = async () => {
+        try {
+          await axiosRes.delete(`/posts/${id}/`);
+          history.goBack();
+        } catch (err) {
+          console.log(err);
         }
-    }
+      };
 
     const handleLike = async () => {
         try {
@@ -101,8 +99,8 @@ const Question = (props) => {
                         </Col>
                         <Col>
                             <div className={styles.HeadRightCol}>
-                                <span>{date_created}</span>
-                                {date_created === date_updated ? null : <span>Edited: {date_updated}</span>}
+                                <div>{date_created}</div>
+                                {date_created === date_updated ? null : <div>Edited: {date_updated}</div>}
                             </div>
                         </Col>
                     </Row>
@@ -134,21 +132,21 @@ const Question = (props) => {
                             is_owner ? (
                                 <OverlayTrigger placement="bottom" overlay={<Tooltip>You can't like your own question, Narcissus.</Tooltip>}>
                                     <span className={styles.Interaction}>
-                                    <i class="fa-regular fa-heart fa-lg"></i>
+                                    <i className="fa-regular fa-heart fa-lg"></i>
                                 </span>
                                 </OverlayTrigger>
                             ) : liked_id ? (
                                 <span onClick={handleUnlike} className={styles.Interaction}>
-                                    <i class="fa-solid fa-heart fa-lg"></i>
+                                    <i className="fa-solid fa-heart fa-lg"></i>
                                 </span>
                             ) : currentUser ? (
                                 <span onClick={handleLike} className={styles.Interaction}>
-                                    <i class="fa-regular fa-heart fa-lg"></i>
+                                    <i className="fa-regular fa-heart fa-lg"></i>
                                 </span>
                             ) : (
                                 <Link to="/login">
                                     <span onClick={() => { }} className={styles.Interaction}>
-                                        <i class="fa-regular fa-heart fa-lg"></i>
+                                        <i className="fa-regular fa-heart fa-lg"></i>
                                     </span>
                                 </Link>
                             )
@@ -156,7 +154,7 @@ const Question = (props) => {
 
                         <Link to={`/login`}>
                             <span onClick={() => { }} className={styles.Interaction}>
-                                <i class="fa-regular fa-message fa-lg"></i>
+                                <i className="fa-regular fa-message fa-lg"></i>
                             </span>
                         </Link>
                     </Col>
