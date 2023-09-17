@@ -57,6 +57,9 @@ const QuestionList = ({ message, filter = "" }) => {
                         </>
                     ) : (<Loader />)}
                 </Col>
+                <Col md={{ span: 2 }}>
+                    <FollowedProfiles  desktop />
+                </Col>
             </Row>
         </Container>
     )
