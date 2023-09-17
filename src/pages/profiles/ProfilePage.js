@@ -1,77 +1,155 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../../styles/ProfilePage.module.css";
-import { Container, Col, Row, Image } from "react-bootstrap";
+import btnStyles from "../../styles/Button.module.css"
+import { Container, Col, Row, Image, Button } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
 import { axiosRes, axiosReq } from "../../api/axiosDefault";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
+import FollowedProfiles from "./FollowedProfiles";
+import Asset from "../../components/Asset";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Question from "../questions/Question";
+import { fetchMoreData } from "../../utils/Utils";
+import Comment from "../comments/Comment";
 
 const ProfilePage = () => {
     const [loaded, setLoaded] = useState(false);
-    const currentUser = useCurrentUser();
     const { id } = useParams();
     const setProfileData = useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
+    const [profilePosts, setProfilePosts] = useState({ results: [] });
+    const [profileComments, setProfileComments] = useState({ results: [] });
+
+    const currentUser = useCurrentUser();
+    const is_owner = currentUser?.username === pageProfile.username;
+
 
     useEffect(() => {
         const handleMount = async () => {
             try {
-                const [{ data: pageProfile }] = await Promise.all([
-                    axiosReq.get(`/profiles/${id}/`)
+                const [{ data: pageProfile }, { data: profilePosts }, { data: profileComments }] = await Promise.all([
+                    axiosReq.get(`/profiles/${id}/`),
+                    axiosReq.get(`/posts/?owner__profile=${id}`),
+                    axiosReq.get(`/comments/?owner__profile=${id}`)
                 ]);
+
                 setProfileData((prevState) => ({
                     ...prevState,
                     pageProfile: { results: [pageProfile] },
                 }));
-                setLoaded(true); 
+
+                setProfilePosts(profilePosts);
+
+                setProfileComments(profileComments);
+
+                setLoaded(true);
+                console.log("ProfilePage.js pageProfile: ", pageProfile);
+                console.log("ProfilePage.js profilePosts: ", profilePosts);
+                console.log("ProfilePage.js profileComments: ", profileComments);
             } catch (err) {
                 console.log(err);
                 setLoaded(true);
             }
-            console.log("ProfilePage.js pageProfile: ", pageProfile);
+
         };
         setLoaded(false);
         handleMount();
-    }, [id, setProfileData]);
+    }, [id, setProfileData,]);
 
-    return (
-        <Container>
+
+
+    const profileCard = (
+        <Col lg={8}>
             <Row>
-                <Col>
-                    <Avatar src={profile?.image} />
-                    "Name"<span>edit button</span>
+                <Col lg={12}>
+                    <div><Image src={profile?.image} height={100} /></div>
+                    {profile?.owner}
+                    <span>edit button</span>
+
+                    {currentUser && !is_owner && (profile?.following_id ? (
+                        <Button variant="primary" className={`${btnStyles.Btn}`}
+                            onClick={() => { }}
+                        >
+                            Unfollow
+                        </Button>
+                    ) : (
+                        <Button variant="primary" className={`${btnStyles.Btn}`}
+                            onClick={() => { }}
+                        >
+                            Follow
+                        </Button>
+                    ))}
+
                 </Col>
-            </Row>
-            <Row>
-                <Col>
+                <Col xs={12}>
+                    {profile?.bio}
+                </Col>
+                <Col xs={6}>
                     "Questions"
                     {profile?.posts_count}
                 </Col>
-                <Col>
+                <Col xs={6}>
                     "Answers"
+                    {profile?.comments_count}
                 </Col>
-            </Row>
-            <Row>
-                <Col>
+                <Col xs={6}>
                     "Following"
+                    {profile?.following_count}
                 </Col>
-                <Col>
+                <Col xs={6}>
                     "Followers"
+                    {profile?.followers_count}
                 </Col>
-            </Row>
-            <Row>
-                <Col>
+                <Col xs={12}>
+                    <hr />
                     "best answer"
+                    {profileComments.results.length ? (
+                        <Comment {...profileComments.results[0]} />
+                    ) : (
+                        <Asset loader />
+                    )}
+
+                </Col>
+                <Col xs={12}>
+                    <hr />
+                    {profilePosts.results.length ? (
+                        <InfiniteScroll
+                            children={profilePosts.results.map((post) => (
+                                <Question key={post.id} {...post} setQuestion={setProfilePosts} />
+                            ))}
+                            dataLength={profilePosts.results.length}
+                            loader={<Asset loader />}
+                            hasMore={!!profilePosts.next}
+                            next={() => fetchMoreData(profilePosts, setProfilePosts)}
+                        />
+                    ) : (
+                        <Asset loader />
+                    )}
                 </Col>
             </Row>
-            <Row>
-                <Col>
-                    "Posts by user"
-                </Col>
-            </Row>
-        </Container>
+        </Col>
+    );
+
+    const followedProfiles = (
+        <Col lg={4}>
+            <FollowedProfiles />
+        </Col>
+    )
+
+    return (
+        <Row>
+            {loaded ? (
+                <>
+                    {profileCard}
+                    {followedProfiles}
+                </>
+            ) : (
+                <Asset loader />
+            )}
+        </Row>
     );
 };
 

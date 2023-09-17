@@ -8,7 +8,7 @@ import { Button } from 'react-bootstrap';
 
 const Profile = (props) => {
   const { profile } = props;
-  const { id, owner_id, image, owner, display_name } = profile;
+  const { id, following_id, image, owner, display_name } = profile;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
@@ -25,7 +25,7 @@ const Profile = (props) => {
       </div>
       <div>
         {currentUser && !is_owner && (
-          owner_id ? (
+          following_id ? (
             <Button variant="primary" className={`${btnStyles.Btn}`}
               onClick={()=>{}}
             >
