@@ -1,0 +1,37 @@
+.Head {
+    text-align: center;
+}
+
+.Image {
+    clip-path: polygon(15% 0, 85% 0, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0 85%, 0 15%);
+    -webkit-clip-path: polygon(15% 0, 85% 0, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0 85%, 0 15%);
+    transition-property: clip-path;
+    transition-duration: 0.1s;
+    transition-timing-function: linear;
+}
+
+.Image:hover {
+    clip-path: polygon(15% 0, 100% 0, 100% 15%, 100% 100%, 85% 100%, 0 100%, 0 85%, 0 0);
+    -webkit-clip-path: polygon(15% 0, 100% 0, 100% 15%, 100% 100%, 85% 100%, 0 100%, 0 85%, 0 0);
+}
+
+.Stats {
+    text-align: center;
+    margin: 5px auto;
+}
+
+.TopComment {
+    padding: 0px 15px;
+    background-color: #111111;
+    border-top: 1px solid #fafafa;
+    border-bottom: 1px solid #fafafa;
+}
+
+.TopCommentPost {
+    text-decoration: none !important;
+    color: #fafafa !important;
+}
+
+.TopCommentHeader {
+    padding-top: 15px;
+}

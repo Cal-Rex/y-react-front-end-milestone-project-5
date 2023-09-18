@@ -13,6 +13,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Question from "../questions/Question";
 import { fetchMoreData } from "../../utils/Utils";
 import Comment from "../comments/Comment";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const ProfilePage = () => {
     const [loaded, setLoaded] = useState(false);
@@ -64,11 +65,11 @@ const ProfilePage = () => {
     const profileCard = (
         <Col lg={8}>
             <Row>
-                <Col lg={12}>
-                    <div><Image src={profile?.image} height={100} /></div>
+                <Col lg={12} className={styles.ProfileHead}>
+                    <div><Image className={styles.Image} src={profile?.image} height={100} /></div>
                     {profile?.owner}
                     <span>edit button</span>
-
+                    <div>
                     {currentUser && !is_owner && (profile?.following_id ? (
                         <Button variant="primary" className={`${btnStyles.Btn}`}
                             onClick={() => { }}
@@ -82,36 +83,44 @@ const ProfilePage = () => {
                             Follow
                         </Button>
                     ))}
-
+                    </div>
                 </Col>
                 <Col xs={12}>
                     {profile?.bio}
                 </Col>
-                <Col xs={6}>
-                    "Questions"
+                <Col xs={6} className={styles.Stats}>
+                    <div>Questions</div>
                     {profile?.posts_count}
                 </Col>
-                <Col xs={6}>
-                    "Answers"
+                <Col xs={6} className={styles.Stats}>
+                    <div>Answers</div>
                     {profile?.comments_count}
                 </Col>
-                <Col xs={6}>
-                    "Following"
+                <Col xs={6} className={styles.Stats}>
+                    <div>Following</div>
                     {profile?.following_count}
                 </Col>
-                <Col xs={6}>
-                    "Followers"
+                <Col xs={6} className={styles.Stats}>
+                    <div>Followers</div>
                     {profile?.followers_count}
                 </Col>
                 <Col xs={12}>
                     <hr />
-                    "best answer"
+                    <p className={styles.ProfileHead}>Best Answer</p>
+                    
+                    <div className={styles.TopComment}>
+                    <Link className={styles.TopCommentPost} to={`/posts/${profileComments.results[0]?.post}/`}>
                     {profileComments.results.length ? (
+                        <>
+                        <h5 className={styles.TopCommentHeader}>{profileComments.results[0]?.post_title}</h5>
                         <Comment {...profileComments.results[0]} />
+                        </>
                     ) : (
                         <Asset loader />
                     )}
-
+                    </Link>
+                    </div>
+                    
                 </Col>
                 <Col xs={12}>
                     <hr />
