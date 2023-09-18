@@ -18,7 +18,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 const ProfilePage = () => {
     const [loaded, setLoaded] = useState(false);
     const { id } = useParams();
-    const setProfileData = useSetProfileData();
+    const {setProfileData, handleFollow} = useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
     const [profilePosts, setProfilePosts] = useState({ results: [] });
@@ -65,7 +65,7 @@ const ProfilePage = () => {
     const profileCard = (
         <Col lg={8}>
             <Row>
-                <Col lg={12} className={styles.ProfileHead}>
+                <Col lg={12} className={styles.Head}>
                     <div><Image className={styles.Image} src={profile?.image} height={100} /></div>
                     {profile?.owner}
                     <span>edit button</span>
@@ -78,7 +78,7 @@ const ProfilePage = () => {
                         </Button>
                     ) : (
                         <Button variant="primary" className={`${btnStyles.Btn}`}
-                            onClick={() => { }}
+                            onClick={() => handleFollow(profile)}
                         >
                             Follow
                         </Button>
@@ -106,7 +106,7 @@ const ProfilePage = () => {
                 </Col>
                 <Col xs={12}>
                     <hr />
-                    <p className={styles.ProfileHead}>Best Answer</p>
+                    <p className={styles.Head}>Best Answer</p>
                     
                     <div className={styles.TopComment}>
                     <Link className={styles.TopCommentPost} to={`/posts/${profileComments.results[0]?.post}/`}>
