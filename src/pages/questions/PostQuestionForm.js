@@ -7,8 +7,10 @@ import Asset from '../../components/Asset';
 import upload from '../../assets/upload.webp'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from '../../api/axiosDefault'
+import { useRedirect } from '../../hooks/useRedirect';
 
 const PostQuestionForm = () => {
+    useRedirect('loggedOut');
     const imageUpload = useRef(null);
     const history = useHistory()
     const [errors, setErrors] = useState({});

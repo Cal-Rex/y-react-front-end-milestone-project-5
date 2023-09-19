@@ -5,9 +5,11 @@ import styles from '../../styles/RegistrationForm.module.css'
 import btnStyles from '../../styles/Button.module.css'
 import axios from 'axios'
 import { useSetCurrentUser } from '../../contexts/CurrentUserContext'
+import { useRedirect } from '../../hooks/useRedirect'
 
 
 const RegistrationForm = () => {
+    useRedirect('loggedIn')
     const [registrationData, setRegistrationData] = useState({
         username: '',
         display_name:'',

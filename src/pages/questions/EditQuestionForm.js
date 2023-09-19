@@ -5,8 +5,10 @@ import btnStyles from '../../styles/Button.module.css'
 import { Alert, Col, Container, Form, Row } from 'react-bootstrap';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from '../../api/axiosDefault'
+import { useRedirect } from '../../hooks/useRedirect';
 
 const EditQuestionForm = () => {
+    useRedirect('loggedOut');
     const { id } = useParams();
     const imageUpload = useRef(null);
     const history = useHistory()

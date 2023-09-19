@@ -3,7 +3,7 @@ import styles from "../styles/Avatar.module.css";
 import { Button, Overlay } from "react-bootstrap";
 import { useSetCurrentUser } from '../contexts/CurrentUserContext'
 import axios from "axios";
-import useClickAwayToggle from "../api/hooks/useClickAwayToggle";
+import useClickAwayToggle from "../hooks/useClickAwayToggle";
 
 
 const Avatar = (props) => {

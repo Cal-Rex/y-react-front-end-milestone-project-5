@@ -5,9 +5,12 @@ import styles from '../../styles/RegistrationForm.module.css'
 import btnStyles from '../../styles/Button.module.css'
 import axios from 'axios'
 import { useSetCurrentUser } from '../../contexts/CurrentUserContext'
+import { useRedirect } from '../../hooks/useRedirect'
 
 const LogInForm = () => {
     const setCurrentUser = useSetCurrentUser();
+    useRedirect('loggedIn');
+
     const [logInData, setLogInData] = useState({
         username: '',
         password: '',
@@ -30,7 +33,7 @@ const LogInForm = () => {
         try { 
             const {data} = await axios.post('/dj-rest-auth/login/', logInData)
             setCurrentUser(data.user)
-            history.push('/')
+            history.goBack();
         } catch (err) {
             console.log(err)
             setErrors(err.response?.data)
