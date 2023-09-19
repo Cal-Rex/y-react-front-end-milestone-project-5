@@ -60,16 +60,30 @@ export const ProfileDataProvider = ({ children }) => {
 
     useEffect(() => {
         const handleMount = async () => {
-            try {
-                const { data } = await axiosReq.get(
-                    "/profiles/?ordering=-follow_count"
-                );
-                setProfileData((prevState) => ({
-                    ...prevState,
-                    popularProfiles: data,
+            if (currentUser) {
+                try {
+                    const { data } = await axiosReq.get(
+                        `/profiles/?owner__followed__owner__profile=${currentUser?.profile_id}`
+                    );
+                    setProfileData((prevState) => ({
+                        ...prevState,
+                        popularProfiles: data,
+                    }));
+                } catch (err) {
+                    console.log(err)
+                }
+            } else {
+                try {
+                    const { data } = await axiosReq.get(
+                        "/profiles/?ordering=-follow_count"
+                    );
+                    setProfileData((prevState) => ({
+                        ...prevState,
+                        popularProfiles: data,
                 }));
-            } catch (err) {
-                console.log(err)
+                } catch (err) {
+                    console.log(err)
+                }
             }
         }
         handleMount();
@@ -79,7 +93,7 @@ export const ProfileDataProvider = ({ children }) => {
     return (
         <ProfileDataContext.Provider value={profileData}>
             <SetProfileDataContext.Provider value={{setProfileData, handleFollow, handleUnfollow}}>
-                {children}
+                {children}{console.log(currentUser?.profile_id)}
             </SetProfileDataContext.Provider>
         </ProfileDataContext.Provider>
     )
