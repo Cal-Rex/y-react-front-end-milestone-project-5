@@ -14,11 +14,12 @@ import Question from "../questions/Question";
 import { fetchMoreData } from "../../utils/Utils";
 import Comment from "../comments/Comment";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { ProfileEditDropdown } from "../../components/DropdownOptions";
 
 const ProfilePage = () => {
     const [loaded, setLoaded] = useState(false);
     const { id } = useParams();
-    const {setProfileData, handleFollow} = useSetProfileData();
+    const {setProfileData, handleFollow, handleUnfollow} = useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
     const [profilePosts, setProfilePosts] = useState({ results: [] });
@@ -68,11 +69,12 @@ const ProfilePage = () => {
                 <Col lg={12} className={styles.Head}>
                     <div><Image className={styles.Image} src={profile?.image} height={100} /></div>
                     {profile?.owner}
-                    <span>edit button</span>
+                    {profile?.is_owner && <span> <ProfileEditDropdown id={profile?.id}/></span>}
+                    
                     <div>
                     {currentUser && !is_owner && (profile?.following_id ? (
                         <Button variant="primary" className={`${btnStyles.Btn}`}
-                            onClick={() => { }}
+                            onClick={() => handleUnfollow(profile)}
                         >
                             Unfollow
                         </Button>

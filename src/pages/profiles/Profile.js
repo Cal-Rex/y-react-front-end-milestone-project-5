@@ -7,6 +7,8 @@ import Avatar from '../../components/Avatar';
 import { Button } from 'react-bootstrap';
 import { useSetProfileData } from '../../contexts/ProfileDataContext';
 
+
+
 const Profile = (props) => {
   const { profile } = props;
   const { id, following_id, image, owner, display_name } = profile;
@@ -14,7 +16,7 @@ const Profile = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
-  const {handleFollow } = useSetProfileData();
+  const {handleFollow, handleUnfollow} = useSetProfileData();
 
   return (
     <div>
@@ -30,7 +32,7 @@ const Profile = (props) => {
         {currentUser && !is_owner && (
           following_id ? (
             <Button variant="primary" className={`${btnStyles.Btn}`}
-              onClick={()=>{}}
+              onClick={() => handleUnfollow(profile)}
             >
               Unfollow
             </Button>

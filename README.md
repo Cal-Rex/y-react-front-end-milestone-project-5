@@ -342,6 +342,46 @@ Due to the nature of this project being created in 2 seperate repositories, user
 | Create a form that allows users to edit posts, create a dropdown called DropdownOptions that allows users to access the edit post form and also delete a post.<br><br> Create a component to structure and view comment data and then utilise this in the PostPage component.<br><br> Create the vote functionality on comments and track the vote count changes, implement infinite scroll on comments within the PostPage component (this unfortunately bugged at this stage). <br><br>create a form that allows users to make a comment. <br><br>Create a form that allows users to edit a comment that they own. <br><br>Re-Use the DropdownOptions component to also create a dropdown for comments, allowing them to be edited or deleted if the current user is the owner of that comment. | ![sprint 11](/readme-assets/sprints/sprint-11-project-view.png) |
 
 
+## Milestone 12 - User Profiles and following features
+
+| Learning Outcomes / Acceptance Criteria covered in this milestone                                                                   |
+| :---------------------------------------------------------------------------------------------------------------------------------: |
+| Implement custom JSX (HTML, JavaScript and CSS) code to create a responsive, dynamic Front-End application consisting of one or more pages with relevant responses to user actions and a set of data manipulation functions. |
+| Implement modular use of components and separation of concerns by incorporating component-specific files (i.e. one JavaScript file and, where applicable, one CSS file per component). |
+| Include class and/or functional components to build the application. |
+| Write code that correctly handles user interactions such as clicks, changes to input fields etc. |
+| Design a Front-End web application that lets the user initiate and control actions. |
+| All changes to the data should be notified to the relevant user on the Front-End application. |
+| Display and manipulate API data on the Front-End application in a way that brings value to the user and aligns with the project's purpose. |
+
+| User Stories covered in this milestone                                                                | details |
+| :---------------------------------------------------------------------------------------------------- | :------ |
+| _As a user, i want to be able to view other user's public profiles and see what they have contributed to_ | create a profile page to house user details |
+| _As a user, i want to be able to Follow other users, so i have easier access to the content they create_ | create a follow unfollow feature |
+| _As a user, i want to be able to edit my own profile at any time, so i can keep my profile photo and details up to date_ | create an edit profile form |
+| _As a user, i want to see what the top-voted comments/answers a profile has made_ | retrieve posts by user and order them by most votes, return first vlue in array |
+| _As a user, i want to be able to see the questions/posts a profile has made so i can decide if i like their content_ | view posts of a user on their profile |
+| _As a user, i want to be able to update my username and password to keep my account secure_ | add these fields to the edit profile form |
+
+| Tasks This Sprint | Sprint overview |
+| :---------------- | :-------------: |
+| create a profile component <br><br> create a page to house the profile component <br><br> create a context hook that manages the details of the current user to enable the ability to follow other users <br><br> create follow/unfollow feature <br><br> create edit profile form <br><br> add top comment and user's posts to their profile page | ![sprint 12](/readme-assets/sprints/sprint-12-project-view.png) |
+
+## Milestone 13 - clean up features and search function
+
+| Learning Outcomes / Acceptance Criteria covered in this milestone                                                                   |
+| :---------------------------------------------------------------------------------------------------------------------------------: |
+
+
+| User Stories covered in this milestone                                                                | details |
+| :---------------------------------------------------------------------------------------------------- | :------ |
+
+
+| Tasks This Sprint | Sprint overview |
+| :---------------- | :-------------: |
+
+
+
 ### LO1: Design an interactive Front-End web application using HTML and CSS and advanced JavaScript, based on component composition and separation of concerns.
 1. > Design a Front-End for a Full-Stack web application that meets accessibility guidelines, follows the principles of UX design, meets its given purpose and provides a set of user interactions.
 

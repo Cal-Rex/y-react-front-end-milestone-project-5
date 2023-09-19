@@ -15,6 +15,9 @@ import { useCurrentUser } from './contexts/CurrentUserContext';
 import Question from './pages/questions/Question';
 import EditQuestionForm from './pages/questions/EditQuestionForm';
 import ProfilePage from './pages/profiles/ProfilePage';
+import UpdateUsernameForm from './pages/auth/UpdateUsernameForm';
+import UpdatePasswordForm from './pages/auth/UpdatePasswordForm';
+import UpdateNonAuthForm from './pages/auth/UpdateNonAuthForm';
 
 
 
@@ -23,36 +26,39 @@ function App() {
   const profile_id = currentUser?.profile_id || "";
 
   return (
-        <div className={styles.App}>
-          <NavBar />
-          <Container className={styles.AppContainer}>
-            <Switch>
-              <Route exact path="/" render={
-                () => <QuestionList 
-                  message="We can't find anything that matches that criteria, captain." 
-                />
-              }/>
-              <Route exact path="/following" render={
-                () => <QuestionList 
-                  message="We can't find anything that matches that criteria, captain."
-                  filter={`owner__followed__owner__profile=${profile_id}&`} 
-                />
-              }/>
-              {/* for profile page, liked questions by user */}
-              {/* <QuestionList filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`} */}
-              <Route exact path="/login" render={() => <LogInForm />} />
-              <Route exact path="/register" render={() => <RegistrationForm />} />
-              <Route exact path="/posts/:id" render={() => <QuestionPage />}/>
-              <Route exact path="/posts/create" render={() => <PostQuestionForm />} />
-              <Route exact path="/posts/:id/edit" render={() => <EditQuestionForm />} />
-              <Route exact path="/profiles/:id" render={() => <ProfilePage />}/>
-              <Route render={() => <p>Sorry lad(y), this path is a dead end</p>} />
-            </Switch>
+    <div className={styles.App}>
+      <NavBar />
+      <Container className={styles.AppContainer}>
+        <Switch>
+          <Route exact path="/" render={
+            () => <QuestionList
+              message="We can't find anything that matches that criteria, captain."
+            />
+          } />
+          <Route exact path="/following" render={
+            () => <QuestionList
+              message="We can't find anything that matches that criteria, captain."
+              filter={`owner__followed__owner__profile=${profile_id}&`}
+            />
+          } />
+          {/* for profile page, liked questions by user */}
+          {/* <QuestionList filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`} */}
+          <Route exact path="/login" render={() => <LogInForm />} />
+          <Route exact path="/register" render={() => <RegistrationForm />} />
+          <Route exact path="/posts/create" render={() => <PostQuestionForm />} />
+          <Route exact path="/posts/:id" render={() => <QuestionPage />} />
+          <Route exact path="/posts/:id/edit" render={() => <EditQuestionForm />} />
+          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route exact path="/profiles/:id/edit/username" render={() => <UpdateUsernameForm />} />
+          <Route exact path="/profiles/:id/edit/password" render={() => <UpdatePasswordForm />} />
+          <Route exact path="/profiles/:id/edit" render={() => <UpdateNonAuthForm />} />
+          <Route render={() => <p>Sorry lad(y), this path is a dead end</p>} />
+        </Switch>
 
-            
-          </Container>
-          <Footer />
-        </div>
+
+      </Container>
+      <Footer />
+    </div>
   );
 }
 
