@@ -6,11 +6,14 @@ import NavLogo from '../assets/y-no-canvas-alpha.webp'
 import Avatar from './Avatar'
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext'
 import axios from 'axios'
+import { useQuery, useSetQuery } from '../contexts/SearchContext'
 
 
 const NavBar = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
+    const query = useQuery();
+    const setQuery = useSetQuery();
 
     const handleLogOut = async () => {
         try {
@@ -20,6 +23,7 @@ const NavBar = () => {
             console.log(err);
         }
     };
+
 
     const authenticatedMenu = (
         <>
@@ -52,7 +56,12 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Form inline>
-                        <FormControl type="text" placeholder="Search" className={`mr-sm-2 ${styles.SearchBar}`} />
+                        <FormControl
+                            type="text"
+                            placeholder="Search"
+                            className={`mr-sm-2 ${styles.SearchBar}`}
+                            onChange={(event) => setQuery(event.target.value)}
+                            />
                     </Form>
                     <Nav className={`ml-auto`}>
                         {/* placeholder for avatar */}
