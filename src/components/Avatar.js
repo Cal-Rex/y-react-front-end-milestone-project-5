@@ -34,26 +34,16 @@ const Avatar = (props) => {
 
     return (
         <div>
-
-            <Dropdown>
-                <Dropdown.Toggle className={`${styles.AvatarContainer}`} id="dropdown-basic">
-                    <span className={styles.Username}>{message}</span>
-                    <img
-                        className={styles.ProfilePic}
-                        src={src}
-                        height={height}
-                        width={height}
-                        alt="Profile Avatar"
-                        ref={ref}
-                        onClick={() => setShow(!show)}
-                    />
-                </Dropdown.Toggle>
-                <Dropdown.Menu align="right" className={styles.AvatarMenu}>
-                    <Dropdown.Item onClick={profileRedirect}>Profile</Dropdown.Item>
-                    <Dropdown.Item onClick={editProfileRedirect}>Edit Profile</Dropdown.Item>
-                    <Dropdown.Item onClick={handleLogOut}>Log Out</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
+            <span className={styles.Username}>{message}</span>
+            <img
+                className={styles.ProfilePic}
+                src={src}
+                height={height}
+                width={height}
+                alt="Profile Avatar"
+                ref={ref}
+                onClick={() => setShow(!show)}
+            />
 
             {/* <Overlay target={ref} show={show} placement="bottom-end">
                 {({ placement, arrowProps, show: _show, popper, ...props }) => (

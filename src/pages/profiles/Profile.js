@@ -4,7 +4,7 @@ import btnStyles from '../../styles/Button.module.css';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import Avatar from '../../components/Avatar';
-import { Button } from 'react-bootstrap';
+import { Button, Dropdown } from 'react-bootstrap';
 import { useSetProfileData } from '../../contexts/ProfileDataContext';
 
 
@@ -16,14 +16,39 @@ const Profile = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
-  const {handleFollow, handleUnfollow} = useSetProfileData();
+  const { handleFollow, handleUnfollow } = useSetProfileData();
+
+  const profileRedirect = () => {
+    history.push(`/profiles/${currentUser?.profile_id}/`)
+  }
+
+  const editProfileRedirect = () => {
+    history.push(`/profiles/${currentUser?.profile_id}/edit`)
+  }
+
+  const handleLogOut = async () => {
+    try {
+        await axios.post("dj-rest-auth/logout/");
+        setCurrentUser(null);
+    } catch (err) {
+        console.log(err);
+    }
+};
 
   return (
     <div className={styles.Profile}>
       <div>
-        <Link to={`/profiles/${id}/`}>
-          <Avatar src={image} />
-        </Link>
+        <Dropdown drop="left">
+          <Dropdown.Toggle className={`${styles.DropdownContainer}`}>
+            <Avatar src={image} />
+          </Dropdown.Toggle>
+          <Dropdown.Menu align="right" className={styles.DropdownMenu}>
+            <Dropdown.Item className={styles.DropdownItem} onClick={profileRedirect}>Profile</Dropdown.Item>
+            <Dropdown.Item className={styles.DropdownItem} onClick={editProfileRedirect}>Edit Profile</Dropdown.Item>
+            <Dropdown.Item className={styles.DropdownItem} onClick={handleLogOut}>Log Out</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
       </div>
       <div>
         {owner}
