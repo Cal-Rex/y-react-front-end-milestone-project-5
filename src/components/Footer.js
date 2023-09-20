@@ -9,17 +9,17 @@ const Footer = () => {
                 <Row>
                     <Col className='text-right' xs={{ span: 4 }} md={{ span: 4 }}>
                         <Link to="/posts/create">
-                            <i className="fa-solid fa-fire-flame-curved fa-2xl"></i>
+                            <i className={`${styles.Shadow} fa-solid fa-fire-flame-curved fa-2xl`}></i>
                         </Link>
                     </Col>
                     <Col className='text-center' xs={{ span: 4 }} md={{ span: 4 }}>
                         <Link to="/posts/create">
-                            <i className="fa-regular fa-square-plus fa-2xl"></i>
+                            <i className={`${styles.Shadow} fa-regular fa-square-plus fa-2xl`}></i>
                         </Link>
                     </Col>
                     <Col className='text-left' xs={{ span: 4 }} md={{ span: 4 }}>
                         <Link>
-                            <i className="fa-solid fa-user-group fa-2xl"></i>
+                            <i className={`${styles.Shadow} fa-solid fa-user-group fa-2xl`}></i>
                         </Link>
                     </Col>
                 </Row>
