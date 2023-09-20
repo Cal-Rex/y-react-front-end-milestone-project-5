@@ -4,6 +4,7 @@ import { Button, Form, InputGroup } from 'react-bootstrap';
 import btnStyles from '../../styles/Button.module.css'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Avatar from '../../components/Avatar';
+import styles from '../../styles/Form.module.css'
 
 function PostCommentForm(props) {
     const { profile_id, profile_image, post, setQuestion, setComments } = props;
@@ -30,13 +31,13 @@ function PostCommentForm(props) {
     };
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form className={styles.CommentForm} onSubmit={handleSubmit}>
             <Form.Group>
                 <InputGroup>
                     <Link to={`/profiles/${profile_id}`}>
                         <Avatar src={profile_image} />
                     </Link>
-                    <Form.Control
+                    <Form.Control className={styles.Fields}
                         placeholder="comment..."
                         as="textarea"
                         value={content}
