@@ -1,4 +1,8 @@
 .Profile {
     text-align: center;
-    padding-right: 10px;
+    margin-right: 30px;
+}
+
+.Name {
+    white-space: nowrap;
 }

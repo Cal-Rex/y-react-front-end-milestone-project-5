@@ -9,6 +9,7 @@
 .SearchBar {
     background-color: #00000000;
     border: 1px solid #fafafa;
+    backdrop-filter: blur(5px);
 }
 
 .SearchBar:focus {

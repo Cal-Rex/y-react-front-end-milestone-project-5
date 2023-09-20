@@ -63,7 +63,7 @@ const Profile = (props) => {
         </Dropdown>
 
       </div>
-      <div>
+      <div className={styles.Name}>
         {owner}
       </div>
     </div>

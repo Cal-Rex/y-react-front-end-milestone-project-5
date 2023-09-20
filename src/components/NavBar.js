@@ -85,22 +85,7 @@ const NavBar = () => {
                         />
                     </Form>
                     <Nav className={`ml-auto`}>
-                        {/* placeholder for avatar */}
-                        {/* <img src={NavLogo} alt="logo" height="30" /> */}
-
-                        {/* im going to make a desktop version layout for the nav bar
-                        but i dont know how yet so i have commented out these components for now
-                        and then revisit that structure when i deal with sizing */}
-
                         {currentUser ? authenticatedMenu : unauthenticatedMenu}
-
-                        {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                        </NavDropdown> */}
                     </Nav>
                 </Navbar.Collapse>
             </Container>

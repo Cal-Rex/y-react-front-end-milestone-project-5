@@ -3,6 +3,10 @@
     padding-right: 0px;
 }
 
+.ProfileScrollLock {
+    overflow-x: hidden;
+}
+
 .Rule {
     background-color: #fafafa;
 }
@@ -13,4 +17,10 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.Profiles::-webkit-scrollbar {
+    display: none;
 }

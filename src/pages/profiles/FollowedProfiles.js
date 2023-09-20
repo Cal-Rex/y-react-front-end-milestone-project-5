@@ -17,14 +17,16 @@ const FollowedProfiles = ({ desktop }) => {
                 <Col xs={12}>
                     <hr className={styles.Rule} />
                 </Col>
-                <Col className={styles.Profiles} xs={12}>
-                    {popularProfiles.results.length ? (
-                        popularProfiles.results.map(profile => (
-                            <Profile key={profile.id} profile={profile} />
-                        ))
-                    ) : (
-                        <Asset loader />
-                    )}
+                <Col className={styles.profileScrollLock} xs={12}>
+                    <div className={styles.Profiles}>
+                        {popularProfiles.results.length ? (
+                            popularProfiles.results.map(profile => (
+                                <Profile key={profile.id} profile={profile} />
+                            ))
+                        ) : (
+                            <Asset loader />
+                        )}
+                    </div>
                 </Col>
                 <Col xs={12}>
                     <hr className={styles.Rule} />
