@@ -11,16 +11,18 @@ import NoResult from '../../assets/no-result.webp'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/Utils';
 import FollowedProfiles from '../profiles/FollowedProfiles';
+import { useQuery } from '../../contexts/SearchContext';
 
-const QuestionList = ({ message, filter = "" }) => {
+const QuestionList = ({ message }) => {
     const [questions, setQuestions] = useState({ results: [] });
     const [loadStatus, setLoadStatus] = useState(false);
     const { pathname } = useLocation();
+    const query = useQuery();
 
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                const { data } = await axiosReq.get(`/posts/?${filter}`);
+                const { data } = await axiosReq.get(`/posts/?search=${query}`);
                 setQuestions(data);
                 setLoadStatus(true);
             } catch (err) {
@@ -29,7 +31,7 @@ const QuestionList = ({ message, filter = "" }) => {
         }
         setLoadStatus(false);
         fetchQuestions();
-    }, [filter, pathname]);
+    }, [query, pathname]);
     return (
         <Container fluid className={styles.QuestionContainer}>
             <Row>
