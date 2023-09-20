@@ -21,12 +21,10 @@
     box-shadow: 0 0 0 0rem rgba(0, 0, 0, 0) ipo !important;
 }
 
-.btn-primary:focus {
-    box-shadow: 0 0 0 0rem rgba(0, 0, 0, 0) ipo !important;
-}
-
-.btn:focus {
-    box-shadow: 0 0 0 0rem rgba(0, 0, 0, 0) ipo !important;
+.AvatarMenu {
+    background-color: #111111;
+    -webkit-clip-path: polygon(20% 0, 100% 0, 100% 70%, 80% 100%, 0 100%, 0 30%);
+    clip-path: polygon(20% 0, 100% 0, 100% 70%, 80% 100%, 0 100%, 0 30%);
 }
 
 .ProfilePic {

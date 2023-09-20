@@ -4,15 +4,16 @@ import { Button, Overlay, Dropdown } from "react-bootstrap";
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext'
 import axios from "axios";
 import useClickAwayToggle from "../hooks/useClickAwayToggle";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Avatar = (props) => {
-    const { src, height = 45, message } = props;
+    const { src, height = 45, message, profile_id } = props;
     // const [show, setShow] = useState(false);
     const { show, setShow, ref } = useClickAwayToggle();
     const target = useRef(null);
     const setCurrentUser = useSetCurrentUser();
     const currentUser = useCurrentUser();
+    const history = useHistory();
 
     const handleLogOut = async () => {
         try {
@@ -22,6 +23,14 @@ const Avatar = (props) => {
             console.log(err);
         }
     };
+
+    const profileRedirect = () => {
+        history.push(`/profiles/${currentUser?.profile_id}/`)
+    }
+
+    const editProfileRedirect = () => {
+        history.push(`/profiles/${currentUser?.profile_id}/edit`)
+    }
 
     return (
         <div>
@@ -39,10 +48,10 @@ const Avatar = (props) => {
                         onClick={() => setShow(!show)}
                     />
                 </Dropdown.Toggle>
-                <Dropdown.Menu menuAlign="left">
-                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                <Dropdown.Menu align="right" className={styles.AvatarMenu}>
+                    <Dropdown.Item onClick={profileRedirect}>Profile</Dropdown.Item>
+                    <Dropdown.Item onClick={editProfileRedirect}>Edit Profile</Dropdown.Item>
+                    <Dropdown.Item onClick={handleLogOut}>Log Out</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
 
