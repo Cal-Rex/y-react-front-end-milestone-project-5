@@ -16,7 +16,7 @@ const Question = (props) => {
         is_owner, owner, profile_id, profile_image,
         comments_count, likes_count, liked_id,
         date_created, date_updated,
-        questionCard, setQuestions
+        questionCard, questionPage, setQuestions
     } = props;
 
     const history = useHistory();
@@ -115,7 +115,7 @@ const Question = (props) => {
                         <Col>
                             <div className={styles.HeadRightCol}>
                                 <div>{date_created}</div>
-                                {date_created === date_updated ? null : <div>Edited: {date_updated}</div>}
+                                {date_created === date_updated ? null : <div className={styles.Edited}>Edited: {date_updated}</div>}
                             </div>
                         </Col>
                     </Row>
@@ -182,7 +182,8 @@ const Question = (props) => {
             {content && <Card.Text>{content}</Card.Text>}
         </Card.Body>
         <Card.Body>
-            {
+
+            {!questionPage ? (
                 comments?.results[0] ? (
                     <>
                         {console.log("comments.results[0]: ", comments.results[0])}
@@ -193,15 +194,13 @@ const Question = (props) => {
                     </>
                 ) : (
                     <>
-                    <hr className={styles.Rule} />
-                    <Link className={styles.Link} to={`/posts/${id}`}>
-                    <p>No one's weighed in yet. get the ball rolling... <i className="fa-regular fa-message fa-lg fa-fade"></i></p>
-                    </Link>
+                        <hr className={styles.Rule} />
+                        <Link className={styles.Link} to={`/posts/${id}`}>
+                            <p>No one's weighed in yet. get the ball rolling... <i className="fa-regular fa-message fa-lg fa-fade"></i></p>
+                        </Link>
                     </>
                 )
-            }
-
-
+            ) : null }
         </Card.Body>
     </Card>
 }

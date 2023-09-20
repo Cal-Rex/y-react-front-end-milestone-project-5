@@ -7,6 +7,7 @@ import Avatar from '../../components/Avatar';
 import { Button, Dropdown } from 'react-bootstrap';
 import { useSetProfileData } from '../../contexts/ProfileDataContext';
 import dropStyles from '../../styles/Dropdown.module.css'
+import axios from 'axios';
 
 
 
@@ -30,7 +31,6 @@ const Profile = (props) => {
   const handleLogOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
-      setCurrentUser(null);
     } catch (err) {
       console.log(err);
     }

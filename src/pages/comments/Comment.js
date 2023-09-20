@@ -111,16 +111,16 @@ const Comment = (props) => {
                 </Media.Body>
                 {voted_on_id ? (
                     <span onClick={handleUnvote} className={styles.Interaction}>
-                        <i class="fa-solid fa-circle-check"></i>
+                        <i className="fa-solid fa-circle-check fa-xl"></i>
                     </span>
                 ) : currentUser ? (
                     <span onClick={handleVote} className={styles.Interaction}>
-                        <i class="fa-regular fa-circle-check"></i>
+                        <i className="fa-regular fa-circle-check fa-xl"></i>
                     </span>
                 ) : (
                     <Link to="/login">
                         <span onClick={() => { }} className={styles.Interaction}>
-                        <i class="fa-regular fa-circle-check"></i>
+                        <i className="fa-regular fa-circle-check fa-xl"></i>
                         </span>
                     </Link>
                 )} {votes_count}

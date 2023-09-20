@@ -12,6 +12,11 @@
     padding-right: 0px;
 }
 
+.Edited {
+    font-size: 0.75rem;
+    color: #acacac;
+}
+
 .QuestionAvatar {
     display: flex;
 }
