@@ -19,7 +19,7 @@ const Profile = (props) => {
   const {handleFollow, handleUnfollow} = useSetProfileData();
 
   return (
-    <div>
+    <div className={styles.Profile}>
       <div>
         <Link to={`/profiles/${id}/`}>
           <Avatar src={image} />

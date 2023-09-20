@@ -1,0 +1,16 @@
+.ProfileContainer {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.Rule {
+    background-color: #fafafa;
+}
+
+.Profiles {
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}

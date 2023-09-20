@@ -35,7 +35,7 @@ const QuestionList = ({ message }) => {
     return (
         <Container fluid className={styles.QuestionContainer}>
             <Row>
-                <Col xs={{ span: 12 }}>
+                <Col xs={{ span: 12 }} sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }}>
                     <FollowedProfiles />
                 </Col>
                 <Col xs={{ span: 12 }} sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }}>
@@ -60,7 +60,7 @@ const QuestionList = ({ message }) => {
                     ) : (<Loader />)}
                 </Col>
                 <Col md={{ span: 2 }}>
-                    <FollowedProfiles  desktop />
+                    <FollowedProfiles desktop />
                 </Col>
             </Row>
         </Container>
