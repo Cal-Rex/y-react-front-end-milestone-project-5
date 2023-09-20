@@ -1,0 +1,7 @@
+.btn-primary:focus {
+    box-shadow: 0 0 0 0rem rgba(0, 0, 0, 0) !important;
+}
+
+.btn:focus {
+    box-shadow: 0 0 0 0rem rgba(0, 0, 0, 0) !important;
+}
