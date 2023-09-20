@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap'
-import styles from '../../styles/RegistrationForm.module.css'
+import styles from '../../styles/Form.module.css'
 import btnStyles from '../../styles/Button.module.css'
 import axios from 'axios'
 import { useSetCurrentUser } from '../../contexts/CurrentUserContext'

@@ -1,0 +1,29 @@
+.Form {
+    text-align: center;
+}
+
+.Fields {
+    background-color: #00000000;
+    border: 1px solid #fafafa;
+}
+
+.Fields:focus {
+    background-color: #00000000;
+    border: 1px solid #fafafa;
+    color: #fafafa;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.049);
+}
+
+
+.AltOptions {
+    padding-top: 20px;
+}
+
+.AltOptions * {
+    color: #fafafa !important;
+}
+
+.Right {
+    text-align: right;
+}
+

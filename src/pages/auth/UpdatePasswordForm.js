@@ -6,7 +6,7 @@ import { axiosRes } from "../../api/axiosDefault";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import btnStyles from "../../styles/Button.module.css";
-import formStyles from "../../styles/RegistrationForm.module.css";
+import formStyles from "../../styles/Form.module.css";
 
 // Code supplied by Code Institute Walkthrough
 const UpdatePasswordForm = () => {
