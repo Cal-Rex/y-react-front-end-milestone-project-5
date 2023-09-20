@@ -4,11 +4,8 @@
     border-bottom: 1px solid #fafafa;
     padding-left: 0px;
     padding-right: 0px;
+    margin-bottom: 15px;
 }
-
-/* .QuestionObjectMedia {
-    flex-direction: column;
-} */
 
 .QuestionHead {
     padding-left: 0px;
@@ -48,7 +45,11 @@
     color: #fafafa;
 }
 
-/* .QMContainer {
-    padding-left: 0px;
-    padding-right: 0px;
-} */
+.Rule{
+    background-color: #fafafa;
+}
+
+.Link {
+    color: #fafafa !important;
+    text-decoration: none !important;
+}

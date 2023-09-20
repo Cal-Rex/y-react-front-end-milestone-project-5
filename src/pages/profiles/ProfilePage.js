@@ -35,7 +35,7 @@ const ProfilePage = () => {
                 const [{ data: pageProfile }, { data: profilePosts }, { data: profileComments }] = await Promise.all([
                     axiosReq.get(`/profiles/${id}/`),
                     axiosReq.get(`/posts/?owner__profile=${id}`),
-                    axiosReq.get(`/comments/?owner__profile=${id}`)
+                    axiosReq.get(`/comments/?ordering=-votes_count&owner__profile=${id}`)
                 ]);
 
                 setProfileData((prevState) => ({

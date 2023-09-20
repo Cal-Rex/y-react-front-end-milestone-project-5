@@ -1,6 +1,4 @@
-import { axiosReq, axiosRes } from "../api/axiosDefault"
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import { axiosReq } from "../api/axiosDefault"
 
 
 export const fetchMoreData = async (resource, setResource) => {
@@ -36,20 +34,3 @@ export const unfollowHelper = (profile, clickedProfile) => {
   ? {...profile, following_count: profile.following_count - 1 }
   : profile
 }
-
-export const profileRedirect = () => {
-  history.push(`/profiles/${currentUser?.profile_id}/`)
-}
-
-export const editProfileRedirect = () => {
-  history.push(`/profiles/${currentUser?.profile_id}/edit`)
-}
-
-export const handleLogOut = async () => {
-  try {
-    await axios.post("dj-rest-auth/logout/");
-    setCurrentUser(null);
-  } catch (err) {
-    console.log(err);
-  }
-};
