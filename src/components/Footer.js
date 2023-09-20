@@ -8,7 +8,7 @@ const Footer = () => {
         <Container fluid className={`${styles.Footer} fixed-bottom`}>
                 <Row>
                     <Col className='text-right' xs={{ span: 4 }} md={{ span: 4 }}>
-                        <Link to="/posts/create">
+                        <Link to="/posts/trending">
                             <i className={`${styles.Shadow} fa-solid fa-fire-flame-curved fa-2xl`}></i>
                         </Link>
                     </Col>

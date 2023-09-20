@@ -13,7 +13,7 @@ import { fetchMoreData } from '../../utils/Utils';
 import FollowedProfiles from '../profiles/FollowedProfiles';
 import { useQuery } from '../../contexts/SearchContext';
 
-const QuestionList = ({ message }) => {
+const QuestionList = ({ message, filter }) => {
     const [questions, setQuestions] = useState({ results: [] });
     const [loadStatus, setLoadStatus] = useState(false);
     const { pathname } = useLocation();
@@ -22,7 +22,7 @@ const QuestionList = ({ message }) => {
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                const { data } = await axiosReq.get(`/posts/?search=${query}`);
+                const { data } = await axiosReq.get(`/posts/?${filter}&search=${query}`);
                 setQuestions(data);
                 setLoadStatus(true);
             } catch (err) {

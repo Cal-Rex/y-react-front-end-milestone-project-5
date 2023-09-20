@@ -38,13 +38,19 @@ function App() {
           <Route exact path="/following" render={
             () => <QuestionList
               message="We can't find anything that matches that criteria, captain."
-              filter={`owner__followed__owner__profile=${profile_id}&`}
+              filter={``}
             />
           } />
           {/* for profile page, liked questions by user */}
           {/* <QuestionList filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`} */}
           <Route exact path="/login" render={() => <LogInForm />} />
           <Route exact path="/register" render={() => <RegistrationForm />} />
+          <Route exact path="/posts/trending" render={
+            () => <QuestionList
+              message="We can't find anything that matches that criteria, captain."
+              filter="ordering=-comments_count"
+            />
+          } />
           <Route exact path="/posts/create" render={() => <PostQuestionForm />} />
           <Route exact path="/posts/:id" render={() => <QuestionPage />} />
           <Route exact path="/posts/:id/edit" render={() => <EditQuestionForm />} />
