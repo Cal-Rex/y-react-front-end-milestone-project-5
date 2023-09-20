@@ -2,3 +2,20 @@
     color: #fafafa;
     padding: 0px 10px;
 }
+
+.Body {
+    margin-left: 10px;
+}
+
+.CommentOwner {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.CommentDate {
+    font-size: 0.8rem;
+}
+
+.Rule {
+    background-color: #fafafa;
+}

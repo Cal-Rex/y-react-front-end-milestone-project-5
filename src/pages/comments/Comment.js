@@ -89,16 +89,16 @@ const Comment = (props) => {
 
     return (
         <div>
-            <hr />
+            <hr className={styles.Rule}/>
             <Media>
                 <Link to={`/profiles/${profile_id}`}>
                     <Avatar src={profile_image} />
                 </Link>
-                <Media.Body>
-                    <span>{owner}</span>
+                <Media.Body className={styles.Body}>
+                    <span className={styles.CommentOwner}>{owner}</span>
                     {edited
-                        ? (<><span>{date_updated}</span> <span>Edited</span></>)
-                        : (<span>{date_created}</span>)
+                        ? (<><span className={styles.CommentDate}>{date_updated}</span> <span>Edited</span></>)
+                        : (<span className={styles.CommentDate}>{date_created}</span>)
                     }
                     {showEditForm ? (
                         <EditCommentForm

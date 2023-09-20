@@ -5,6 +5,7 @@ import btnStyles from '../../styles/Button.module.css'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Avatar from '../../components/Avatar';
 import styles from '../../styles/Form.module.css'
+import cmntStyles from '../../styles/PostCommentForm.module.css'
 
 function PostCommentForm(props) {
     const { profile_id, profile_image, post, setQuestion, setComments } = props;
@@ -37,12 +38,12 @@ function PostCommentForm(props) {
                     <Link to={`/profiles/${profile_id}`}>
                         <Avatar src={profile_image} />
                     </Link>
-                    <Form.Control className={styles.Fields}
+                    <Form.Control className={`${styles.Fields} ${cmntStyles.Form}`}
                         placeholder="comment..."
                         as="textarea"
                         value={content}
                         onChange={handleChange}
-                        rows={3} 
+                        rows={2} 
                     />
                 </InputGroup>
             </Form.Group>
