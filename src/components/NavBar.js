@@ -1,19 +1,32 @@
 import React from 'react'
 import NavLink from 'react-router-dom/NavLink'
-import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Button, Container, Dropdown, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import styles from '../styles/NavBar.module.css'
 import NavLogo from '../assets/y-no-canvas-alpha.webp'
 import Avatar from './Avatar'
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext'
 import axios from 'axios'
 import { useQuery, useSetQuery } from '../contexts/SearchContext'
+import Profile from '../pages/profiles/Profile'
+import { profileRedirect, editProfileRedirect, handleLogOut } from '../utils/Utils'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import dropStyles from '../styles/Dropdown.module.css'
 
 
 const NavBar = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
+    const history = useHistory();
     const query = useQuery();
     const setQuery = useSetQuery();
+
+    const profileRedirect = () => {
+        history.push(`/profiles/${currentUser?.profile_id}/`)
+    }
+
+    const editProfileRedirect = () => {
+        history.push(`/profiles/${currentUser?.profile_id}/edit`)
+    }
 
     const handleLogOut = async () => {
         try {
@@ -24,14 +37,22 @@ const NavBar = () => {
         }
     };
 
-
     const authenticatedMenu = (
         <>
             <div className={`${styles.Username}`}>{currentUser?.username}</div>
-            <Avatar
-                src={currentUser?.profile_image}
-                height={45}
-            />
+            <Dropdown>
+                <Dropdown.Toggle className={`${dropStyles.DropdownContainer}`}>
+                    <Avatar
+                        src={currentUser?.profile_image}
+                        height={45}
+                    />
+                </Dropdown.Toggle>
+                <Dropdown.Menu align="right" className={dropStyles.DropdownMenu}>
+                    <Dropdown.Item className={dropStyles.DropdownItem} onClick={profileRedirect}>Profile</Dropdown.Item>
+                    <Dropdown.Item className={dropStyles.DropdownItem} onClick={editProfileRedirect}>Edit Profile</Dropdown.Item>
+                    <Dropdown.Item className={dropStyles.DropdownItem} onClick={handleLogOut}>Log Out</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
         </>
     )
     const unauthenticatedMenu = (
@@ -61,7 +82,7 @@ const NavBar = () => {
                             placeholder="Search"
                             className={`mr-sm-2 ${styles.SearchBar}`}
                             onChange={(event) => setQuery(event.target.value)}
-                            />
+                        />
                     </Form>
                     <Nav className={`ml-auto`}>
                         {/* placeholder for avatar */}
