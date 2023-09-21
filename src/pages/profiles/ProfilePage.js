@@ -76,7 +76,7 @@ const ProfilePage = () => {
         <Col xs={{ span: 12 }} sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }}>
             <Row>
                 <Col lg={12} className={styles.Head}>
-                    <div><Image className={styles.Image} src={profile?.image} height={100} /></div>
+                    <div><Image className={styles.Image} src={profile?.image} alt="Profile Avatar" height={100} /></div>
                     {profile?.owner}
                     {profile?.is_owner && <span> <ProfileEditDropdown id={profile?.id} /></span>}
 
