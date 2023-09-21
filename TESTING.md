@@ -15,7 +15,63 @@
 
 ### CSS Validation
 
+
 ### JS Validation
+[JSHint](https://jshint.com/) was used to validate all javascript files. all passed with minor warnings. mainly because React did not translate well into the JSHint validator. screenshots indicate where the validator could not fully read all code. however, all standard syntax issues were addressed.
+
+**App**
+[App.js](/readme-assets/testing/javascript/App.png)
+
+**api**
+[axiosDefault.js](/readme-assets/testing/javascript/api/axiosDefault.png)
+
+**assets**
+[Loader.js](/readme-assets/testing/javascript/assets/Loader.png)
+
+**components**
+[Asset.js](/readme-assets/testing/javascript/components/Asset.png)
+[Avatar.js](/readme-assets/testing/javascript/components/Avatar.png)
+[DropdownOptions.js](/readme-assets/testing/javascript/components/DropdownOptions.png)
+[Footer](/readme-assets/testing/javascript/components/Footer.png)
+[NavBar.js](/readme-assets/testing/javascript/components/NavBar.png)
+
+**contexts**
+[CurrentUserContext.js](/readme-assets/testing/javascript/contexts/CurrentUserContext.png)
+[LoadContext.js](/readme-assets/testing/javascript/contexts/LoadContext.png)
+[ProfileDataContext.js](/readme-assets/testing/javascript/contexts/ProfileDataContext.png)
+[SearchContext.js](/readme-assets/testing/javascript/contexts/SearchContext.png)
+
+**hooks**
+[useClickAwayToggle.js](/readme-assets/testing/javascript/hooks/useClickAwayToggle.png)
+[useRedirect.js](/readme-assets/testing/javascript/hooks/useRedirect.png)
+
+**pages > auth**
+[LoginForm.js](/readme-assets/testing/javascript/pages/auth/LoginForm.png)
+[RegistrationForm.js](/readme-assets/testing/javascript/pages/auth/RegistrationForm.png)
+[UpdateNonAuthForm.js](/readme-assets/testing/javascript/pages/auth/UpdateNonAuthForm.png)
+[UpdatePasswordForm.js](/readme-assets/testing/javascript/pages/auth/UpdatePasswordForm.png)
+[UpdateUsernameForm.js](/readme-assets/testing/javascript/pages/auth/UpdateUsernameForm.png)
+
+**pages > comments**
+[Comment.js](/readme-assets/testing/javascript/pages/comments/Comment.png)
+[EditCommentForm.js](/readme-assets/testing/javascript/pages/comments/EditCommentForm.png)
+[PostCommentForm.js](/readme-assets/testing/javascript/pages/comments/PostCommentForm.png)
+
+**pages > profiles**
+[FollowedProfiles.js](/readme-assets/testing/javascript/pages/profiles/FollowedProfiles.png)
+[Profile.js](/readme-assets/testing/javascript/pages/profiles/Profile.png)
+[ProfileList.js](/readme-assets/testing/javascript/pages/profiles/ProfileList.png)
+[ProfilePage.js](/readme-assets/testing/javascript/pages/profiles/ProfilePage.png)
+
+**pages > questions**
+[EditQuestionForm.js](/readme-assets/testing/javascript/pages/questions/EditQuestionForm.png)
+[PostQuestionForm.js](/readme-assets/testing/javascript/pages/questions/PostQuestionForm.png)
+[Question.js](/readme-assets/testing/javascript/pages/questions/Question.png)
+[QuestionList.js](/readme-assets/testing/javascript/pages/questions/QuestionList.png)
+[QuestionPage.js](/readme-assets/testing/javascript/pages/questions/QuestionPage.png)
+
+**utils**
+[Utils.js](/readme-assets/testing/javascript/utils/Utils.png)
 
 ### Lighthouse
 
