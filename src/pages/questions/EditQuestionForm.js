@@ -104,7 +104,7 @@ const EditQuestionForm = () => {
                                 placeholder='Question...'
                                 value={title}
                                 onChange={handleChange}
-                                Required
+                                required
                             />
                         </Form.Group>
 

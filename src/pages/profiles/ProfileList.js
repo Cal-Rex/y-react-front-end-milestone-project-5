@@ -52,7 +52,7 @@ const ProfileList = ({ message, filter }) => {
                             endMessage={<div style={{ textAlign: 'center' }}><p>That's all, Batman</p></div>}
                         >
                             {profiles.results.map(profile => (
-                                <div className={styles.ProfileListItem}><Profile key={profile.id} profile={profile} listView /></div>
+                                <div key={profile.id} className={styles.ProfileListItem}><Profile profile={profile} listView /></div>
                             ))}
                         </InfiniteScroll>
                     ) : <Asset src={NoResult} message={message} />}

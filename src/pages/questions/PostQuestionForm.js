@@ -90,7 +90,7 @@ const PostQuestionForm = () => {
                                 placeholder='Question...'
                                 value={title}
                                 onChange={handleChange}
-                                notRequired
+                                required
                             />
                         </Form.Group>
 

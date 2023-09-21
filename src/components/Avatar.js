@@ -6,7 +6,6 @@ import useClickAwayToggle from "../hooks/useClickAwayToggle";
 
 const Avatar = (props) => {
     const { src, height = 45, message } = props;
-    const { show, setShow, ref } = useClickAwayToggle();
 
     return (
         <div>
@@ -17,8 +16,6 @@ const Avatar = (props) => {
                 height={height}
                 width={height}
                 alt="Profile Avatar"
-                ref={ref}
-                onClick={() => setShow(!show)}
             />
         </div>
     )
