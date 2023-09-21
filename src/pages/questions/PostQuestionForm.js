@@ -40,6 +40,13 @@ const PostQuestionForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        const maxFileSize = 2 * 1024 * 1024;
+        if (imageUpload.current.files[0]?.size > maxFileSize) {
+            setErrors({ image: ['Image filesize is too big, buddy. take it for a haircut or pick another image.'] });
+            return;
+        }
+        
         const formData = new FormData();
         formData.append('title', title);
         formData.append('image', imageUpload.current.files[0]);
@@ -83,7 +90,7 @@ const PostQuestionForm = () => {
                             {image ? (
                                 <>
                                     <figure className={styles.Figure}>
-                                        <Image src={image} fluid/>
+                                        <Image src={image} fluid />
                                     </figure>
                                     <div>
                                         <Form.Label
