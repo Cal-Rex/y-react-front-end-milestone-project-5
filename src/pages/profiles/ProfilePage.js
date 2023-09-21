@@ -19,14 +19,14 @@ import { ProfileEditDropdown } from "../../components/DropdownOptions";
 const ProfilePage = () => {
     const [loaded, setLoaded] = useState(false);
     const { id } = useParams();
-    const {setProfileData, handleFollow, handleUnfollow} = useSetProfileData();
+    const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
     const [profilePosts, setProfilePosts] = useState({ results: [] });
     const [profileComments, setProfileComments] = useState({ results: [] });
 
     const currentUser = useCurrentUser();
-    const is_owner = currentUser?.username === pageProfile.username;
+    const is_owner = currentUser?.username === profile?.username;
 
 
     useEffect(() => {
@@ -69,26 +69,29 @@ const ProfilePage = () => {
                 <Col lg={12} className={styles.Head}>
                     <div><Image className={styles.Image} src={profile?.image} height={100} /></div>
                     {profile?.owner}
-                    {profile?.is_owner && <span> <ProfileEditDropdown id={profile?.id}/></span>}
-                    
-                    <div>
-                    {currentUser && !is_owner && (profile?.following_id ? (
-                        <Button variant="primary" className={`${btnStyles.Btn}`}
-                            onClick={() => handleUnfollow(profile)}
-                        >
-                            Unfollow
-                        </Button>
-                    ) : (
-                        <Button variant="primary" className={`${btnStyles.Btn}`}
-                            onClick={() => handleFollow(profile)}
-                        >
-                            Follow
-                        </Button>
-                    ))}
-                    </div>
+                    {profile?.is_owner && <span> <ProfileEditDropdown id={profile?.id} /></span>}
+
+                    {profile?.is_owner ? (<></>) : (
+                        <div>
+                            {currentUser && !is_owner && (profile?.following_id ? (
+                                <Button variant="primary" className={`${btnStyles.Btn}`}
+                                    onClick={() => handleUnfollow(profile)}
+                                >
+                                    Unfollow
+                                </Button>
+                            ) : (
+                                <Button variant="primary" className={`${btnStyles.Btn}`}
+                                    onClick={() => handleFollow(profile)}
+                                >
+                                    Follow
+                                </Button>
+                            ))}
+                        </div>
+                    )}
                 </Col>
                 <Col xs={12}>
                     {profile?.bio}
+                    {console.log(profile)}
                 </Col>
                 <Col xs={6} className={styles.Stats}>
                     <div>Questions</div>
@@ -109,20 +112,20 @@ const ProfilePage = () => {
                 <Col xs={12}>
                     <hr />
                     <h6 className={styles.Head}><i class="fa-solid fa-star"></i> Best Answer <i class="fa-solid fa-star"></i></h6>
-                    
+
                     <div className={styles.TopComment}>
-                    <Link className={styles.TopCommentPost} to={`/posts/${profileComments.results[0]?.post}/`}>
-                    {profileComments.results.length ? (
-                        <>
-                        <h5 className={styles.TopCommentHeader}>{profileComments.results[0]?.post_title} </h5>
-                        <Comment {...profileComments.results[0]} />
-                        </>
-                    ) : (
-                        <Asset loader />
-                    )}
-                    </Link>
+                        <Link className={styles.TopCommentPost} to={`/posts/${profileComments.results[0]?.post}/`}>
+                            {profileComments.results.length ? (
+                                <>
+                                    <h5 className={styles.TopCommentHeader}>{profileComments.results[0]?.post_title} </h5>
+                                    <Comment {...profileComments.results[0]} />
+                                </>
+                            ) : (
+                                <Asset loader />
+                            )}
+                        </Link>
                     </div>
-                    
+
                 </Col>
                 <Col xs={12}>
                     <hr />
@@ -147,7 +150,7 @@ const ProfilePage = () => {
     return (
         <Row>
             {loaded ? (
-                    profileCard
+                profileCard
             ) : (
                 <Asset loader />
             )}
