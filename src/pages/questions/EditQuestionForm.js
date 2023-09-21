@@ -111,7 +111,7 @@ const EditQuestionForm = () => {
                         <Form.Group>
                             <>
                                 <figure className="text-center">
-                                    <Image src={image} fluid />
+                                    <Image src={image} alt="Post Image" fluid />
                                 </figure>
                                 <div>
                                     <Form.Label

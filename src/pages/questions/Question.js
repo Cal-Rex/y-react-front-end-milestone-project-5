@@ -128,7 +128,7 @@ const Question = (props) => {
         {
             image &&
             <Link to={`/posts/${id}`}>
-                <Card.Img src={image} alt={`image for question: ${title}`} />
+                <Card.Img className={styles.Image} src={image} alt={`image for question: ${title}`} />
             </Link>
         }
         <Card.Body className={styles.QuestionMetrics}>

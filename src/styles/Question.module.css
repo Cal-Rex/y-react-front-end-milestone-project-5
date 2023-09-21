@@ -21,6 +21,10 @@
     display: flex;
 }
 
+.Image {
+    object-fit: contain;
+}
+
 .ProfileName {
     padding-left: 0.5rem;
     color: #fafafa;
