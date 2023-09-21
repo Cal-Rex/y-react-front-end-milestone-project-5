@@ -1,8 +1,6 @@
 
 import styles from "../styles/Avatar.module.css";
 
-import useClickAwayToggle from "../hooks/useClickAwayToggle";
-
 
 const Avatar = (props) => {
     const { src, height = 45, message } = props;
