@@ -82,8 +82,8 @@ const PostQuestionForm = () => {
                         <Form.Group>
                             {image ? (
                                 <>
-                                    <figure className="text-center">
-                                        <Image src={image} />
+                                    <figure className={styles.Figure}>
+                                        <Image src={image} fluid/>
                                     </figure>
                                     <div>
                                         <Form.Label

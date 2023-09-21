@@ -13,6 +13,10 @@
     color: #fafafa;
 }
 
+.Figure {
+    object-fit: contain;
+}
+
 .InputField:focus {
     background-color: #00000000;
     color: #fafafa;

@@ -96,7 +96,7 @@ const EditQuestionForm = () => {
                         <Form.Group>
                             <>
                                 <figure className="text-center">
-                                    <Image src={image} />
+                                    <Image src={image} fluid />
                                 </figure>
                                 <div>
                                     <Form.Label
