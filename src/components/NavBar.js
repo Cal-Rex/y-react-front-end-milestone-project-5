@@ -28,6 +28,10 @@ const NavBar = () => {
         history.push(`/profiles/${currentUser?.profile_id}/edit`)
     }
 
+    const likedRedirect = () => {
+        history.push(`/posts/liked`)
+    }
+
     const handleLogOut = async () => {
         try {
             await axios.post("dj-rest-auth/logout/");
@@ -49,6 +53,7 @@ const NavBar = () => {
                 </Dropdown.Toggle>
                 <Dropdown.Menu align="right" className={dropStyles.DropdownMenu}>
                     <Dropdown.Item className={dropStyles.DropdownItem} onClick={profileRedirect}>Profile</Dropdown.Item>
+                    <Dropdown.Item className={dropStyles.DropdownItem} onClick={likedRedirect}>Liked Posts</Dropdown.Item>
                     <Dropdown.Item className={dropStyles.DropdownItem} onClick={editProfileRedirect}>Edit Profile</Dropdown.Item>
                     <Dropdown.Item className={dropStyles.DropdownItem} onClick={handleLogOut}>Log Out</Dropdown.Item>
                 </Dropdown.Menu>

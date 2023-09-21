@@ -18,7 +18,7 @@ const Footer = () => {
                         </Link>
                     </Col>
                     <Col className='text-left' xs={{ span: 4 }} md={{ span: 4 }}>
-                        <Link>
+                        <Link to="/profiles">
                             <i className={`${styles.Shadow} fa-solid fa-user-group fa-2xl`}></i>
                         </Link>
                     </Col>

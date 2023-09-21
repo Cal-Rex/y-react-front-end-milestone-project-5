@@ -108,13 +108,13 @@ const ProfilePage = () => {
                 </Col>
                 <Col xs={12}>
                     <hr />
-                    <p className={styles.Head}>Best Answer</p>
+                    <h6 className={styles.Head}><i class="fa-solid fa-star"></i> Best Answer <i class="fa-solid fa-star"></i></h6>
                     
                     <div className={styles.TopComment}>
                     <Link className={styles.TopCommentPost} to={`/posts/${profileComments.results[0]?.post}/`}>
                     {profileComments.results.length ? (
                         <>
-                        <h5 className={styles.TopCommentHeader}>{profileComments.results[0]?.post_title}</h5>
+                        <h5 className={styles.TopCommentHeader}>{profileComments.results[0]?.post_title} </h5>
                         <Comment {...profileComments.results[0]} />
                         </>
                     ) : (

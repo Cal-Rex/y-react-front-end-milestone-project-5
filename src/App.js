@@ -18,6 +18,7 @@ import ProfilePage from './pages/profiles/ProfilePage';
 import UpdateUsernameForm from './pages/auth/UpdateUsernameForm';
 import UpdatePasswordForm from './pages/auth/UpdatePasswordForm';
 import UpdateNonAuthForm from './pages/auth/UpdateNonAuthForm';
+import ProfileList from './pages/profiles/ProfileList';
 
 
 
@@ -51,9 +52,16 @@ function App() {
               filter="ordering=-comments_count"
             />
           } />
+          <Route exact path="/posts/liked" render={
+            () => <QuestionList
+              message="We can't find anything that matches that criteria, captain."
+              filter={`liked_post__owner__profile=${currentUser.profile_id}`}
+            />
+          } />
           <Route exact path="/posts/create" render={() => <PostQuestionForm />} />
           <Route exact path="/posts/:id" render={() => <QuestionPage />} />
           <Route exact path="/posts/:id/edit" render={() => <EditQuestionForm />} />
+          <Route exact path="/profiles/" render={() => <ProfileList />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route exact path="/profiles/:id/edit/username" render={() => <UpdateUsernameForm />} />
           <Route exact path="/profiles/:id/edit/password" render={() => <UpdatePasswordForm />} />
