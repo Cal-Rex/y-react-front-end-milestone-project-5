@@ -95,11 +95,6 @@ const LogInForm = () => {
                         Create Account
                     </Link>
                 </Col>
-                <Col xs={{ span: 3 }} md={{ span: 2 }} className={styles.Right}>
-                    <Link to="/password_recovery">
-                        Forgot password?
-                    </Link>
-                </Col>
             </Row>
         </Container>
     )
