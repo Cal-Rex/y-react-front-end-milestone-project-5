@@ -29,7 +29,9 @@ const Profile = (props) => {
   const handleLogOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
-    } catch (err) {}
+    } catch (err) {
+      // console.log(err);
+    }
   };
 
   const profileListView = 

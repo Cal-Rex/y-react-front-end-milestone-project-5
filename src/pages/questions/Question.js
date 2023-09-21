@@ -33,7 +33,9 @@ const Question = (props) => {
         try {
             await axiosRes.delete(`/posts/${id}`);
             history.push('/posts/create');
-        } catch (err) {}
+        } catch (err) {
+            // console.log(err);
+        }
     };
 
     const handleLike = async () => {
@@ -50,7 +52,9 @@ const Question = (props) => {
                         } : question
                 })
             }))
-        } catch (err) {}
+        } catch (err) {
+            // console.log(err);
+        }
     }
 
     const handleUnlike = async () => {
@@ -67,7 +71,9 @@ const Question = (props) => {
                         } : question
                 })
             }))
-        } catch (err) {}
+        } catch (err) {
+            // console.log(err);
+        }
     }
 
     useEffect(() => {
@@ -76,6 +82,7 @@ const Question = (props) => {
                 const { data } = await axiosReq.get(`/comments/?ordering=-votes_count&post=${id}`)
                 setComments(data)
             } catch (err) {
+                // console.log(err);
             }
         }
         handleMount();

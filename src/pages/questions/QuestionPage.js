@@ -33,7 +33,9 @@ function QuestionPage() {
                     ...prevComments, 
                     results: [...commentsData.results],
                 }));
-            } catch (err) {}
+            } catch (err) {
+                // console.log(err);
+            }
         }
         handleMount();
     }, [id])

@@ -34,7 +34,9 @@ export const ProfileDataProvider = ({ children }) => {
                     results: prevState.popularProfiles.results.map((profile) => followHelper(profile, clickedProfile, data.id))
                 },
             }));
-        } catch(err) {}
+        } catch(err) {
+            // console.log(err);
+        }
     }
 
     const handleUnfollow = async (clickedProfile) => {
@@ -51,7 +53,9 @@ export const ProfileDataProvider = ({ children }) => {
                     results: prevState.popularProfiles.results.map((profile) => unfollowHelper(profile, clickedProfile))
                 },
             }));
-        } catch(err) {}
+        } catch(err) {
+            // console.log(err);
+        }
     }
 
     useEffect(() => {
@@ -66,6 +70,7 @@ export const ProfileDataProvider = ({ children }) => {
                         popularProfiles: data,
                     }));
                 } catch (err) {
+                    // console.log(err);
                 }
             } else {
                 try {
@@ -76,7 +81,9 @@ export const ProfileDataProvider = ({ children }) => {
                         ...prevState,
                         popularProfiles: data,
                 }));
-                } catch (err) {}
+                } catch (err) {
+                    // console.log(err);
+                }
             }
         }
         handleMount();

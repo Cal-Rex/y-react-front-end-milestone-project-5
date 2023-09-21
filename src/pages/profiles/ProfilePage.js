@@ -47,6 +47,7 @@ const ProfilePage = () => {
 
                 setLoaded(true);
             } catch (err) {
+                // console.log(err);
                 setLoaded(true);
             }
 

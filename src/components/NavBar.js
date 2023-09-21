@@ -36,7 +36,9 @@ const NavBar = () => {
         try {
             await axios.post("dj-rest-auth/logout/");
             setCurrentUser(null);
-        } catch (err) {}
+        } catch (err) {
+            // console.log(err);
+        }
     };
 
     const authenticatedMenu = (

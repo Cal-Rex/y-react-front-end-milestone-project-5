@@ -33,6 +33,7 @@ const UpdateNonAuthForm = () => {
           const { name, bio, image } = data;
           setProfileData({ name, bio, image });
         } catch (err) {
+          // console.log(err);
           history.push("/");
         }
       } else {
@@ -68,6 +69,7 @@ const UpdateNonAuthForm = () => {
       }));
       history.goBack();
     } catch (err) {
+      // console.log(err);
       setErrors(err.response?.data);
     }
   };

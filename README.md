@@ -212,6 +212,14 @@ Based on the user stories, the following features have been considered for devel
     - this component will give pick from the top-3 most voted on posts and pick one at random, and return it in a post-detail style component, for users with larger screens to immediately view and contribute to.
 
 ### Structure 
+
+| [instructions on optimizing bootstrap imports](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+RA101+2021_T3/courseware/70a8c55db0504bbdb5bcc3bfcf580080/f50e8ca2d7f6497c9d9857048d973ae4/) |
+|:-----|
+| Because we have been using auto-imports for our components, our bootstrap imports have been done in a way that is not optimal for build time. For example in NavBar.js, we have imports like this <br><br> import { Navbar, Container, Nav } from "react-bootstrap"; Which means the entire react-bootstrap library is imported and the NavBar, Container and Nav components are deconstructed from it.<br><br>The Bootstrap documentation recommends instead importing each component individually from their specific folder. Like this:<br><br> import Navbar from "react-bootstrap/Navbar";<br> import Container from "react-bootstrap/Container";<br> import Nav from "react-bootstrap/Nav";<br> This minimises the bootstrap build to only the components that are needed from the library.<br><br> We recommend you go through your components and adjust your react-bootstrap component imports with this in mind. |
+
+error showing in console doing it this 
+
+
 ### Skeleton
 
 #### Wireframes

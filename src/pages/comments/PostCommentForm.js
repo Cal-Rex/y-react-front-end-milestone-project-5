@@ -24,7 +24,9 @@ function PostCommentForm(props) {
                 results: [data, ...prevComments.results],
             }));
             setContent("");
-        } catch (err) {}
+        } catch (err) {
+            // console.log(err);
+        }
     };
 
     return (

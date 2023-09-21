@@ -12,9 +12,11 @@ import { fetchMoreData } from '../../utils/Utils';
 import FollowedProfiles from '../profiles/FollowedProfiles';
 import { useQuery } from '../../contexts/SearchContext';
 import { useSetLoadStatus } from '../../contexts/LoadContext';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
 const QuestionList = ({ message, filter }) => {
     const [questions, setQuestions] = useState({ results: [] });
+    const currentUser = useCurrentUser();
     const [loadStatus, setLoadStatus] = useState(false);
     const setContextLoadStatus = useSetLoadStatus();
     const { pathname } = useLocation();
@@ -28,12 +30,13 @@ const QuestionList = ({ message, filter }) => {
                 setLoadStatus(true);
                 setContextLoadStatus(true);
             } catch (err) {
+                // console.log(err);
             }
         }
         setContextLoadStatus(false);
         setLoadStatus(false);
         fetchQuestions();
-    }, [query, pathname, filter, setContextLoadStatus]);
+    }, [query, pathname, filter, setContextLoadStatus, currentUser]);
 
     return (
         <Container fluid className={styles.QuestionContainer}>

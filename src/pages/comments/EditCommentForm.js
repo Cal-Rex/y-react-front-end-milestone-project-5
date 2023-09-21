@@ -30,7 +30,9 @@ function EditCommentForm(props) {
             : comment;
         }),
       }));
-    } catch (err) {}
+    } catch (err) {
+      // console.log(err);
+    }
     setShowEditForm(false);
   };
 

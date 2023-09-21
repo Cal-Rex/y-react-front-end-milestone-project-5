@@ -24,6 +24,7 @@ const ProfileList = ({ message, filter }) => {
                 setProfiles(data);
                 setLoaded(true);
             } catch (err) {
+                // console.log(err);
             }
         }
         setLoaded(false);
