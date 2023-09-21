@@ -9,11 +9,14 @@ import axios from 'axios'
 import { useSetQuery } from '../contexts/SearchContext'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import dropStyles from '../styles/Dropdown.module.css'
+import { useLoadStatus } from '../contexts/LoadContext'
+import Asset from '../components/Asset'
 
 
 const NavBar = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
+    const contextloadStatus = useLoadStatus();
     const history = useHistory();
     const setQuery = useSetQuery();
 
@@ -85,7 +88,10 @@ const NavBar = () => {
                         />
                     </Form>
                     <Nav className={`ml-auto`}>
-                        {currentUser ? authenticatedMenu : unauthenticatedMenu}
+                        {contextloadStatus 
+                            ? (currentUser ? authenticatedMenu : unauthenticatedMenu)
+                            : <Asset loader />
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>

@@ -7,15 +7,18 @@ import { BrowserRouter as Router } from 'react-router-dom/'
 import { CurrentUserProvider } from './contexts/CurrentUserContext';
 import { ProfileDataProvider } from './contexts/ProfileDataContext';
 import { SearchQueryProvider } from './contexts/SearchContext';
+import { LoadStatusProvider } from './contexts/LoadContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <CurrentUserProvider>
         <ProfileDataProvider>
-          <SearchQueryProvider>
-            <App />
-          </SearchQueryProvider>
+          <LoadStatusProvider>
+            <SearchQueryProvider>
+              <App />
+            </SearchQueryProvider>
+          </LoadStatusProvider>
         </ProfileDataProvider>
       </CurrentUserProvider>
     </Router>
