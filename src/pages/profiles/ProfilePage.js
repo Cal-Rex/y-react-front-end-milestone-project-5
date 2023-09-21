@@ -91,7 +91,6 @@ const ProfilePage = () => {
                 </Col>
                 <Col xs={12}>
                     {profile?.bio}
-                    {console.log(profile)}
                 </Col>
                 <Col xs={6} className={styles.Stats}>
                     <div>Questions</div>
