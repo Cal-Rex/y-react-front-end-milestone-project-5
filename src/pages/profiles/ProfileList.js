@@ -53,7 +53,7 @@ const ProfileList = ({ message, filter }) => {
                         >
                             {console.log(profiles)}
                             {profiles.results.map(profile => (
-                                <div className={styles.ProfileListItem}><Profile key={profile.id} profile={profile} /><div>{profile.username}</div></div>
+                                <div className={styles.ProfileListItem}><Profile key={profile.id} profile={profile} listView /></div>
                             ))}
                         </InfiniteScroll>
                     ) : <Asset src={NoResult} message={message} />}

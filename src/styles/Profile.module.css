@@ -6,3 +6,23 @@
 .Name {
     white-space: nowrap;
 }
+
+.ProfileList {
+    text-align: center;
+    margin-right: 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.NameList {
+    white-space: nowrap;
+    margin-left: 15px;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-weight: bold;
+}
