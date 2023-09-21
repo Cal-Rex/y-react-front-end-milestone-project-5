@@ -45,8 +45,15 @@ const EditQuestionForm = () => {
         const maxFileSize = 2 * 1024 * 1024;
         if (imageUpload.current.files[0]?.size > maxFileSize) {
             setErrors({ image: ['Image filesize is too big, buddy. take it for a haircut or pick another image.'] });
+            setLoaded(true);
             return;
         }
+        
+        if (title.trim() === '') {
+            setErrors({ title: ['You at least need a title!'] });
+            setLoaded(true);
+            return;
+          }
 
         const formData = new FormData();
         if (imageUpload?.current?.files[0]) { formData.append('image', imageUpload.current.files[0]); }
@@ -97,7 +104,7 @@ const EditQuestionForm = () => {
                                 placeholder='Question...'
                                 value={title}
                                 onChange={handleChange}
-                                notRequired
+                                Required
                             />
                         </Form.Group>
 
