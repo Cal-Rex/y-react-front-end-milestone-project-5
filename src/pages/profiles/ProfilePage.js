@@ -64,7 +64,7 @@ const ProfilePage = () => {
 
 
     const profileCard = (
-        <Col lg={8}>
+        <Col xs={{ span: 12 }} sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }}>
             <Row>
                 <Col lg={12} className={styles.Head}>
                     <div><Image className={styles.Image} src={profile?.image} height={100} /></div>
@@ -144,19 +144,10 @@ const ProfilePage = () => {
         </Col>
     );
 
-    const followedProfiles = (
-        <Col lg={4}>
-            <FollowedProfiles />
-        </Col>
-    )
-
     return (
         <Row>
             {loaded ? (
-                <>
-                    {profileCard}
-                    {followedProfiles}
-                </>
+                    profileCard
             ) : (
                 <Asset loader />
             )}

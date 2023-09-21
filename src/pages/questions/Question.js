@@ -138,9 +138,6 @@ const Question = (props) => {
                         <div className={styles.Metric}>
                             {comments_count} Comments
                         </div>
-                        <div className={styles.Metric}>
-                            ... Votes
-                        </div>
                     </Col>
                     <Col className={styles.Interactions}>
                         {
