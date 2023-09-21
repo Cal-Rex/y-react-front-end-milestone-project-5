@@ -89,7 +89,7 @@ const ProfilePage = () => {
                         </div>
                     )}
                 </Col>
-                <Col xs={12}>
+                <Col className={styles.Bio} xs={12}>
                     {profile?.bio}
                 </Col>
                 <Col xs={6} className={styles.Stats}>

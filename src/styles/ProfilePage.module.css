@@ -15,6 +15,11 @@
     -webkit-clip-path: polygon(15% 0, 100% 0, 100% 15%, 100% 100%, 85% 100%, 0 100%, 0 85%, 0 0);
 }
 
+.Bio {
+    text-align: center;
+    margin: 30px 0px;
+}
+
 .Stats {
     text-align: center;
     margin: 5px auto;
