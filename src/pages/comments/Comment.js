@@ -114,7 +114,7 @@ const Comment = (props) => {
                     </span>
                 ) : (
                     <Link to="/login">
-                        <span onClick={() => { }} className={styles.Interaction}>
+                        <span className={styles.Interaction}>
                         <i className="fa-regular fa-circle-check fa-xl"></i>
                         </span>
                     </Link>

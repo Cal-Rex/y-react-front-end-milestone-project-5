@@ -36,11 +36,11 @@ const ProfileList = ({ message, filter }) => {
         <Container>
             <Row>
                 <Col xs={{ span: 12 }} sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }}>
-                    <h5><i class="fa-solid fa-people-pulling fa-xl"></i> Followed Profiles</h5>
+                    <h5><i className="fa-solid fa-people-pulling fa-xl"></i> Followed Profiles</h5>
                     <FollowedProfiles />
                 </Col>
                 <Col xs={{ span: 12 }} sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }}>
-                    <h5><i class="fa-solid fa-person-circle-question fa-xl"></i> Discover Profiles</h5>
+                    <h5><i className="fa-solid fa-person-circle-question fa-xl"></i> Discover Profiles</h5>
                 </Col>
                 <Col xs={{ span: 12 }} sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }}>
                     {profiles.results.length ? (

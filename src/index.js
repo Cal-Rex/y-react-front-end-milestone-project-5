@@ -10,7 +10,6 @@ import { SearchQueryProvider } from './contexts/SearchContext';
 import { LoadStatusProvider } from './contexts/LoadContext';
 
 ReactDOM.render(
-  <React.StrictMode>
     <Router>
       <CurrentUserProvider>
         <ProfileDataProvider>
@@ -21,8 +20,7 @@ ReactDOM.render(
           </LoadStatusProvider>
         </ProfileDataProvider>
       </CurrentUserProvider>
-    </Router>
-  </React.StrictMode>,
+    </Router>,
   document.getElementById('root')
 );
 

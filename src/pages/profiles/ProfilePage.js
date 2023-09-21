@@ -119,7 +119,7 @@ const ProfilePage = () => {
                 </Col>
                 <Col xs={12}>
                     <hr />
-                    <h6 className={styles.Head}><i class="fa-solid fa-star"></i> Best Answer <i class="fa-solid fa-star"></i></h6>
+                    <h6 className={styles.Head}><i className="fa-solid fa-star"></i> Best Answer <i className="fa-solid fa-star"></i></h6>
 
                     <div className={styles.TopComment}>
                         <Link className={styles.TopCommentPost} to={`/posts/${profileComments.results[0]?.post}/`}>

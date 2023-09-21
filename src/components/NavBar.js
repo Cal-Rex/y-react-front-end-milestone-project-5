@@ -1,5 +1,4 @@
 import React from 'react'
-import NavLink from 'react-router-dom/NavLink'
 import { Container, Dropdown, Form, FormControl, Nav, Navbar } from 'react-bootstrap'
 import styles from '../styles/NavBar.module.css'
 import NavLogo from '../assets/y-no-canvas-alpha.webp'
@@ -7,10 +6,11 @@ import Avatar from './Avatar'
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext'
 import axios from 'axios'
 import { useSetQuery } from '../contexts/SearchContext'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { useHistory, NavLink } from 'react-router-dom/cjs/react-router-dom.min'
 import dropStyles from '../styles/Dropdown.module.css'
 import { useLoadStatus } from '../contexts/LoadContext'
 import Asset from '../components/Asset'
+import { removeTokenTimestamp } from '../utils/Utils'
 
 
 const NavBar = () => {
@@ -36,6 +36,7 @@ const NavBar = () => {
         try {
             await axios.post("dj-rest-auth/logout/");
             setCurrentUser(null);
+            removeTokenTimestamp();
         } catch (err) {
             // console.log(err);
         }

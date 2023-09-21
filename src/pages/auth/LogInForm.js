@@ -6,6 +6,7 @@ import btnStyles from '../../styles/Button.module.css'
 import axios from 'axios'
 import { useSetCurrentUser } from '../../contexts/CurrentUserContext'
 import { useRedirect } from '../../hooks/useRedirect'
+import { setTokenTimestamp } from '../../utils/Utils'
 
 const LogInForm = () => {
     const setCurrentUser = useSetCurrentUser();
@@ -31,7 +32,8 @@ const LogInForm = () => {
         event.preventDefault();
         try { 
             const {data} = await axios.post('/dj-rest-auth/login/', logInData)
-            setCurrentUser(data.user)
+            setCurrentUser(data.user);
+            setTokenTimestamp(data);
             history.goBack();
         } catch (err) {
             // console.log(err);

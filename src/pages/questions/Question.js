@@ -77,15 +77,19 @@ const Question = (props) => {
     }
 
     useEffect(() => {
+        let isMounted = true;
         const handleMount = async () => {
             try {
                 const { data } = await axiosReq.get(`/comments/?ordering=-votes_count&post=${id}`)
-                setComments(data)
+                if (isMounted) {
+                    setComments(data);
+                }
             } catch (err) {
                 // console.log(err);
             }
         }
         handleMount();
+        return () => {isMounted = false};
     }, [id]);
 
     return <Card className={styles.QuestionObject}>
@@ -183,7 +187,7 @@ const Question = (props) => {
                 comments?.results[0] ? (
                     <>
                         <hr className={styles.Rule} />
-                        <div><h6>Leading Answer <i class="fa-solid fa-award fa-lg"></i></h6></div>
+                        <div><h6>Leading Answer <i className="fa-solid fa-award fa-lg"></i></h6></div>
                         <Comment {...comments.results[0]} listView />
                     </>
                 ) : (

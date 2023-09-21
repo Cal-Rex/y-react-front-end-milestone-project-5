@@ -2,6 +2,7 @@ import { useState, useEffect, createContext, useContext, useMemo } from 'react';
 import axios from 'axios';
 import { axiosReq, axiosRes } from '../api/axiosDefault';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { removeTokenTimestamp, shouldRefreshToken } from '../utils/Utils';
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -28,18 +29,21 @@ export const CurrentUserProvider = ({ children }) => {
     useMemo(() => {
         axiosReq.interceptors.request.use(
             async (config) => {
-                try {
-                    await axios.post('/dj-rest-auth/token/refresh/')
-                } catch (err) {
-                    // console.log(err);
-                    setCurrentUser((prevCurrentUser) => {
-                        if (prevCurrentUser) {
-                            history.push('/login')
-                        }
-                        return null;
-                    });
-                    return config;
+                if (shouldRefreshToken()) {
+                    try {
+                        await axios.post('/dj-rest-auth/token/refresh/')
+                    } catch (err) {
+                        // console.log(err);
+                        setCurrentUser((prevCurrentUser) => {
+                            if (prevCurrentUser) {
+                                history.push('/login')
+                            }
+                            return null;
+                        });
+                        return config;
+                    }
                 }
+                removeTokenTimestamp();
                 return config;
             },
             (err) => {
@@ -61,6 +65,7 @@ export const CurrentUserProvider = ({ children }) => {
                             }
                             return null;
                         });
+                        removeTokenTimestamp();
                     }
                     return axios(err.config);
                 }
