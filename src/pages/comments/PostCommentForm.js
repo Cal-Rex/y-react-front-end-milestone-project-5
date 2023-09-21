@@ -8,12 +8,11 @@ import styles from '../../styles/Form.module.css'
 import cmntStyles from '../../styles/PostCommentForm.module.css'
 
 function PostCommentForm(props) {
-    const { profile_id, profile_image, post, setQuestion, setComments } = props;
+    const { profile_id, profile_image, post, setComments } = props;
     const [ content, setContent ] = useState("");
 
     const handleChange = (event) => {
         setContent(event.target.value);
-        console.log(content);
     };
 
     const handleSubmit = async (event) => {
@@ -25,10 +24,7 @@ function PostCommentForm(props) {
                 results: [data, ...prevComments.results],
             }));
             setContent("");
-            console.log(content)
-        } catch (err) {
-            console.log(err);
-        }
+        } catch (err) {}
     };
 
     return (

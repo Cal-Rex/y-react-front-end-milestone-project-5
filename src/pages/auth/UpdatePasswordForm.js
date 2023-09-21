@@ -41,7 +41,6 @@ const UpdatePasswordForm = () => {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
       history.goBack();
     } catch (err) {
-      console.log(err);
       setErrors(err.response?.data);
     }
   };
@@ -52,7 +51,7 @@ const UpdatePasswordForm = () => {
         <Container className={formStyles.Form}>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
-              <Form.Label>New password</Form.Label>
+              <Form.Label>New Password</Form.Label>
               <Form.Control className={formStyles.Fields}
                 placeholder="new password"
                 type="password"
@@ -85,13 +84,13 @@ const UpdatePasswordForm = () => {
               className={`${btnStyles.Btn}`}
               onClick={() => history.goBack()}
             >
-              cancel
+              Cancel
             </Button>
             <Button
               type="submit"
               className={`${btnStyles.Btn}`}
             >
-              save
+              Save
             </Button>
           </Form>
         </Container>

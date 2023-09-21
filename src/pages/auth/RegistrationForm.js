@@ -4,7 +4,6 @@ import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap'
 import styles from '../../styles/Form.module.css'
 import btnStyles from '../../styles/Button.module.css'
 import axios from 'axios'
-import { useSetCurrentUser } from '../../contexts/CurrentUserContext'
 import { useRedirect } from '../../hooks/useRedirect'
 
 
@@ -21,14 +20,13 @@ const RegistrationForm = () => {
 
     const history = useHistory()
 
-    const { username, display_name, email, password1, password2 } = registrationData;
+    const { username, email, password1, password2 } = registrationData;
 
     const handleEmail = (event) => {
         setRegistrationData({
             ...registrationData,
             email: event.target.value,
         });
-        console.log(registrationData)
     }
 
     const handleName = (event) => {
@@ -37,7 +35,6 @@ const RegistrationForm = () => {
             username: event.target.value,
             display_name: event.target.value,
         });
-        console.log(registrationData)
     }
 
     const handleChange = (event) => {
@@ -45,17 +42,14 @@ const RegistrationForm = () => {
             ...registrationData,
             [event.target.name]: event.target.value,
         })
-        console.log(registrationData)
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try { 
-            const {data} = await axios.post('/dj-rest-auth/registration/', registrationData)
-            console.log(data);
+            await axios.post('/dj-rest-auth/registration/', registrationData)
             history.push('/login')
         } catch (err) {
-            console.log(err)
             setErrors(err.response?.data)
         }
     }

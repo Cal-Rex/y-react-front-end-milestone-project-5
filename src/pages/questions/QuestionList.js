@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../../styles/QuestionList.module.css'
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
-import axios from 'axios';
 import { axiosReq } from '../../api/axiosDefault';
 import { Col, Container, Row } from 'react-bootstrap';
 import Loader from '../../assets/loader/Loader';
@@ -26,12 +25,11 @@ const QuestionList = ({ message, filter }) => {
                 setQuestions(data);
                 setLoadStatus(true);
             } catch (err) {
-                console.log(err)
             }
         }
         setLoadStatus(false);
         fetchQuestions();
-    }, [query, pathname]);
+    }, [query, pathname, filter]);
     return (
         <Container fluid className={styles.QuestionContainer}>
             <Row>
@@ -48,10 +46,8 @@ const QuestionList = ({ message, filter }) => {
                                         loader={<Asset loader />}
                                         hasMore={!!questions.next}
                                         next={() => fetchMoreData(questions, setQuestions)}
-                                        onScroll={() => console.log("User is scrolling...")}
                                         endMessage={<div style={{ textAlign: 'center' }}><p>You've reached the end!</p></div>}
                                     >
-                                        {console.log(questions)}
                                         {questions.results.map((question) => (
                                         <Question key={question.id} {...question} setQuestions={setQuestions} questionCard />))}
                                     </InfiniteScroll>

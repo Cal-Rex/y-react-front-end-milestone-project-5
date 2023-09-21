@@ -24,14 +24,14 @@ const ProfileList = ({ message, filter }) => {
                 setProfiles(data);
                 setLoaded(true);
             } catch (err) {
-                console.log(err);
             }
         }
         setLoaded(false);
         fetchProfiles();
-    }, [query, pathname])
+    }, [query, pathname, filter])
 
     return (
+        loaded ? ( 
         <Container>
             <Row>
                 <Col xs={{ span: 12 }} sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }}>
@@ -48,10 +48,8 @@ const ProfileList = ({ message, filter }) => {
                             loader={<Asset loader />}
                             hasMore={!!profiles.next}
                             next={() => fetchMoreData(profiles, setProfiles)}
-                            onScroll={() => console.log("User is scrolling...")}
-                            endMessage={<div style={{ textAlign: 'center' }}><p>You've reached the end!</p></div>}
+                            endMessage={<div style={{ textAlign: 'center' }}><p>That's all, Batman</p></div>}
                         >
-                            {console.log(profiles)}
                             {profiles.results.map(profile => (
                                 <div className={styles.ProfileListItem}><Profile key={profile.id} profile={profile} listView /></div>
                             ))}
@@ -60,6 +58,7 @@ const ProfileList = ({ message, filter }) => {
                 </Col>
             </Row>
         </Container>
+        ) : (<Asset loader />)
     )
 }
 

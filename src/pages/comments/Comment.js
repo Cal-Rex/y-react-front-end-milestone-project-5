@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styles from '../../styles/Comment.module.css'
 import { Media } from 'react-bootstrap'
 import Avatar from '../../components/Avatar'
@@ -35,7 +35,6 @@ const Comment = (props) => {
                 })
             }))
         } catch (err) {
-            console.log(err);
         }
     }
 
@@ -60,7 +59,6 @@ const Comment = (props) => {
                 })
             }));
         } catch (err) {
-            console.log(err);
         }
     };
 
@@ -78,7 +76,6 @@ const Comment = (props) => {
                 results: prevComments.results.filter(comment => comment.id !== id)
             }))
         } catch (err) {
-            console.log(err)
         }
     }
 

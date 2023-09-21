@@ -25,7 +25,6 @@ const LogInForm = () => {
             ...logInData,
             [event.target.name]: event.target.value,
         })
-        console.log(logInData)
     }
 
     const handleSubmit = async (event) => {
@@ -35,7 +34,6 @@ const LogInForm = () => {
             setCurrentUser(data.user)
             history.goBack();
         } catch (err) {
-            console.log(err)
             setErrors(err.response?.data)
         }
     }

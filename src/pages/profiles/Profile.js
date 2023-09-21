@@ -1,10 +1,9 @@
 import React from 'react'
 import styles from '../../styles/Profile.module.css';
-import btnStyles from '../../styles/Button.module.css';
-import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import Avatar from '../../components/Avatar';
-import { Button, Dropdown } from 'react-bootstrap';
+import { Dropdown } from 'react-bootstrap';
 import { useSetProfileData } from '../../contexts/ProfileDataContext';
 import dropStyles from '../../styles/Dropdown.module.css'
 import axios from 'axios';
@@ -12,7 +11,7 @@ import axios from 'axios';
 
 const Profile = (props) => {
   const { profile, listView } = props;
-  const { id, following_id, image, owner, display_name } = profile;
+  const { following_id, image, owner } = profile;
   const history = useHistory();
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
@@ -30,9 +29,7 @@ const Profile = (props) => {
   const handleLogOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const profileListView = 

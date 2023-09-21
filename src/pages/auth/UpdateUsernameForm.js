@@ -40,7 +40,6 @@ const UpdateUsernameForm = () => {
       }));
       history.goBack();
     } catch (err) {
-      console.log(err);
       setErrors(err.response?.data);
     }
   };
@@ -68,13 +67,13 @@ const UpdateUsernameForm = () => {
               className={`${btnStyles.Btn}`}
               onClick={() => history.goBack()}
             >
-              cancel
+              Cancel
             </Button>
             <Button
               className={`${btnStyles.Btn}`}
               type="submit"
             >
-              save
+              Save
             </Button>
           </Form>
         </Container>

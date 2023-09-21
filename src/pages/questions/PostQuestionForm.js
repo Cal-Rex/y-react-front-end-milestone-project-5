@@ -1,5 +1,5 @@
-import { Button, Image, InputGroup } from 'react-bootstrap';
-import react, { useRef, useState } from 'react';
+import { Button, Image} from 'react-bootstrap';
+import { useRef, useState } from 'react';
 import styles from '../../styles/PostQuestionForm.module.css'
 import btnStyles from '../../styles/Button.module.css'
 import { Alert, Col, Container, Form, Row } from 'react-bootstrap';
@@ -63,7 +63,6 @@ const PostQuestionForm = () => {
             const { data } = await axiosReq.post('/posts/', formData)
             history.push(`/posts/${data.id}`)
         } catch (err) {
-            console.log(err)
             if (err.response?.data) {
                 setErrors(err.response?.data)
             }

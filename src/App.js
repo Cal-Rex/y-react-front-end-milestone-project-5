@@ -7,12 +7,10 @@ import NavBar from './components/NavBar';
 import RegistrationForm from './pages/auth/RegistrationForm';
 import PostQuestionForm from './pages/questions/PostQuestionForm';
 import LogInForm from './pages/auth/LogInForm';
-import Loader from './assets/loader/Loader';
 import Footer from './components/Footer';
 import QuestionPage from './pages/questions/QuestionPage';
 import QuestionList from './pages/questions/QuestionList';
 import { useCurrentUser } from './contexts/CurrentUserContext';
-import Question from './pages/questions/Question';
 import EditQuestionForm from './pages/questions/EditQuestionForm';
 import ProfilePage from './pages/profiles/ProfilePage';
 import UpdateUsernameForm from './pages/auth/UpdateUsernameForm';
@@ -21,10 +19,8 @@ import UpdateNonAuthForm from './pages/auth/UpdateNonAuthForm';
 import ProfileList from './pages/profiles/ProfileList';
 
 
-
 function App() {
   const currentUser = useCurrentUser();
-  const profile_id = currentUser?.profile_id || "";
 
   return (
     <div className={styles.App}>

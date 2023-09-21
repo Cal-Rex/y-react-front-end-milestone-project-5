@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom/cjs/react-router-dom'
-import { axiosReq, axiosRes } from '../../api/axiosDefault';
+import { axiosReq } from '../../api/axiosDefault';
 import Question from './Question';
 import styles from '../../styles/QuestionPage.module.css'
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
@@ -33,11 +33,7 @@ function QuestionPage() {
                     ...prevComments, 
                     results: [...commentsData.results],
                 }));
-                // console.log(commentsData)
-                // console.log(commentsData.results)
-            } catch (err) {
-                console.log(err)
-            }
+            } catch (err) {}
         }
         handleMount();
     }, [id])
@@ -64,13 +60,11 @@ function QuestionPage() {
                         loader={<Asset loader />}
                         hasMore={!!comments.next}
                         next={() => fetchMoreData(comments, setComments)}
-                        onScroll={() => console.log("User is scrolling...")}
-                        endMessage={<div style={{ textAlign: 'center' }}><p>You've reached the end!</p></div>}
+                        endMessage={<div style={{ textAlign: 'center' }}><p>Watch you don't scroll over the edge champ!</p></div>}
                     >
                         {/* infinite scroll component not picking up the `next` 
                         value from the comments objects returned from the database and not sure why. to revisit. */}
                         {comments.results.map(comment => {
-                            console.log(comments.results)
                             return <Comment 
                                 key={comment.id}
                                 {...comment}

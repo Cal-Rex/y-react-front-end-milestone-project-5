@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefault";
-import styles from "../../styles/CommentCreateEditForm.module.css";
 import btnStyles from '../../styles/Button.module.css'
 import { Button } from "react-bootstrap";
 
@@ -14,7 +13,6 @@ function EditCommentForm(props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formData.trim());
     try {
       await axiosRes.put(`/comments/${id}/`, {
         content: formData.trim(),
@@ -32,9 +30,7 @@ function EditCommentForm(props) {
             : comment;
         }),
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
     setShowEditForm(false);
   };
 

@@ -1,36 +1,12 @@
-import { useState, useRef } from "react";
+
 import styles from "../styles/Avatar.module.css";
-import { Button, Overlay, Dropdown } from "react-bootstrap";
-import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext'
-import axios from "axios";
+
 import useClickAwayToggle from "../hooks/useClickAwayToggle";
-import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
 
 const Avatar = (props) => {
-    const { src, height = 45, message, profile_id } = props;
-    // const [show, setShow] = useState(false);
+    const { src, height = 45, message } = props;
     const { show, setShow, ref } = useClickAwayToggle();
-    const target = useRef(null);
-    const setCurrentUser = useSetCurrentUser();
-    const currentUser = useCurrentUser();
-    const history = useHistory();
-
-    const handleLogOut = async () => {
-        try {
-            await axios.post("dj-rest-auth/logout/");
-            setCurrentUser(null);
-        } catch (err) {
-            console.log(err);
-        }
-    };
-
-    const profileRedirect = () => {
-        history.push(`/profiles/${currentUser?.profile_id}/`)
-    }
-
-    const editProfileRedirect = () => {
-        history.push(`/profiles/${currentUser?.profile_id}/edit`)
-    }
 
     return (
         <div>
@@ -44,49 +20,6 @@ const Avatar = (props) => {
                 ref={ref}
                 onClick={() => setShow(!show)}
             />
-
-            {/* <Overlay target={ref} show={show} placement="bottom-end">
-                {({ placement, arrowProps, show: _show, popper, ...props }) => (
-                    <>
-                        <div
-                            {...props}
-                            style={{
-                                backgroundColor: '#00000000',
-                                padding: '2px 10px',
-                                color: '#fafafa',
-                                borderRadius: 3,
-                                ...props.style,
-                            }}
-                        >
-                            <Button
-                                className={styles.AMButton}
-                                onClick={handleLogOut}
-                            >
-                                Log Out
-                            </Button>
-                        </div>
-                        <div
-                            {...props}
-                            style={{
-                                backgroundColor: '#00000000',
-                                padding: '2px 10px',
-                                color: '#fafafa',
-                                borderRadius: 3,
-                                ...props.style,
-                            }}
-                        >
-                            <Link to={`/profiles/${currentUser.profile_id}/`}>
-                                <Button
-                                    className={styles.AMButton}
-                                >
-                                    View Profile
-                                </Button>
-                            </Link>
-                        </div>
-                    </>
-                )}
-            </Overlay> */}
-
         </div>
     )
 }

@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../../styles/ProfilePage.module.css";
 import btnStyles from "../../styles/Button.module.css"
-import { Container, Col, Row, Image, Button } from "react-bootstrap";
-import Avatar from "../../components/Avatar";
-import { axiosRes, axiosReq } from "../../api/axiosDefault";
+import { Col, Row, Image, Button } from "react-bootstrap";
+import { axiosReq } from "../../api/axiosDefault";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
-import FollowedProfiles from "./FollowedProfiles";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Question from "../questions/Question";
@@ -48,11 +46,7 @@ const ProfilePage = () => {
                 setProfileComments(profileComments);
 
                 setLoaded(true);
-                console.log("ProfilePage.js pageProfile: ", pageProfile);
-                console.log("ProfilePage.js profilePosts: ", profilePosts);
-                console.log("ProfilePage.js profileComments: ", profileComments);
             } catch (err) {
-                console.log(err);
                 setLoaded(true);
             }
 
@@ -60,7 +54,6 @@ const ProfilePage = () => {
         setLoaded(false);
         handleMount();
     }, [id, setProfileData,]);
-
 
 
     const profileCard = (

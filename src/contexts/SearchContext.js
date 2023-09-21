@@ -1,4 +1,4 @@
-import React, {useState, createContext, useContext, useEffect} from 'react'
+import React, {useState, createContext, useContext} from 'react'
 
 export const QueryContext = createContext();
 export const SetQueryContext = createContext();
@@ -8,10 +8,6 @@ export const useSetQuery = () => useContext(SetQueryContext);
 
 export const SearchQueryProvider = ( { children } ) => {
     const [query, setQuery] = useState("");
-
-    useEffect(() => {
-        console.log("SearchContext Update: ", query)
-    }, [query])
 
     return (
         <QueryContext.Provider value={query}>

@@ -1,14 +1,12 @@
 import React from 'react'
 import NavLink from 'react-router-dom/NavLink'
-import { Button, Container, Dropdown, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Container, Dropdown, Form, FormControl, Nav, Navbar } from 'react-bootstrap'
 import styles from '../styles/NavBar.module.css'
 import NavLogo from '../assets/y-no-canvas-alpha.webp'
 import Avatar from './Avatar'
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext'
 import axios from 'axios'
-import { useQuery, useSetQuery } from '../contexts/SearchContext'
-import Profile from '../pages/profiles/Profile'
-import { profileRedirect, editProfileRedirect, handleLogOut } from '../utils/Utils'
+import { useSetQuery } from '../contexts/SearchContext'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import dropStyles from '../styles/Dropdown.module.css'
 
@@ -17,7 +15,6 @@ const NavBar = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
     const history = useHistory();
-    const query = useQuery();
     const setQuery = useSetQuery();
 
     const profileRedirect = () => {
@@ -36,9 +33,7 @@ const NavBar = () => {
         try {
             await axios.post("dj-rest-auth/logout/");
             setCurrentUser(null);
-        } catch (err) {
-            console.log(err);
-        }
+        } catch (err) {}
     };
 
     const authenticatedMenu = (

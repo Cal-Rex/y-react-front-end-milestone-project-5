@@ -16,7 +16,7 @@ const Question = (props) => {
         is_owner, owner, profile_id, profile_image,
         comments_count, likes_count, liked_id,
         date_created, date_updated,
-        questionCard, questionPage, setQuestions
+        questionPage, setQuestions
     } = props;
 
     const history = useHistory();
@@ -33,9 +33,7 @@ const Question = (props) => {
         try {
             await axiosRes.delete(`/posts/${id}`);
             history.push('/posts/create');
-        } catch (err) {
-            console.log(err);
-        }
+        } catch (err) {}
     };
 
     const handleLike = async () => {
@@ -52,9 +50,7 @@ const Question = (props) => {
                         } : question
                 })
             }))
-        } catch (err) {
-            console.log(err);
-        }
+        } catch (err) {}
     }
 
     const handleUnlike = async () => {
@@ -71,9 +67,7 @@ const Question = (props) => {
                         } : question
                 })
             }))
-        } catch (err) {
-            console.log(err);
-        }
+        } catch (err) {}
     }
 
     useEffect(() => {
@@ -82,11 +76,10 @@ const Question = (props) => {
                 const { data } = await axiosReq.get(`/comments/?ordering=-votes_count&post=${id}`)
                 setComments(data)
             } catch (err) {
-                console.log(err);
             }
         }
         handleMount();
-    }, []);
+    }, [id]);
 
     return <Card className={styles.QuestionObject}>
         <Card.Body>
@@ -182,8 +175,6 @@ const Question = (props) => {
             {!questionPage ? (
                 comments?.results[0] ? (
                     <>
-                        {console.log("comments.results[0]: ", comments.results[0])}
-                        {console.log("id: ", id)}
                         <hr className={styles.Rule} />
                         <div><h6>Leading Answer <i class="fa-solid fa-award fa-lg"></i></h6></div>
                         <Comment {...comments.results[0]} listView />

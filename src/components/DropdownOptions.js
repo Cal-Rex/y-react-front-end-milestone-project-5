@@ -4,8 +4,6 @@ import styles from '../styles/Dropdown.module.css'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 
-// The forwardRef is important!!
-// Dropdown needs access to the DOM node in order to position the Menu
 const DropdownToggle = React.forwardRef(({ onClick }, ref) => (
     <i
         className='fas fa-ellipsis-v'
@@ -53,21 +51,21 @@ export function ProfileEditDropdown({ id }) {
             onClick={() => history.push(`/profiles/${id}/edit`)}
             aria-label="edit-profile"
           >
-            <i className="fas fa-edit" /> edit profile
+            <i className="fas fa-edit" /> Edit Profile
           </Dropdown.Item>
           <Dropdown.Item
             onClick={() => history.push(`/profiles/${id}/edit/username`)}
             aria-label="edit-username"
           >
             <i className="far fa-id-card" />
-            change username
+            Change Username
           </Dropdown.Item>
           <Dropdown.Item
             onClick={() => history.push(`/profiles/${id}/edit/password`)}
             aria-label="edit-password"
           >
             <i className="fas fa-key" />
-            change password
+            Change Password
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
