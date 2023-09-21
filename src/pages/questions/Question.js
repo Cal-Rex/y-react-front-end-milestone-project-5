@@ -31,7 +31,7 @@ const Question = (props) => {
 
     const handleDelete = async () => {
         try {
-            await axiosRes.delete(`/posts/${id}/`);
+            await axiosRes.delete(`/posts/${id}`);
             history.goBack();
         } catch (err) {
             console.log(err);

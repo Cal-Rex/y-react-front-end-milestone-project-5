@@ -30,6 +30,7 @@ const ProfileEditToggle = React.forwardRef(({ onClick }, ref) => (
 
 
 export const DropdownOptions = ({ handleEdit, handleDelete }) => {
+    
     return (
         <Dropdown drop='left'>
             <Dropdown.Toggle as={DropdownToggle} />

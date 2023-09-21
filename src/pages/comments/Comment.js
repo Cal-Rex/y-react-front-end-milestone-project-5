@@ -20,10 +20,6 @@ const Comment = (props) => {
     const currentUser = useCurrentUser();
     const edited = date_created !== date_updated;
 
-    useEffect(() => {
-        // console.log(props)
-    }, [props])
-
     const handleVote = async () => {
         try {
             const {data} = await axiosRes.post('/votes/', {comment:id})
@@ -125,8 +121,10 @@ const Comment = (props) => {
                     </Link>
                 )} {votes_count}
                 {is_owner && !showEditForm && (
+                    <span className={styles.CommentDropdown}>
                     <DropdownOptions
                         handleEdit={() => setShowEditForm(true)} handleDelete={handleDelete} />
+                        </span>
                 )}
             </Media>
         </div>
