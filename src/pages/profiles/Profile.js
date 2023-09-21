@@ -19,11 +19,11 @@ const Profile = (props) => {
   const { handleFollow, handleUnfollow } = useSetProfileData();
 
   const profileRedirect = () => {
-    history.push(`/profiles/${currentUser?.profile_id}/`)
+    history.push(`/profiles/${profile?.id}/`)
   }
   
   const editProfileRedirect = () => {
-    history.push(`/profiles/${currentUser?.profile_id}/edit`)
+    history.push(`/profiles/${profile?.id}/edit`)
   }
   
   const handleLogOut = async () => {

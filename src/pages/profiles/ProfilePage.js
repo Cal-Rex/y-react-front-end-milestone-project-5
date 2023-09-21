@@ -28,33 +28,48 @@ const ProfilePage = () => {
 
 
     useEffect(() => {
+        let isMounted = true; // Add an isMounted flag
+
         const handleMount = async () => {
             try {
-                const [{ data: pageProfile }, { data: profilePosts }, { data: profileComments }] = await Promise.all([
+                const [
+                    { data: pageProfile },
+                    { data: profilePosts },
+                    { data: profileComments },
+                ] = await Promise.all([
                     axiosReq.get(`/profiles/${id}/`),
                     axiosReq.get(`/posts/?owner__profile=${id}`),
-                    axiosReq.get(`/comments/?ordering=-votes_count&owner__profile=${id}`)
+                    axiosReq.get(`/comments/?ordering=-votes_count&owner__profile=${id}`),
                 ]);
 
-                setProfileData((prevState) => ({
-                    ...prevState,
-                    pageProfile: { results: [pageProfile] },
-                }));
+                // Check if the component is still mounted before updating state
+                if (isMounted) {
+                    setProfileData((prevState) => ({
+                        ...prevState,
+                        pageProfile: { results: [pageProfile] },
+                    }));
 
-                setProfilePosts(profilePosts);
-
-                setProfileComments(profileComments);
-
-                setLoaded(true);
+                    setProfilePosts(profilePosts);
+                    setProfileComments(profileComments);
+                    setLoaded(true);
+                }
             } catch (err) {
-                // console.log(err);
-                setLoaded(true);
+                // Handle errors if needed
+                console.log(err);
+                if (isMounted) {
+                    setLoaded(true);
+                }
             }
-
         };
+
         setLoaded(false);
         handleMount();
-    }, [id, setProfileData,]);
+
+        // Cleanup function to update isMounted when the component unmounts
+        return () => {
+            isMounted = false;
+        };
+    }, [id, setProfileData]);
 
 
     const profileCard = (
