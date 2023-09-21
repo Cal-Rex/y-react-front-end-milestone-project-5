@@ -11,6 +11,7 @@ import { useRedirect } from '../../hooks/useRedirect';
 
 const PostQuestionForm = () => {
     useRedirect('loggedOut');
+    const [loaded, setLoaded] = useState(true);
     const imageUpload = useRef(null);
     const history = useHistory()
     const [errors, setErrors] = useState({});
@@ -41,12 +42,13 @@ const PostQuestionForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        setLoaded(false);
         const maxFileSize = 2 * 1024 * 1024;
         if (imageUpload.current.files[0]?.size > maxFileSize) {
             setErrors({ image: ['Image filesize is too big, buddy. take it for a haircut or pick another image.'] });
             return;
         }
-        
+
         const formData = new FormData();
         formData.append('title', title);
         formData.append('image', imageUpload.current.files[0]);
@@ -138,11 +140,13 @@ const PostQuestionForm = () => {
                                 {message}
                             </Alert>
                         ))}
-                        <Form.Group className={styles.RightAlign}>
-                            <Button variant="primary" type="submit" className={`${btnStyles.Btn}`}>
-                                Submit
-                            </Button>
-                        </Form.Group>
+                        {loaded ? (
+                            <Form.Group className={styles.RightAlign}>
+                                <Button variant="primary" type="submit" className={`${btnStyles.Btn}`}>
+                                    Submit
+                                </Button>
+                            </Form.Group>
+                        ) : (<Asset loader />)}
 
                     </Form>
                 </Col>

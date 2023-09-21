@@ -32,7 +32,7 @@ const Question = (props) => {
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/posts/${id}`);
-            history.goBack();
+            history.push('/posts/create');
         } catch (err) {
             console.log(err);
         }
@@ -97,8 +97,7 @@ const Question = (props) => {
                             <div><Card.Title>{title}</Card.Title></div>
                         </Col>
                         <Col className={styles.HeadRightCol}>
-                            {questionCard
-                                && is_owner
+                            {is_owner
                                 && <DropdownOptions
                                     handleEdit={handleEdit}
                                     handleDelete={handleDelete}
