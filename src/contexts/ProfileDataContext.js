@@ -1,3 +1,4 @@
+
 import { createContext, useContext, useEffect, useState } from "react";
 import { axiosReq, axiosRes } from "../api/axiosDefault";
 import { useCurrentUser } from "./CurrentUserContext";
@@ -37,11 +38,11 @@ export const ProfileDataProvider = ({ children }) => {
         } catch(err) {
             // console.log(err);
         }
-    }
+    };
 
     const handleUnfollow = async (clickedProfile) => {
         try {
-            await axiosRes.delete(`/follows/${clickedProfile.following_id}/`)
+            await axiosRes.delete(`/follows/${clickedProfile.following_id}/`);
 
             setProfileData(prevState => ({
                 ...prevState,
@@ -56,7 +57,7 @@ export const ProfileDataProvider = ({ children }) => {
         } catch(err) {
             // console.log(err);
         }
-    }
+    };
 
     useEffect(() => {
         const handleMount = async () => {
@@ -85,7 +86,7 @@ export const ProfileDataProvider = ({ children }) => {
                     // console.log(err);
                 }
             }
-        }
+        };
         handleMount();
 
     }, [currentUser]);

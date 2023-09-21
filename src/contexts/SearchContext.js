@@ -1,4 +1,4 @@
-import React, {useState, createContext, useContext} from 'react'
+import React, {useState, createContext, useContext} from 'react';
 
 export const QueryContext = createContext();
 export const SetQueryContext = createContext();

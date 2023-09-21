@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 import styles from '../../styles/Profile.module.css';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import Avatar from '../../components/Avatar';
 import { Dropdown } from 'react-bootstrap';
 import { useSetProfileData } from '../../contexts/ProfileDataContext';
-import dropStyles from '../../styles/Dropdown.module.css'
+import dropStyles from '../../styles/Dropdown.module.css';
 import axios from 'axios';
 
 
@@ -19,12 +19,12 @@ const Profile = (props) => {
   const { handleFollow, handleUnfollow } = useSetProfileData();
 
   const profileRedirect = () => {
-    history.push(`/profiles/${profile?.id}/`)
-  }
+    history.push(`/profiles/${profile?.id}/`);
+  };
   
   const editProfileRedirect = () => {
-    history.push(`/profiles/${profile?.id}/edit`)
-  }
+    history.push(`/profiles/${profile?.id}/edit`);
+  };
   
   const handleLogOut = async () => {
     try {
@@ -100,7 +100,7 @@ const Profile = (props) => {
 
   return (
     listView ? profileListView : followingView
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

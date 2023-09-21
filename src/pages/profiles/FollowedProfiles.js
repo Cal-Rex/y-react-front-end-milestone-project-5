@@ -1,9 +1,9 @@
-import React from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
+import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
 import Asset from '../../components/Asset';
-import Profile from './Profile'
+import Profile from './Profile';
 import { useProfileData } from '../../contexts/ProfileDataContext';
-import styles from '../../styles/FollowedProfiles.module.css'
+import styles from '../../styles/FollowedProfiles.module.css';
 
 const FollowedProfiles = ({ desktop }) => {
     const { popularProfiles } = useProfileData();
@@ -31,6 +31,6 @@ const FollowedProfiles = ({ desktop }) => {
             </Row>
         </Container>
     );
-}
+};
 
-export default FollowedProfiles
+export default FollowedProfiles;

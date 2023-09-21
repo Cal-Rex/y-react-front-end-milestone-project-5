@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { axiosRes } from '../../api/axiosDefault';
 import { Button, Form, InputGroup } from 'react-bootstrap';
-import btnStyles from '../../styles/Button.module.css'
+import btnStyles from '../../styles/Button.module.css';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Avatar from '../../components/Avatar';
-import styles from '../../styles/Form.module.css'
-import cmntStyles from '../../styles/PostCommentForm.module.css'
+import styles from '../../styles/Form.module.css';
+import cmntStyles from '../../styles/PostCommentForm.module.css';
 
 function PostCommentForm(props) {
     const { profile_id, profile_image, post, setComments } = props;
@@ -18,7 +18,7 @@ function PostCommentForm(props) {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const { data } = await axiosRes.post("/comments/", { post, content })
+            const { data } = await axiosRes.post("/comments/", { post, content });
             setComments((prevComments) => ({
                 ...prevComments,
                 results: [data, ...prevComments.results],
@@ -50,6 +50,6 @@ function PostCommentForm(props) {
             </Button>
         </Form>
     );
-}
+};
 
-export default PostCommentForm
+export default PostCommentForm;

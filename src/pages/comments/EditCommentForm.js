@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefault";
-import btnStyles from '../../styles/Button.module.css'
+import btnStyles from '../../styles/Button.module.css';
 import { Button } from "react-bootstrap";
 
 function EditCommentForm(props) {
@@ -9,7 +9,9 @@ function EditCommentForm(props) {
 
   const [formData, setFormData] = useState(content);
 
-  const handleChange = (event) => {setFormData(event.target.value)};
+  const handleChange = (event) => {
+     setFormData(event.target.value);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -21,8 +23,7 @@ function EditCommentForm(props) {
       setComments((prevComments) => ({
         ...prevComments,
         results: prevComments.results.map((comment) => {
-          return comment.id === id
-            ? {
+          return comment.id === id ? {
                 ...comment,
                 content: formData.trim(),
                 date_updated: "now",
@@ -56,6 +57,6 @@ function EditCommentForm(props) {
       </div>
     </Form>
   );
-}
+};
 
 export default EditCommentForm;

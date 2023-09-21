@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import {Button, Form, Image, Row, Col, Container, Alert} from "react-bootstrap"
+import {Button, Form, Image, Row, Col, Container, Alert} from "react-bootstrap";
 
 import { axiosReq } from "../../api/axiosDefault";
 import {useCurrentUser, useSetCurrentUser} from "../../contexts/CurrentUserContext";

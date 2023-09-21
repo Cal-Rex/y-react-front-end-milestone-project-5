@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import styles from '../../styles/Comment.module.css'
-import { Media } from 'react-bootstrap'
-import Avatar from '../../components/Avatar'
-import { Link } from 'react-router-dom/cjs/react-router-dom'
-import { useCurrentUser } from '../../contexts/CurrentUserContext'
-import { DropdownOptions } from '../../components/DropdownOptions'
-import { axiosRes } from '../../api/axiosDefault'
-import EditCommentForm from './EditCommentForm'
+import React, { useState } from 'react';
+import styles from '../../styles/Comment.module.css';
+import { Media } from 'react-bootstrap';
+import Avatar from '../../components/Avatar';
+import { Link } from 'react-router-dom/cjs/react-router-dom';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import { DropdownOptions } from '../../components/DropdownOptions';
+import { axiosRes } from '../../api/axiosDefault';
+import EditCommentForm from './EditCommentForm';
 
 const Comment = (props) => {
     const {
@@ -22,22 +22,21 @@ const Comment = (props) => {
 
     const handleVote = async () => {
         try {
-            const {data} = await axiosRes.post('/votes/', {comment:id})
+            const {data} = await axiosRes.post('/votes/', {comment:id});
             setComments((prevComments) => ({
                 ...prevComments,
                 results: prevComments.results.map((comment) => {
-                    return comment.id === id 
-                    ? {
+                    return comment.id === id ? {
                         ...comment,
                         votes_count: comment.votes_count + 1,
                         voted_on_id: data.id
-                    } : comment
+                    } : comment;
                 })
-            }))
+            }));
         } catch (err) {
             // console.log(err);
         }
-    }
+    };
 
     const handleUnvote = async () => {
         try {
@@ -46,8 +45,7 @@ const Comment = (props) => {
                 ...prevComments,
                 results: prevComments.results.map((comment) => {
                     if (comment.id === id) {
-                        const updatedVotesCount = isNaN(comment.voted_on_count) 
-                            ? 0 
+                        const updatedVotesCount = isNaN(comment.voted_on_count) ? 0 
                             : comment.voted_on_count - 1;
                         return {
                             ...comment,
@@ -66,21 +64,21 @@ const Comment = (props) => {
 
     const handleDelete = async () => {
         try {
-            await axiosRes.delete(`/comments/${id}/`)
+            await axiosRes.delete(`/comments/${id}/`);
             setQuestion(prevQuestion => ({
                 results: [{
                     ...prevQuestion.results,
                     comments_count: prevQuestion.results[0].comments_count - 1
                 }]
-            }))
+            }));
             setComments(prevComments => ({
                 ...prevComments,
                 results: prevComments.results.filter(comment => comment.id !== id)
-            }))
+            }));
         } catch (err) {
             // console.log(err);
         }
-    }
+    };
 
     return (
         <div>
@@ -132,7 +130,7 @@ const Comment = (props) => {
                 
             </Media>
         </div>
-    )
-}
+    );
+};
 
 export default Comment

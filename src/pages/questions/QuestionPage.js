@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
-import { useParams } from 'react-router-dom/cjs/react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import { useParams } from 'react-router-dom/cjs/react-router-dom';
 import { axiosReq } from '../../api/axiosDefault';
 import Question from './Question';
-import styles from '../../styles/QuestionPage.module.css'
+import styles from '../../styles/QuestionPage.module.css';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import PostCommentForm from '../comments/PostCommentForm';
 import Comment from '../comments/Comment';
@@ -24,11 +24,11 @@ function QuestionPage() {
             try {
                 const [{ data: question }] = await Promise.all([
                     axiosReq.get(`/posts/${id}`),
-                ])
-                setQuestion({ results: [question] })
+                ]);
+                setQuestion({ results: [question] });
                 const [{data: commentsData}] = await Promise.all([
                     axiosReq.get(`/comments/?post=${id}`)
-                ])
+                ]);
                 setComments((prevComments) => ({
                     ...prevComments, 
                     results: [...commentsData.results],
@@ -36,9 +36,9 @@ function QuestionPage() {
             } catch (err) {
                 // console.log(err);
             }
-        }
+        };
         handleMount();
-    }, [id])
+    }, [id]);
 
     return (
         <Container fluid className={styles.QuestionContainer}>
@@ -84,7 +84,7 @@ function QuestionPage() {
                 </Col>
             </Row>
         </Container>
-    )
-}
+    );
+};
 
-export default QuestionPage
+export default QuestionPage;

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import styles from '../../styles/QuestionList.module.css'
+import React, { useEffect, useState } from 'react';
+import styles from '../../styles/QuestionList.module.css';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from '../../api/axiosDefault';
 import { Col, Container, Row } from 'react-bootstrap';
 import Loader from '../../assets/loader/Loader';
 import Question from './Question';
 import Asset from '../../components/Asset';
-import NoResult from '../../assets/no-result.webp'
+import NoResult from '../../assets/no-result.webp';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/Utils';
 import FollowedProfiles from '../profiles/FollowedProfiles';
@@ -32,7 +32,7 @@ const QuestionList = ({ message, filter }) => {
             } catch (err) {
                 // console.log(err);
             }
-        }
+        };
         setContextLoadStatus(false);
         setLoadStatus(false);
         fetchQuestions();
@@ -69,7 +69,7 @@ const QuestionList = ({ message, filter }) => {
                 </Col>
             </Row>
         </Container>
-    )
-}
+    );
+};
 
-export default QuestionList
+export default QuestionList;

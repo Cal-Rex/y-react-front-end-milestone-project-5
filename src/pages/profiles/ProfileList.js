@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Col, Container, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap';
 import { axiosReq } from '../../api/axiosDefault';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import FollowedProfiles from './FollowedProfiles';
-import NoResult from '../../assets/no-result.webp'
+import NoResult from '../../assets/no-result.webp';
 import { useQuery } from '../../contexts/SearchContext';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Asset from '../../components/Asset';
 import { fetchMoreData } from '../../utils/Utils';
 import Profile from './Profile';
-import styles from '../../styles/ProfileList.module.css'
+import styles from '../../styles/ProfileList.module.css';
 
 const ProfileList = ({ message, filter }) => {
     const [profiles, setProfiles] = useState({ results: [] });
@@ -26,10 +26,10 @@ const ProfileList = ({ message, filter }) => {
             } catch (err) {
                 // console.log(err);
             }
-        }
+        };
         setLoaded(false);
         fetchProfiles();
-    }, [query, pathname, filter])
+    }, [query, pathname, filter]);
 
     return (
         loaded ? ( 
@@ -60,7 +60,7 @@ const ProfileList = ({ message, filter }) => {
             </Row>
         </Container>
         ) : (<Asset loader />)
-    )
-}
+    );
+};
 
-export default ProfileList
+export default ProfileList;

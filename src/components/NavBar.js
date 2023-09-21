@@ -1,16 +1,16 @@
-import React from 'react'
-import { Container, Dropdown, Form, FormControl, Nav, Navbar } from 'react-bootstrap'
-import styles from '../styles/NavBar.module.css'
-import NavLogo from '../assets/y-no-canvas-alpha.webp'
-import Avatar from './Avatar'
-import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext'
-import axios from 'axios'
-import { useSetQuery } from '../contexts/SearchContext'
-import { useHistory, NavLink } from 'react-router-dom/cjs/react-router-dom.min'
-import dropStyles from '../styles/Dropdown.module.css'
-import { useLoadStatus } from '../contexts/LoadContext'
-import Asset from '../components/Asset'
-import { removeTokenTimestamp } from '../utils/Utils'
+import React from 'react';
+import { Container, Dropdown, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
+import styles from '../styles/NavBar.module.css';
+import NavLogo from '../assets/y-no-canvas-alpha.webp';
+import Avatar from './Avatar';
+import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
+import axios from 'axios';
+import { useSetQuery } from '../contexts/SearchContext';
+import { useHistory, NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import dropStyles from '../styles/Dropdown.module.css';
+import { useLoadStatus } from '../contexts/LoadContext';
+import Asset from '../components/Asset';
+import { removeTokenTimestamp } from '../utils/Utils';
 
 
 const NavBar = () => {
@@ -21,16 +21,16 @@ const NavBar = () => {
     const setQuery = useSetQuery();
 
     const profileRedirect = () => {
-        history.push(`/profiles/${currentUser?.profile_id}/`)
-    }
+        history.push(`/profiles/${currentUser?.profile_id}/`);
+    };
 
     const editProfileRedirect = () => {
-        history.push(`/profiles/${currentUser?.profile_id}/edit`)
-    }
+        history.push(`/profiles/${currentUser?.profile_id}/edit`);
+    };
 
     const likedRedirect = () => {
-        history.push(`/posts/liked`)
-    }
+        history.push(`/posts/liked`);
+    };
 
     const handleLogOut = async () => {
         try {
@@ -60,7 +60,8 @@ const NavBar = () => {
                 </Dropdown.Menu>
             </Dropdown>
         </>
-    )
+    );
+      
     const unauthenticatedMenu = (
         <>
             <NavLink className={styles.Navlinks} to="/login">
@@ -70,7 +71,7 @@ const NavBar = () => {
                 Register
             </NavLink>
         </>
-    )
+    );
 
     return (
         <Navbar className={styles.NavBar} sticky="top">
@@ -99,7 +100,7 @@ const NavBar = () => {
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-    )
-}
+    );
+};
 
 export default NavBar

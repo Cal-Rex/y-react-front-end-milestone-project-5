@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
-import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap'
-import styles from '../../styles/Form.module.css'
-import btnStyles from '../../styles/Button.module.css'
-import axios from 'axios'
-import { useRedirect } from '../../hooks/useRedirect'
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap';
+import styles from '../../styles/Form.module.css';
+import btnStyles from '../../styles/Button.module.css';
+import axios from 'axios';
+import { useRedirect } from '../../hooks/useRedirect';
 
 
 const RegistrationForm = () => {
-    useRedirect('loggedIn')
+    useRedirect('loggedIn');
     const [registrationData, setRegistrationData] = useState({
         username: '',
         display_name:'',
@@ -18,7 +18,7 @@ const RegistrationForm = () => {
     });
     const [errors, setErrors] = useState({});
 
-    const history = useHistory()
+    const history = useHistory();
 
     const { username, email, password1, password2 } = registrationData;
 
@@ -27,7 +27,7 @@ const RegistrationForm = () => {
             ...registrationData,
             email: event.target.value,
         });
-    }
+    };
 
     const handleName = (event) => {
         setRegistrationData({
@@ -35,25 +35,25 @@ const RegistrationForm = () => {
             username: event.target.value,
             display_name: event.target.value,
         });
-    }
+    };
 
     const handleChange = (event) => {
         setRegistrationData({
             ...registrationData,
             [event.target.name]: event.target.value,
-        })
-    }
+        });
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try { 
-            await axios.post('/dj-rest-auth/registration/', registrationData)
-            history.push('/login')
+            await axios.post('/dj-rest-auth/registration/', registrationData);
+            history.push('/login');
         } catch (err) {
             // console.log(err);
-            setErrors(err.response?.data)
+            setErrors(err.response?.data);
         }
-    }
+    };
 
     return (
         <Container fluid>
@@ -143,7 +143,7 @@ const RegistrationForm = () => {
                 </Col>
             </Row>
         </Container>
-    )
-}
+    );
+};
 
 export default RegistrationForm

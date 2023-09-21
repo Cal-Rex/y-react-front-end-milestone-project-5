@@ -7,22 +7,21 @@ const useClickAwayToggle = () => {
     useEffect(() => {
         const handleClickAway = (event) => {
             if (ref.current && !ref.current.contains(event.target)){
-                setShow(false)
+                setShow(false);
             }
-        }
+        };
 
-        document.addEventListener('mouseup', handleClickAway)
+        document.addEventListener('mouseup', handleClickAway);
         return () => {
-            document.removeEventListener('mouseup', handleClickAway)
-        }
+            document.removeEventListener('mouseup', handleClickAway);
+        };
     }, [ref]);
 
   return {
     show,
     setShow,
     ref
-  }
-}
+  };
+};
 
-export default useClickAwayToggle
-
+export default useClickAwayToggle;

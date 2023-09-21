@@ -1,7 +1,6 @@
-
-import './api/axiosDefault'
-import styles from './App.module.css'
-import { Route, Switch } from 'react-router-dom'
+import './api/axiosDefault';
+import styles from './App.module.css';
+import { Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import NavBar from './components/NavBar';
 import RegistrationForm from './pages/auth/RegistrationForm';
@@ -70,6 +69,6 @@ function App() {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;

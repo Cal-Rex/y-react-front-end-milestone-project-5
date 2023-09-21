@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
-import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap'
-import styles from '../../styles/Form.module.css'
-import btnStyles from '../../styles/Button.module.css'
-import axios from 'axios'
-import { useSetCurrentUser } from '../../contexts/CurrentUserContext'
-import { useRedirect } from '../../hooks/useRedirect'
-import { setTokenTimestamp } from '../../utils/Utils'
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap';
+import styles from '../../styles/Form.module.css';
+import btnStyles from '../../styles/Button.module.css';
+import axios from 'axios';
+import { useSetCurrentUser } from '../../contexts/CurrentUserContext';
+import { useRedirect } from '../../hooks/useRedirect';
+import { setTokenTimestamp } from '../../utils/Utils';
 
 const LogInForm = () => {
     const setCurrentUser = useSetCurrentUser();
@@ -17,7 +17,7 @@ const LogInForm = () => {
         password: '',
     });
     const [errors, setErrors] = useState({});
-    const history = useHistory()
+    const history = useHistory();
 
     const { username, password } = logInData;
 
@@ -25,21 +25,21 @@ const LogInForm = () => {
         setLogInData({
             ...logInData,
             [event.target.name]: event.target.value,
-        })
-    }
+        });
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try { 
-            const {data} = await axios.post('/dj-rest-auth/login/', logInData)
+            const {data} = await axios.post('/dj-rest-auth/login/', logInData);
             setCurrentUser(data.user);
             setTokenTimestamp(data);
             history.goBack();
         } catch (err) {
             // console.log(err);
-            setErrors(err.response?.data)
+            setErrors(err.response?.data);
         }
-    }
+    };
 
     return (
         <Container fluid>
@@ -97,7 +97,7 @@ const LogInForm = () => {
                 </Col>
             </Row>
         </Container>
-    )
-}
+    );
+};
 
 export default LogInForm

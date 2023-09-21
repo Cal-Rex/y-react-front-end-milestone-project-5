@@ -1,43 +1,43 @@
 import { Button, Image} from 'react-bootstrap';
 import { useRef, useState } from 'react';
-import styles from '../../styles/PostQuestionForm.module.css'
-import btnStyles from '../../styles/Button.module.css'
+import styles from '../../styles/PostQuestionForm.module.css';
+import btnStyles from '../../styles/Button.module.css';
 import { Alert, Col, Container, Form, Row } from 'react-bootstrap';
 import Asset from '../../components/Asset';
-import upload from '../../assets/upload.webp'
+import upload from '../../assets/upload.webp';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import { axiosReq } from '../../api/axiosDefault'
+import { axiosReq } from '../../api/axiosDefault';
 import { useRedirect } from '../../hooks/useRedirect';
 
 const PostQuestionForm = () => {
     useRedirect('loggedOut');
     const [loaded, setLoaded] = useState(true);
     const imageUpload = useRef(null);
-    const history = useHistory()
+    const history = useHistory();
     const [errors, setErrors] = useState({});
     const [postData, setPostData] = useState({
         title: '',
         content: '',
         image: '',
-    })
+    });
     const { title, content, image } = postData;
 
     const handleChange = (event) => {
         setPostData({
             ...postData,
             [event.target.name]: event.target.value,
-        })
-    }
+        });
+    };
 
     const handleUpdateImage = (event) => {
         if (event.target.files.length) {
-            URL.revokeObjectURL(image)
+            URL.revokeObjectURL(image);
             setPostData({
                 ...postData,
                 image: URL.createObjectURL(event.target.files[0]),
-            })
+            });
         }
-    }
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -60,15 +60,15 @@ const PostQuestionForm = () => {
         formData.append('image', imageUpload.current.files[0]);
         formData.append('content', content);
         try {
-            const { data } = await axiosReq.post('/posts/', formData)
-            history.push(`/posts/${data.id}`)
+            const { data } = await axiosReq.post('/posts/', formData);
+            history.push(`/posts/${data.id}`);
         } catch (err) {
             // console.log(err);
             if (err.response?.data) {
-                setErrors(err.response?.data)
+                setErrors(err.response?.data);
             }
         }
-    }
+    };
 
     return (
         <Container>
@@ -158,7 +158,7 @@ const PostQuestionForm = () => {
                 </Col>
             </Row>
         </Container>
-    )
-}
+    );
+};
 
-export default PostQuestionForm
+export default PostQuestionForm;

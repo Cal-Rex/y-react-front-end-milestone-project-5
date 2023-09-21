@@ -1,7 +1,8 @@
+/*jshint esversion: 11 */
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../../styles/ProfilePage.module.css";
-import btnStyles from "../../styles/Button.module.css"
+import btnStyles from "../../styles/Button.module.css";
 import { Col, Row, Image, Button } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefault";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../../styles/Question.module.css'
+import styles from '../../styles/Question.module.css';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { Card, Col, Container, Media, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
 import Avatar from '../../components/Avatar';
@@ -40,56 +40,56 @@ const Question = (props) => {
 
     const handleLike = async () => {
         try {
-            const { data } = await axiosRes.post('/likes/', { post: id })
+            const { data } = await axiosRes.post('/likes/', { post: id });
             setQuestions((prevQuestions) => ({
                 ...prevQuestions,
                 results: prevQuestions.results.map((question) => {
-                    return question.id === id
-                        ? {
+                    return question.id === id ? {
                             ...question,
                             likes_count: question.likes_count + 1,
                             liked_id: data.id
-                        } : question
+                        } : question;
                 })
-            }))
+            }));
         } catch (err) {
             // console.log(err);
         }
-    }
+    };
 
     const handleUnlike = async () => {
         try {
-            await axiosRes.delete(`/likes/${liked_id}`)
+            await axiosRes.delete(`/likes/${liked_id}`);
             setQuestions((prevQuestions) => ({
                 ...prevQuestions,
                 results: prevQuestions.results.map((question) => {
-                    return question.id === id
-                        ? {
+                    return question.id === id ? {
                             ...question,
                             likes_count: question.likes_count - 1,
                             liked_id: null
-                        } : question
+                        } : question;
                 })
-            }))
+            }));
         } catch (err) {
             // console.log(err);
         }
-    }
+    };
 
     useEffect(() => {
         let isMounted = true;
         const handleMount = async () => {
             try {
-                const { data } = await axiosReq.get(`/comments/?ordering=-votes_count&post=${id}`)
+                const { data } = await axiosReq.get(`/comments/?ordering=-votes_count&post=${id}`);
                 if (isMounted) {
                     setComments(data);
                 }
             } catch (err) {
                 // console.log(err);
             }
-        }
+        };
         handleMount();
-        return () => {isMounted = false};
+        return () => {
+          isMounted = false;
+                     };
     }, [id]);
 
     return <Card className={styles.QuestionObject}>
@@ -201,6 +201,6 @@ const Question = (props) => {
             ) : null }
         </Card.Body>
     </Card>
-}
+};
 
-export default Question
+export default Question;

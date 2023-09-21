@@ -1,7 +1,7 @@
-import React from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
-import styles from '../styles/Footer.module.css'
-import { Link } from 'react-router-dom/cjs/react-router-dom'
+import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import styles from '../styles/Footer.module.css';
+import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 const Footer = () => {
     return (

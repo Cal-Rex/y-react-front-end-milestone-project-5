@@ -1,6 +1,6 @@
 import React from 'react';
-import { Dropdown } from "react-bootstrap"
-import styles from '../styles/Dropdown.module.css'
+import { Dropdown } from "react-bootstrap";
+import styles from '../styles/Dropdown.module.css';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 
@@ -37,8 +37,8 @@ export const DropdownOptions = ({ handleEdit, handleDelete }) => {
                 <Dropdown.Item className={styles.Option} onClick={handleDelete} aria-label="delete">Delete <i className="fa-solid fa-eraser"></i></Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
-    )
-}
+    );
+};
 
 // dropdown from Code institute
 export function ProfileEditDropdown({ id }) {
@@ -70,4 +70,4 @@ export function ProfileEditDropdown({ id }) {
         </Dropdown.Menu>
       </Dropdown>
     );
-  }
+  };
