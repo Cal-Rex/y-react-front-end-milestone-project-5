@@ -14,7 +14,7 @@ const Comment = (props) => {
         date_created, date_updated,
         post, content,
         votes_count, voted_on_id,
-        id, setQuestion, setComments,
+        id, setQuestion, setComments, listView
     } = props;
     const [showEditForm, setShowEditForm] = useState(false);
     const currentUser = useCurrentUser();
@@ -82,7 +82,6 @@ const Comment = (props) => {
         }
     }
 
-
     return (
         <div>
             <hr className={styles.Rule}/>
@@ -120,12 +119,17 @@ const Comment = (props) => {
                         </span>
                     </Link>
                 )} {votes_count}
-                {is_owner && !showEditForm && (
-                    <span className={styles.CommentDropdown}>
-                    <DropdownOptions
-                        handleEdit={() => setShowEditForm(true)} handleDelete={handleDelete} />
-                        </span>
-                )}
+                {listView 
+                    ? (<></>)
+                    : (
+                        is_owner && !showEditForm && (
+                            <span className={styles.CommentDropdown}>
+                            <DropdownOptions
+                                handleEdit={() => setShowEditForm(true)} handleDelete={handleDelete} />
+                                </span>
+                        )
+                    )}
+                
             </Media>
         </div>
     )

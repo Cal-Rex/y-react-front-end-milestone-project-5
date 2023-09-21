@@ -186,7 +186,7 @@ const Question = (props) => {
                         {console.log("id: ", id)}
                         <hr className={styles.Rule} />
                         <div><h6>Leading Answer <i class="fa-solid fa-award fa-lg"></i></h6></div>
-                        <Comment {...comments.results[0]} />
+                        <Comment {...comments.results[0]} listView />
                     </>
                 ) : (
                     <>

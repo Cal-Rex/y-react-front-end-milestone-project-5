@@ -32,10 +32,10 @@ function EditCommentForm(props) {
             : comment;
         }),
       }));
-      setShowEditForm(false);
     } catch (err) {
       console.log(err);
     }
+    setShowEditForm(false);
   };
 
   return (
