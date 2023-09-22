@@ -260,7 +260,19 @@ while testing was conducted individually for each page, each page is identical i
 **post create form**
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | ------- | ---------------- | ----------------- | ------ | --------- |
+| make a new post | fill out all the form fields and make a post that dsiplays al entered data | created a post using form | expected | pass |
+| Title for post is mandatory | user cannot submit form data unless form has a title | left field blank, entered nothing but whitespace into field | warning displays error explaining why form is not valid, prompting user to fix title | pass |
+|upload a an image| User can upload an image under 2mb in size | uploaded image above 2mb, upload image under 2mb | larger file rejected when attempting to submit, expected warning is generated, propting user to pick aother file, image under 2MB successfully uploaded | expected | pass |
+| loader appears when user submits formdata | spinner appears when form data is being uploaded/submitted, returns to being button if fails | attempt to submit invalid post, submit valid post | expected | pass |
+
+**Profiles Page**
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| ------- | ---------------- | ----------------- | ------ | --------- |
+| other user avatar | when clicked, authenticated user gets option to follow/unfollow or view profile, unauthenticated users can view profile | clicked as authenticated user, clicked as unauthenticated user | exppected function / redirection | pass |
 
 
+**Profile Page**
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| ------- | ---------------- | ----------------- | ------ | --------- |
 
 
