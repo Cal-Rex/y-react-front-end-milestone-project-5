@@ -458,11 +458,115 @@ The Axios library was implemented to manage user's access and refresh tokens. re
 Elements of the "moments" walkthrough provided valuable snippets that help structure some of the mounting, context components and Form elements of the project.
 
 
-### Mechanical Features
+### Front-end Mechanical Features
 
+**Logging in**
+- when viewing the app a non-authenticated user, the app will always redirect the user to the login screen if the user tries to interact with any feature on the site that requires the user to be authenticated, sucj as creating a post, liking a post, voting on a oomment etc.
+- this is achieved with the use of the `useContext` hook to create a `currentUser` context. which holds the status of the current user. conditional logic is then implemented in several components based on value of the hook.
+- users can log in via the login page using a username and password
+- Username and password are checked against the database by use of the Dj-rest-auth in the API aspect of this project
+- Invalid details in the login form will prevent the form from submitting and prompt the user what the errors are with the login form data
+- correct details will log a user in and return them to the index/dashboard of the app
+
+**Sign up**
+- Users can sign up if they do not have an account
+- They can do so by clicking the link on the login page, which rediects to a sign up form
+- the form requests the following fields be completed:
+    - Username
+    - Email Address
+    - Password
+    - Password (again, for verification)
+    - failure to correctly enter all fields will prevent the form from submitting and the user will be alerted as to what fields are incorrect
+    - correctly submitting the form posts the data to the Database via use of dj-rest-auth functions in the API. a profile is also created linked to the new user.
+
+
+**Editing Personal Details**
+- When logged in, users can update their info using the following 3 forms from their profile page:
+    - Edit username
+        - this form allows the user to update their username within the API database linked to their User record
+    - Edit profile
+        - this form allows for the edit of profile fields not directly linked to authentication information.
+        - bio, and profile image can be edited here
+    - Change Password
+        - This form allows for users to udate their password
+
+**Navigation**
+- Search
+    - both authenticated and unauthenticated users can use the search bar to filter posts on any of the post list pages (dashboard, tranding, liked) provided they have permission to access them (such as likes, which is only possible for authenticated users)
+    - the search function also works exactly the same on the profiles list page, where it just filters through profiles as opposed to posts on the post list pages
+    - there is no need to submit a search criteria, as the search feature will instantly render fresh results on keychange
+- navigtae back to home with logo
+    - the site logo on the navbar will always return users to the dashboard
+- profile avatar
+    - when logged in, the user's avatar appears in the top right of tee navbar. this acts as a dropdown to access a user's own profile, edit their profile, view their liked posts or log out
+
+**"App"**
+- the main body of the app is where all content is rendered, nested between the navbar and footer navigation elements
+- content such as post and profile pages are rendered in this space dpeending what path the user takes or interaction they make with the site
+
+**Post pages**
+- Post pages are comprised of a reusable `PostList` component that have altered filter criteria to render certain posts - through utilisation of a reusable `Question` component to structure the post - in certain order depending on the following:
+    - the `currentUser` logged in
+    - the path that the user is viewing (trending, like posts etc.)
+    - these components are then updated and rerendered when the search bar receives search criteria by use of a resuable custom `setQuery` context hook, which links all the different page types back to the search bar whenever they are in the render, allowing for seamless updating of results/search criteria.
+- when logged in, users can interact directly with posts in the post List components, allowing for
+    - clicking the comment icon or post image to redirect to a detailed view of the post
+    - liking a post - which catalogues it in the user's liked posts view - by clicking the hart icon
+    - click on the avatar of the post owner to get options to follow them or view their profile
+    - if a user owns a post, a conditional dropdown appears at the to right of a post, allowing for users to edit or delete their post
+- followed profiles
+    - when logged in, users will always see a horizontal scrollable bar that contsain avatars of all the users that they follow
+    - clicking on these avatars allows for users to unfollow/re-follow a user or visit their profile
+- infinite scrolling
+    - thanks to the `InfiniteScroll` package, list views will continue to scroll through posts so long as there are posts to view. 
+        - the api paginates data in the backend, by 10 posts at a time. this helps "chunk" dataload to keep the app/device running smoothly or eat too much data in one sitting.
+
+**Post detail**
+- editing a post / deleting a post liking a post
+    - due to the nature of the `Question` component being re-usable, the functions and there placements are absolutely iidentical to that when viewing a post in a list view.
+- commenting
+    - authenticated users can add a comment to a post by usingthe form that is placed directly below the post, above the pre-existeing comments. This does not appear for unauthenticated users.
+- comments
+    - if authenticated, users can vote on comments by clicking the vote icon on a comment, this will increase the vote count for a post by one, and decrease it by one if uncheckced.
+    - comments also use the same dropdown component that the `Question` component uses to all for editing and deleting of comment data
+
+**Create post form**
+- the form requires the image and title fields to be mandatory
+- content field is optional
+- the title field does not allow users to "cheat" a tite by just entering whitespace into the field. it must have a text value.
+- the image upload functionality only allows for images under 2mb
+    - uploaded images immediately show as a preview before a user sbmit the form
+    - on submit, if the data is not valid, the form will not submit and notifications will prompt the user as to why their form data is not acceptable.
+    - if it is valid, the post is posted to the database, and the user then is redirected to the path to view their post in the detail view 
+- when hitting submit, the submit button is replaced with a loader to signal to the user that the image is i the process of being uploaded to the database.
+
+**Profile List**
+- uses the same component that renders the followed profiles on the post list views. except it is passed an additional rop to change its style/orientation.
+- as it is the same components being reused, functionality is identical to start of the explanations above
+
+**Profile page**
+- if the user is the owner of the profile, they are given a dropdown menu below their profile picture that allows them to update their profile details with one of 3 forms:
+    - Edit profile
+    - update username
+    - change password
+    - clicking on any of these dropdowns will redirect the user to a form to handle the change of that data
+- the profile page makes use of the `Question` component and the `Comment` component to display a user's most-voted on comment, and al the posts that they have made.
+    - as such, functionality on these components are identical to cthat of where they are viewed in a detail or list vew elsewhere in the site.
+- whenever a user is followed/unfollowed, posts a question or posts a comment, these figures are update in real time on their profile.
 
 
 ## Visual Features
+**Log in**
+**Sign up**
+**Editing personal Details**
+**Navigation**
+**"App"**
+**Post pages**
+**Post detail**
+**Create post form**
+**Profile List**
+**Profile page**
+
 ## 404 and 500 Features
 ## Features to Implement in Future
 
