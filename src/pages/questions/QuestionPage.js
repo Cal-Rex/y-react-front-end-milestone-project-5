@@ -64,8 +64,6 @@ function QuestionPage() {
                         next={() => fetchMoreData(comments, setComments)}
                         endMessage={<div style={{ textAlign: 'center' }}><p>Watch you don't scroll over the edge champ!</p></div>}
                     >
-                        {/* infinite scroll component not picking up the `next` 
-                        value from the comments objects returned from the database and not sure why. to revisit. */}
                         {comments.results.map(comment => {
                             return <Comment 
                                 key={comment.id}

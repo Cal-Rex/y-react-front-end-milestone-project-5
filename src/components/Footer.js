@@ -26,6 +26,6 @@ const Footer = () => {
 
         </Container>
     )
-}
+};
 
-export default Footer
+export default Footer;

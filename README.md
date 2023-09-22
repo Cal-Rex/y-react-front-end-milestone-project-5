@@ -138,13 +138,26 @@ As Mentioned in the Introduction, the game is inspired by original text-based ad
 
 As Mentioned in the Introduction, this site is a satirical take a recently rebranded social media site. however the following social media platforms were looked at for inspiration regarding site structure, style and implementation of features:
 
-##### [Imgur]()
+##### [Imgur](https://imgur.com/)
+| Desktop View                                                | Mobile view                                                   |
+| :---------------------------------------------------------: | :-----------------------------------------------------------: |
+| ![imgur desktop](/readme-assets/research/imgur-desktop.png) | ![imgur mobile](/readme-assets/research/imgur-mobile.png.jpg) |
 
-##### [instagram]()
 
-##### [X / Twitter]()
+##### [instagram](https://www.instagram.com/)
+| Desktop View                                                | Mobile view                                                   |
+| :---------------------------------------------------------: | :-----------------------------------------------------------: |
+| ![Instagram Desktop](/readme-assets/research/instagram-desktop.png) | ![Instagram Mobile](/readme-assets/research/instagram-mobile.png.jpg) |
 
-##### [Facebook]()
+##### [X / Twitter](https://twitter.com/home)
+| Desktop View                                                |
+| :---------------------------------------------------------: |
+| ![Twitter / X](/readme-assets/research/twitter-desktop.png) |
+
+##### [Facebook](https://www.facebook.com/)
+| Desktop View                                                | Mobile view                                                   |
+| :---------------------------------------------------------: | :-----------------------------------------------------------: |
+| ![Facebook Desktop](/readme-assets/research/facebook-desktop.png) | ![Facebook Mobile](/readme-assets/research/facebook-mobile.jpg) |
 
 <br>
 
@@ -193,32 +206,41 @@ As Mentioned in the Introduction, this site is a satirical take a recently rebra
 - _As a user, i want to be able to update my username and password to keep my account secure_
 
 ### Scope
+Based on the user stories above, the following goals have been identified: 
+
+1. Create a social media site that allowsusers to post questions
+2. users should be able to interact with these questions by liking them, commenting on them and then voting for best comment
+3. Users should be able to follow other users to keep up to date with those user's content
+4. Users should be able to keep a record of content that they like
+5. The user should have trackable stats on a profile page like their most voted comment.
+
 Based on the user stories, the following features have been considered for development:
 
-1. profile component
+1. profile feature
     - users can use this component to view a profile
     - if they are the authenticated owner of a profile, they should have the option to update any of the publicly facing data
     - if they aren't the owner, they can choose to follow or unfollow the profile
     - the profile should list the content created by that user, both posts and most upvoted comments
         - clicking on tiehr of these should take the user to the post
-2. homepage component
+2. homepage feature
     - users can use this component to see the most recently published content
     - users can search and filter content in this component, to look for specific posts or posts made by a specific user
-3. post detail component
+3. post detail feature
     - this component should display a single post, but all of the answers/comments attached to it
         - the top 3 most voted comments will be ordered first, then after that, they will be ordered by most recently published
     - users will be able to comment, edit a comment, delete a comment and vote on comments from this component
-4. trending component
-    - this component will give pick from the top-3 most voted on posts and pick one at random, and return it in a post-detail style component, for users with larger screens to immediately view and contribute to.
+4. a discover users feature
+    - this component will allow users to see other registered users on the platform, view he content that they have posted and commented on and then decide to follow them if they like their posted content.
 
 ### Structure 
+
+#### A Note of conflict:
+
+The following informaiton below was advised on the walkthroughs to conduct the following process when structuring imports for this process. It has been advised however, by tutros and the console, that structuring imports with curly braces is the recommended/optimum method:
 
 | [instructions on optimizing bootstrap imports](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+RA101+2021_T3/courseware/70a8c55db0504bbdb5bcc3bfcf580080/f50e8ca2d7f6497c9d9857048d973ae4/) |
 |:-----|
 | Because we have been using auto-imports for our components, our bootstrap imports have been done in a way that is not optimal for build time. For example in NavBar.js, we have imports like this <br><br> import { Navbar, Container, Nav } from "react-bootstrap"; Which means the entire react-bootstrap library is imported and the NavBar, Container and Nav components are deconstructed from it.<br><br>The Bootstrap documentation recommends instead importing each component individually from their specific folder. Like this:<br><br> import Navbar from "react-bootstrap/Navbar";<br> import Container from "react-bootstrap/Container";<br> import Nav from "react-bootstrap/Nav";<br> This minimises the bootstrap build to only the components that are needed from the library.<br><br> We recommend you go through your components and adjust your react-bootstrap component imports with this in mind. |
-
-error showing in console doing it this 
-
 
 ### Skeleton
 
@@ -237,8 +259,22 @@ error showing in console doing it this
 | ![home page](/readme-assets/wireframes/wireframes-4.webp) | ![profile page](/readme-assets/wireframes/wireframes-5.webp) |
 
 ## Colour Scheme
+
+| For this project, given the idea is to pose contrasting answers on questions, a monochromatic colour scheme was decided on. the pallette was created with [Colormind](http://colormind.io/template/paper-dashboard/) |
+| :-: |
+| ![Colormind palette](/readme-assets/research/colormind.png) |
+
 ## Typography
+Typography was initially drafted for this project but was then pushed to a later iteration due to time constraints and assessment criteria
+
 ## Imagery
+
+| Modeling/spoofing the new "[X](https://twitter.com/home)" logo, the following brand was decided on as the main logo for the site | 
+| :-: |
+| ![y logo](/readme-assets/y-big-canvas-black.png) |
+| variations of this image are used to creae the site header logo and user default profile images |
+
+All icons for the site were implemented from the [FontAwesome](https://fontawesome.com/) library.
 
 # Project Developlment | Agile Sprints
 
@@ -379,6 +415,16 @@ Due to the nature of this project being created in 2 seperate repositories, user
 
 | Learning Outcomes / Acceptance Criteria covered in this milestone                                                                   |
 | :---------------------------------------------------------------------------------------------------------------------------------: |
+| Design a Front-End for a Full-Stack web application that meets accessibility guidelines, follows the principles of UX design, meets its given purpose and provides a set of user interactions. |
+| Implement custom JSX (HTML, JavaScript and CSS) code to create a responsive, dynamic Front-End application consisting of one or more pages with relevant responses to user actions and a set of data manipulation functions. |
+| Write code that meets minimum standards for readability (comments, indentation, consistent and meaningful naming conventions). |
+| Name files consistently and descriptively, without spaces, capitalisation where recommended, to allow for cross-platform compatibility. |
+| Document the deployment process for the Front-End application in the README file for the Front-End application. |
+| Ensure the security of the deployed version of the Front-End application, making sure to not include any passwords in the git repository, and that all secret keys are hidden in environment variables or in files that are in .gitignore, if applicable. |
+| Implement manual testing and document the procedures and results in the README file for the Front-End application. |
+| Use Git & GitHub for version control of the Front-End application up to deployment, using commit messages to document the development process. |
+| Deploy a final version of the Front-End application code to a cloud-based hosting platform and test to ensure it matches the development version. |
+
 
 
 | User Stories covered in this milestone                                                                | details |

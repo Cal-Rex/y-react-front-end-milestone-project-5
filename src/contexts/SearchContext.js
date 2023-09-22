@@ -16,7 +16,7 @@ export const SearchQueryProvider = ( { children } ) => {
             </SetQueryContext.Provider>
         </QueryContext.Provider>
     )
-}
+};
 
 
 

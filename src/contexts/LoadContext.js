@@ -17,4 +17,4 @@ export const LoadStatusProvider = ({ children }) => {
             </SetLoadStatusContext.Provider>
         </LoadStatusContext.Provider>
     )
-}
+};

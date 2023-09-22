@@ -98,4 +98,4 @@ export const ProfileDataProvider = ({ children }) => {
             </SetProfileDataContext.Provider>
         </ProfileDataContext.Provider>
     )
-}
+};

@@ -21,4 +21,4 @@ export const useRedirect = (userAuthStatus) => {
         }
         handleMount();
     }, [history, userAuthStatus]);
-}
+};
