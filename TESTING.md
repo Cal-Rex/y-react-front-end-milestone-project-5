@@ -230,7 +230,7 @@ additional testing was conducted by Georgia Bell and Christina Myrvold. The foll
 | ------- | ---------------- | ----------------- | ------ | --------- | 
 | site logo | Links back to home page | clicked | navigates to home page | pass |
 | search | posts on page are filtered by post and by usernames | entering text into bar | post list on page updates | pass |
-| profile Avatar | whn clicked, dropdown menu appears, options should redirect user to the necessary page | click avatar and click each dropdown option | all links lead to where hey are supposed to go | pass |
+| profile Avatar | when clicked, dropdown menu appears, options should redirect user to the necessary page | click avatar and click each dropdown option | all links lead to where hey are supposed to go | pass |
 
 **Followed profile list**
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
@@ -250,19 +250,20 @@ while testing was conducted individually for each page, each page is identical i
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | ------- | ---------------- | ----------------- | ------ | --------- | 
-| edit/delete dropdown o a post | if a post is awned by authenticated user, user can click sllipsis in top right of post to access dropdown to edit the post via a form or delete the post | viewed as autheticated user, click to navigate to edit form, clicked to delete a post, viewed as unauthenticated user | expected | pass |
+| edit/delete dropdown of a post | if a post is awned by authenticated user, user can click sllipsis in top right of post to access dropdown to edit the post via a form or delete the post | viewed as autheticated user, click to navigate to edit form, clicked to delete a post, viewed as unauthenticated user | expected | pass |
 | clicking on a post's image will redirect ot the postPage view | <-- | clicked on | expected | pass |
 | like a post | click heart on post will like post | clicked on | heart icon updates on click to show user has liked, post appears i user's liked filter, unauthenticated users can't click, owners cannot like their own post | pass |
 | likes tracking | whenever a post is liked, the number of likes on the post increases | clicked on | expected | pass |
 | clicking on comment icon leads to comment form | <-- | clicked on | expected | pass |
 | comments tracking | whenever a post is commet on, the number of comments on the post increases | commented on post | expected | pass |
+| clicking image or comment icon take user to post page | <-- | clicked on | expected | pass |
 
 **post create form**
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | ------- | ---------------- | ----------------- | ------ | --------- |
 | make a new post | fill out all the form fields and make a post that dsiplays al entered data | created a post using form | expected | pass |
 | Title for post is mandatory | user cannot submit form data unless form has a title | left field blank, entered nothing but whitespace into field | warning displays error explaining why form is not valid, prompting user to fix title | pass |
-|upload a an image| User can upload an image under 2mb in size | uploaded image above 2mb, upload image under 2mb | larger file rejected when attempting to submit, expected warning is generated, propting user to pick aother file, image under 2MB successfully uploaded | expected | pass |
+|upload a an image| User can upload an image under 2mb in size | uploaded image above 2mb, upload image under 2mb | larger file rejected when attempting to submit, expected warning is generated, propting user to pick aother file, image under 2MB successfully uploaded | pass |
 | loader appears when user submits formdata | spinner appears when form data is being uploaded/submitted, returns to being button if fails | attempt to submit invalid post, submit valid post | expected | pass |
 
 **Profiles Page**
@@ -272,12 +273,59 @@ while testing was conducted individually for each page, each page is identical i
 
 
 **Profile Page**
-Failed tests have been logged as bugs and scheduled into project backlog
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | ------- | ---------------- | ----------------- | ------ | --------- |
-| if owner, can't follow | if viewing own profile, cannot see a follow/unfollow button | view page | button visible for Auntheticated users | fail |
+| if owner, can't follow | if viewing own profile, cannot see a follow/unfollow button | view page | expected | pass |
 | profile bio | if user has added a bio it should be visible | entered bio | bio viewable on page | pass |
 | user activity metrics viewable and update depending on interaction | <-- | follow/unfollow a user, make a post as a user, vote as a user, comment as a user | all metrics update | pass |
 | view all posts by user | when viewing profile page, all of user's pasts can be seen | view | expected | pass |
+| if own profile, user can edit details | dropdown icon appears when viewing own profile | viewed as authenticated/unauthenticated user | expected | pass |
+| edit non-auth profile fields | profile owners can edit profile fields by clicking dropdown on profile and selecting edit profile | clicked on | redirected to edit profile form | pass |
+| edit auth profile fields | profile owners can edit username/password from profile dropdown menu | clicked on | redirected to forms | pass |
 
+
+**edit profile forms**
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| ------- | ---------------- | ----------------- | ------ | --------- |
+| update image | update profile image and have it reflected on profile and avatar | update with form | expected | pass |
+| update username | update username and have it reflected on site | update with form | expected | pass |
+| enter a bio | update bio field on edit profile form shows bio on profile page | form used to update | expected | pass |
+| update password | update password using form | form used, then logged out and back in again with new password | expected | pass |
+
+
+**profile list page**
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| ------- | ---------------- | ----------------- | ------ | --------- |
+| display list of all profiles on site | <-- | view | expected | pass |
+| profile components act as they would elsewhere on site| profiles, although structured differently, when clicked still show same dropdown menu and follow same conditions as previous testing | clicked on | expected | pass |
+
+**Registration form**
+failures in testing have been logged as bugs. no failures have had critical effect on site functionality
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| ------- | ---------------- | ----------------- | ------ | --------- |
+| create a new account | enter data and create new account | filled out and submitted form | account created | pass |
+| when account created, user automatically logged in | upon registration, new user logged in | account created | user not logged in | fail |
+| prohibit account creation with invalid credentials | entering none/invalid data to a field will prompt an error and dorbit submission | tried submitting with no username, tried submitting with no email, tried to mismatch passowrd fields | expected warnings show, form does not submit | pass |
+
+**Login form**
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| ------- | ---------------- | ----------------- | ------ | --------- |
+| log in | enter details and login | logged in with existing details | expected | pass |
+| prohibit login with invalid credentials | warnings raised on invalid data, prevent form submission | enter wrong/bad/no data into form and submit | user does not log in | pass |
+
+**Post page**
+failures in testing have been logged as bugs. no failures have had critical effect on site functionality
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| ------- | ---------------- | ----------------- | ------ | --------- |
+| like post | click like icon and like post | clicked on | 400 bad request | fail |
+| post a comment | add comment with comment form | use form and submit | comment posted | pass |
+| comment count increases upon successful commentting | <-- | comment submitted | coutn updates on page refresh | fail |
+| vote on comments | clicking on the vote icon votes on comment | clicked on | successful vote, count increases | pass |
+| remove vote from comment | clicking on the vote removes is | clicked on | if owned, comment decrements by one, but will falsely display 0 on front end, data stored on db is however, accurate | fail |
+
+**Post Edit form**
