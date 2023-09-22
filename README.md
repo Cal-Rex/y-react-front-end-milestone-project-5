@@ -1,3 +1,4 @@
+![Y](/readme-assets/amiresponsive.png)
 # Y
 ## voting on the right answer, for anything
 _____________________________________________________________________
@@ -21,7 +22,7 @@ _____________________________________________________________________
 - [Design Features](#design-features)
     - [Front End libraries](#front-end-libraries-and-packages)
 - [Visual Features](#visual-features)
-- [404 and 500 Features](#404-and-500-error-pages)
+- [404](#404)
 - [Features to Implement in Future](#features-to-implement-in-future)
 
 5. [BUGS](#bugs)
@@ -586,13 +587,15 @@ Elements of the "moments" walkthrough provided valuable snippets that help struc
 - the smae component is re-used but passed a `listView` boolean which means it will display all profiles as a vertical list, style rules alter the structure of the profile components so that they sit nicer as a vertical list. all other functionality remains the same.
 
 
-## 404 and 500 Features
+## 404 
 Any page or path that is not registered as a route in the app is handled by a "not-found" route which just maintains the style of the site and the user's nav bar. The only difference is that the main body displays a message saying "Sorry lad(y), this path is a dead end"
 
 ## Features to Implement in Future
 - revise trending posts to show a random selection of top 3 users who have either got the most votes for a comment or posts that have the most likes or comments.
 - integrate the profile list as an aside on the main posts page
 - display a random post as a left aside on the posts page view, as initially planned in the wireframes
+
+___
 
 # Bugs
 ## Resolved Bugs
@@ -636,14 +639,15 @@ ____
 ## Frameworks
 - [Node Package Manager](https://www.npmjs.com/)
 - [React](https://react.dev/)
-- [Axios](https://axios-http.com/docs/intro)
+
 
 ## Libraries
-- [React Bootstrap v4](https://react-bootstrap.netlify.app/)
-- [React Infinite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component)
-- [React Router](https://reactrouter.com/en/main)
-- [JWT Decode](https://jwt.io/)
-- [FontAwesome](https://fontawesome.com/)
+- [React Bootstrap v4](https://react-bootstrap.netlify.app/): Front end Library that is well known and relieble for building robust front-end frameworks. Version 4 was picked as whileit is not the latest iteration of React bootsrap, it is well developed while still being a current and viable version
+- [React Infinite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component): infinite Scroll was used to strike a balance between convenient and seemless access of content on site while also effectively managing data payload between the front end site and back end api. as it allows for data chunking instead of rendering an entire database table
+- [React Router](https://reactrouter.com/en/main) library of components that allow for efficient navigation and routing in the front end without having to refresh the webpage content, minimising loads times
+- [JWT Decode](https://jwt.io/): front-end library that allows secure transmission of information between parties as a JSON object. in this project, it was used to create timestamped refresh tokens on the clientside.
+- [Axios](https://axios-http.com/docs/intro): Used to handle requests between API and Front-end project. Use of Axios interceptors help maintain user Authentication with connected API. This allows for a more consistent and un-interrupted user experience wher e use would otherwise have to re-authenticate every 5 minutes
+- [FontAwesome](https://fontawesome.com/): a large library of free icons, many used throughout site to give more context to interactions.
 
 ## Programs
 - [JSHint](https://jshint.com/)
@@ -702,6 +706,13 @@ Provided the project is set up and ready to go. connect the repository to the ne
 - Martin
 - Sean
 - Ed
+
+**Fellow CI Cohort members**
+- Cheryl
+- Eli
+- Adrian
+- Joe
+
 
 **Mentors:**
 - Jubril
