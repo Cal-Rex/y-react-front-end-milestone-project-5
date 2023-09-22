@@ -2,18 +2,35 @@
 
 # CONTENTS
 1. [Automated testing](#automated-testing)
-    - [HTML Validation]()
-    - [CSS Validation]()
-    - [JS Validation]()
-    - [Lighthouse]()
+    - [HTML Validation](#html-validation)
+    - [CSS Validation](#css-validation)
+    - [JS Validation](#js-validation)
+    - [Lighthouse](#lighthouse)
 2. [Manual testing](#manual-testing)
 
 ## Automated testing
 
 ### HTML Validation
 
+| index.html |
+| :-: |
+| ![html](/readme-assets/testing/html/html.png) |
+| info markers are only relating to trailing slashes on style elements. It has been clarified that this is acceptable |
+| Error markers are flagged due to react specific syntax and should be disregarded |
 
 ### CSS Validation
+[W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/validator) was used to Validate all CSS for the project. All CSS was compiled into a single document and tested, which yielded the following results:
+
+| errors |
+| :-: |
+| ![css error check](/readme-assets/testing/css/css-1.png) |
+| Testing resulted in no errors |
+
+| warnings |
+| :-: |
+| ![css warnings](/readme-assets//testing//css/css-2.png) |
+| the following warnings were created due to additional extensions being added so that code would be read by a wider range of browsers |
+| active and focus psuedo elements for DropdownContainer are deliberate as these are in place to override bootstrap styles |
 
 
 ### JS Validation
