@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../../styles/QuestionList.module.css';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from '../../api/axiosDefault';
 import { Col, Container, Row } from 'react-bootstrap';

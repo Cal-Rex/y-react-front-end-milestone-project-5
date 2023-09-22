@@ -29,7 +29,7 @@ const ProfilePage = () => {
 
 
     useEffect(() => {
-        let isMounted = true; // Add an isMounted flag
+        let isMounted = true;
 
         const handleMount = async () => {
             try {
@@ -43,7 +43,6 @@ const ProfilePage = () => {
                     axiosReq.get(`/comments/?ordering=-votes_count&owner__profile=${id}`),
                 ]);
 
-                // Check if the component is still mounted before updating state
                 if (isMounted) {
                     setProfileData((prevState) => ({
                         ...prevState,
@@ -55,8 +54,7 @@ const ProfilePage = () => {
                     setLoaded(true);
                 }
             } catch (err) {
-                // Handle errors if needed
-                console.log(err);
+                // console.log(err);
                 if (isMounted) {
                     setLoaded(true);
                 }
@@ -66,7 +64,6 @@ const ProfilePage = () => {
         setLoaded(false);
         handleMount();
 
-        // Cleanup function to update isMounted when the component unmounts
         return () => {
             isMounted = false;
         };

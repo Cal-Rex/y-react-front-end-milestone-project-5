@@ -272,7 +272,12 @@ while testing was conducted individually for each page, each page is identical i
 
 
 **Profile Page**
+Failed tests have been logged as bugs and scheduled into project backlog
+
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | ------- | ---------------- | ----------------- | ------ | --------- |
-
+| if owner, can't follow | if viewing own profile, cannot see a follow/unfollow button | view page | button visible for Auntheticated users | fail |
+| profile bio | if user has added a bio it should be visible | entered bio | bio viewable on page | pass |
+| user activity metrics viewable and update depending on interaction | <-- | follow/unfollow a user, make a post as a user, vote as a user, comment as a user | all metrics update | pass |
+| view all posts by user | when viewing profile page, all of user's pasts can be seen | view | expected | pass |
 
