@@ -17,25 +17,24 @@ _____________________________________________________________________
 
 3. [Project Development / Agile Sprints](#project-developlment--agile-sprints)
 
-3. [FEATURES](#features)
+4. [FEATURES](#features)
 - [Design Features](#design-features)
     - [Front End libraries](#front-end-libraries-and-packages)
 - [Visual Features](#visual-features)
-- [Gameplay + JS Features](#gameplay-features)
 - [404 and 500 Features](#404-and-500-error-pages)
 - [Features to Implement in Future](#features-to-implement-in-future)
 
-4. [BUGS](#bugs)
+5. [BUGS](#bugs)
 - [Resolved Bugs](#resolved-bugs)
 - [Unresolved Bugs](#unresolved-bugs)
 
-5. [TECHNOLOGIES](#technologies)
+6. [TECHNOLOGIES](#technologies)
 - [Languages Used](#languages-used)
-- [Frameworks](#frameworks--libraries--programs)
-- [Libraries](#frameworks--libraries--programs)
-- [Programs](#frameworks--libraries--programs)
+- [Frameworks](#frameworks)
+- [Libraries](#libraries)
+- [Programs](#programs)
 
-6. [TESTING](testing.md)
+7. [TESTING](testing.md)
 
 Contained as a seperate document [here](testing.md)
 
@@ -69,7 +68,9 @@ This project aims to:
 ### LO1: Design an interactive Front-End web application using HTML and CSS and advanced JavaScript, based on component composition and separation of concerns.
 1. > Design a Front-End for a Full-Stack web application that meets accessibility guidelines, follows the principles of UX design, meets its given purpose and provides a set of user interactions.
 
+
 2. > Implement custom JSX (HTML, JavaScript and CSS) code to create a responsive, dynamic Front-End application consisting of one or more pages with relevant responses to user actions and a set of data manipulation functions.
+
 
 3. > Write code that meets minimum standards for readability (comments, indentation, consistent and meaningful naming conventions).
 
@@ -209,13 +210,13 @@ As Mentioned in the Introduction, this site is a satirical take a recently rebra
 ### Scope
 Based on the user stories above, the following goals have been identified: 
 
-1. Create a social media site that allowsusers to post questions
+1. Create a social media site that allows users to post questions
 2. users should be able to interact with these questions by liking them, commenting on them and then voting for best comment
 3. Users should be able to follow other users to keep up to date with those user's content
 4. Users should be able to keep a record of content that they like
 5. The user should have trackable stats on a profile page like their most voted comment.
 
-Based on the user stories, the following features have been considered for development:
+**Based on the user stories and project goals, the following features have been considered for development:**
 
 1. profile feature
     - users can use this component to view a profile
@@ -284,6 +285,8 @@ This project was Developed using Agile methodology, user stories and learning ou
 The MoSCoW prioritisation system was used to organise tasks for each sprint.
 
 Due to the nature of this project being created in 2 seperate repositories, user stories were documented as project milestones to group tasks under relevant user stories in both repositories.
+
+**[The project board for both fron and backend projects can be viewed here](https://github.com/users/Cal-Rex/projects/11/views/3)**
 
 **Milestones 1-6 were conducted during the primary development of the back end API and can be found [here](https://github.com/Cal-Rex/y-api-milestone-project-5/blob/main/README.md#development)**
 
@@ -439,6 +442,7 @@ Due to the nature of this project being created in 2 seperate repositories, user
 | :---------------- | :-------------: |
 | Implement Seach feature <br><br> tidy up code and run all code through Linters and validation services <br><br> ensure the project is not logging any unwanted errors in the console during render <br><br> document rest of development process not covered in milestone sprints <br><br> Deploy page to heroku again now that it is built <br><br> | ![sprint 13](/readme-assets/sprints/sprint-13-project-view.png) |
 
+___
 
 # Features
 ## Design Features
@@ -582,42 +586,131 @@ Elements of the "moments" walkthrough provided valuable snippets that help struc
 - the smae component is re-used but passed a `listView` boolean which means it will display all profiles as a vertical list, style rules alter the structure of the profile components so that they sit nicer as a vertical list. all other functionality remains the same.
 
 
-**Editing personal Details**
-
-**Post detail**
-**Create post form**
-**Profile List**
-**Profile page**
-
 ## 404 and 500 Features
+Any page or path that is not registered as a route in the app is handled by a "not-found" route which just maintains the style of the site and the user's nav bar. The only difference is that the main body displays a message saying "Sorry lad(y), this path is a dead end"
+
 ## Features to Implement in Future
+- revise trending posts to show a random selection of top 3 users who have either got the most votes for a comment or posts that have the most likes or comments.
+- integrate the profile list as an aside on the main posts page
+- display a random post as a left aside on the posts page view, as initially planned in the wireframes
 
 # Bugs
 ## Resolved Bugs
+Profile data from the API not being retreived
+- Documented in the [Github project view](https://github.com/users/Cal-Rex/projects/11/views/3?pane=issue&itemId=38354544)
+
+infinite scroll not fetching more data
+- Documented in the [Github project view](https://github.com/users/Cal-Rex/projects/11/views/3?pane=issue&itemId=38614674)
+
 ## Unresolved Bugs
+Infinite Scrolling of comments components
+- Documented in the [Github project view](https://github.com/users/Cal-Rex/projects/11/views/3?pane=issue&itemId=38795327)
+
+comments count not updating in real time on questionpage component
+- Documented in the [Github project view](https://github.com/users/Cal-Rex/projects/11/views/3?pane=issue&itemId=38795327)
+
+iOS/safari/brave browsers cannot authenticate
+- Documented in the [Github project view](https://github.com/users/Cal-Rex/projects/11/views/3?pane=issue&itemId=39419296)
+
+console error (500) when retrieving comments after returning to "/" after viewing a postPage.
+- Documented in the [Github project view](https://github.com/users/Cal-Rex/projects/11/views/3?pane=issue&itemId=39425475)
+
+Profile Page: not logging currentUser before render
+- Documented in the [Github project view](https://github.com/users/Cal-Rex/projects/11/views/3?pane=issue&itemId=39467773)
+
+pointer events negated on empty navbar space
+- Documented in the [Github project view](https://github.com/users/Cal-Rex/projects/11/views/3?pane=issue&itemId=39467934)
+
+____
 
 # Technologies
+
 ## Languages Used
+
+- [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+    - [JSX](https://legacy.reactjs.org/docs/introducing-jsx.html)
+    - [JSON](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)
+- [CSS](https://en.wikipedia.org/wiki/CSS)
+- [HTML](https://en.wikipedia.org/wiki/HTML)
+
 ## Frameworks
+- [Node Package Manager](https://www.npmjs.com/)
+- [React](https://react.dev/)
+- [Axios](https://axios-http.com/docs/intro)
+
 ## Libraries
-- 
+- [React Bootstrap v4](https://react-bootstrap.netlify.app/)
 - [React Infinite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component)
-- https://www.svgrepo.com/svg/5500/upload-file
+- [React Router](https://reactrouter.com/en/main)
+- [JWT Decode](https://jwt.io/)
+- [FontAwesome](https://fontawesome.com/)
+
 ## Programs
-- https://pep8ci.herokuapp.com/#
-- https://bennettfeely.com/clippy/
+- [JSHint](https://jshint.com/)
+- [eslint](https://eslint.org/)
+- [Gitpod](https://gitpod.io/)
+- [GitHub](https://github.com/)
+- [VS Code](https://code.visualstudio.com/)
+- [LucidChart](https://www.lucidchart.com/)
+- [MS Powerpoint](https://www.microsoft.com/en-gb/microsoft-365/powerpoint)
+- [GIMP 2.10.32](https://www.gimp.org/)
+- [Chat GPT](https://chat.openai.com/)
+- [Clippy](https://bennettfeely.com/clippy/)
+- [Google Chrome](https://www.google.com/intl/en_uk/chrome/dr/download/?brand=YTUH&gclid=EAIaIQobChMImb25hte9gQMVyUxHAR3M0gBGEAAYASAAEgKaX_D_BwE&gclsrc=aw.ds)
+- [Opera GX](https://www.opera.com/?utm_campaign=%2300%20-%20WW%20-%20Search%20-%20EN%20-%20Branded&utm_content=37670026502&gclid=EAIaIQobChMIysfYkte9gQMVvYxQBh0LgAFwEAAYASAAEgKOoPD_BwE)
+- [Mozilla Firefox](https://www.mozilla.org/en-GB/firefox/new/?utm_medium=paidsearch&utm_source=google-rsa&utm_campaign=fxeu&utm_content=A144_A203_302582&gclid=EAIaIQobChMInp6Tote9gQMVm4lQBh098Q3dEAAYASAAEgItI_D_BwE)
+- [Safari](https://www.apple.com/uk/safari/)
+- [Heroku](https://heroku.com/)
+
+___
 
 # Testing
-Contained as a seperate document [here]()
+Contained as a seperate document [here](/TESTING.md)
+
+___
 
 # DEPLOYMENT
-Step-by-step guide on how to deploy
+Ths projest is deployed and managed on Heroku
+
+Step-by-step guide on how to deploy:
+1. after making an account, log in
+2. on the dashbaord go to the dropdown menu and select **Create New App**
+3. on the next page, name the project, following the naming conventions specified by heroku
+    - beneath this field, choose the region you wish to have your app host from (EU/USA)
+    - Finalize the process by selecting **Create App** 
+
+Provided the project is set up and ready to go. connect the repository to the new Heroku repository
+4. in the newly created app on heroku, navigate to the deploy tab and link up the project from what ever version control system you are using (heroku Git / GitHub etc).
+5. Go to the development environment for the project. in package.json, addhe following to `scripts`:
+    - `npm install -g serve`
+6. Create a Procfile in the Repository. inside it add the following code:
+    - `web: serve -s build`
+7. with all of this in place, navigate back to heroku and go the app dashboard, select the deploy tab
+8. scroll down and hit deploy.
 
 # Credits
 
+**references and troubleshooting resources**
 - https://www.pluralsight.com/guides/override-react-bootstrap-with-custom-css-file
 - https://mui.com/system/spacing/
 - https://docs.djangoproject.com/en/4.2/ref/contrib/auth/#django.contrib.auth.models.User
 
+**Tutors at the Code Institute:**
+- Sarah
+- Gemma
+- Joanne
+- Martin
+- Sean
+- Ed
 
-# Acknowledgements 
+**Mentors:**
+- Jubril
+- Seun
+
+**Testers:** 
+- Gerogia Bell
+- Christina P Myrvold
+
+**Motivational Pets**
+- Kaiba
+- Layla
