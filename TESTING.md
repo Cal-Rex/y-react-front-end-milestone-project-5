@@ -11,6 +11,7 @@
     - [Device Testing](#device-testing)
     - [Browser Testing](#browser-testing)
     - [Peer Testing](#peer-testing)
+    - [feature testing](#feature-testing)
 
 ## Automated testing
 
@@ -140,6 +141,8 @@
 | ![Profile Page](/readme-assets/testing/lighthouse/profile-page.png) |
 | No Issues |
 
+___
+
 
 ## Manual Testing
 
@@ -198,6 +201,7 @@
 | _As a user, i want to be able to see the questions/posts a profile has made so i can decide if i like their content_ | the profile page displays all posts that a user has made |
 | _As a user, i want to be able to update my username and password to keep my account secure_ | auth-related account information can be updated via a dropdown menu on the profile page. |
 
+___
 
 ### Device Testing
 This project was tested on the following devices:
@@ -205,6 +209,7 @@ This project was tested on the following devices:
 - Google Pixel 6Pro
 - iPhone 8
 
+___
 
 ### Browser Testing
 This project was tested on the following browsers:
@@ -216,6 +221,8 @@ This project was tested on the following browsers:
 
 Due to settings in iOS and Safari, full testing could not be conducted because of restrictons of 3rd party cookies, preventing successful authentication.
 
+___
+
 ### Peer Testing
 additional testing was conducted by Georgia Bell and Christina Myrvold. The following issues were raised:
 - _"when i create an account, i am not immediately logged in and i was wondering if my account creation was successful"_
@@ -223,7 +230,9 @@ additional testing was conducted by Georgia Bell and Christina Myrvold. The foll
 - _"So whenever I’m scrolling and I press the upvote, nothing happens, but as soon as I open the post by pressing the image, that press HAS been registered"_
     - voteing in list view was planned to be disabled for this iteration. bug has been logged to project backlog
 
-### full manual testing
+___
+
+### Feature testing
 
 **NavBar**
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
@@ -231,6 +240,8 @@ additional testing was conducted by Georgia Bell and Christina Myrvold. The foll
 | site logo | Links back to home page | clicked | navigates to home page | pass |
 | search | posts on page are filtered by post and by usernames | entering text into bar | post list on page updates | pass |
 | profile Avatar | when clicked, dropdown menu appears, options should redirect user to the necessary page | click avatar and click each dropdown option | all links lead to where hey are supposed to go | pass |
+| log out | click log out in dropdown and log out | clicked on | logged out | pass |
+
 
 **Followed profile list**
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
@@ -238,12 +249,14 @@ additional testing was conducted by Georgia Bell and Christina Myrvold. The foll
 | other user avatar | when clicked, authenticated user gets option to follow/unfollow or view profile, unauthenticated users can view profile | clicked as authenticated user, clicked as unauthenticated user | exppected function / redirection | pass |
 | profile list showing different users depending on login status | authenticated users will see the profiles they have followed, unauthenticated users will see profiles that have voted the most | viewing page as authenticated / unathenticated user | expected | pass |
 
+
 **Footer**
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | ------- | ---------------- | ----------------- | ------ | --------- | 
 | Trending posts icon | Clicking will redirect user to most commented on posts | clicked on | expected | pass |
 | create post icon | Clicking will redirect to the create post form | clicked on | expected | pass |
 | profile List icon | clicking will redirect to te profile list view here all active public profiles on the site can be viewed | clicked on | expected | pass |
+
 
 **index, trending, liked postlist pages**
 while testing was conducted individually for each page, each page is identical in navigaton and functionality, just the filter for posts has changed.
@@ -257,6 +270,8 @@ while testing was conducted individually for each page, each page is identical i
 | clicking on comment icon leads to comment form | <-- | clicked on | expected | pass |
 | comments tracking | whenever a post is commet on, the number of comments on the post increases | commented on post | expected | pass |
 | clicking image or comment icon take user to post page | <-- | clicked on | expected | pass |
+| delete a post | clicking on the delete dropdown deletes the post | clicked on | post deleted | pass |
+
 
 **post create form**
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
@@ -266,6 +281,7 @@ while testing was conducted individually for each page, each page is identical i
 |upload a an image| User can upload an image under 2mb in size | uploaded image above 2mb, upload image under 2mb | larger file rejected when attempting to submit, expected warning is generated, propting user to pick aother file, image under 2MB successfully uploaded | pass |
 | loader appears when user submits formdata | spinner appears when form data is being uploaded/submitted, returns to being button if fails | attempt to submit invalid post, submit valid post | expected | pass |
 
+
 **Profiles Page**
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | ------- | ---------------- | ----------------- | ------ | --------- |
@@ -273,7 +289,6 @@ while testing was conducted individually for each page, each page is identical i
 
 
 **Profile Page**
-
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | ------- | ---------------- | ----------------- | ------ | --------- |
 | if owner, can't follow | if viewing own profile, cannot see a follow/unfollow button | view page | expected | pass |
@@ -286,7 +301,6 @@ while testing was conducted individually for each page, each page is identical i
 
 
 **edit profile forms**
-
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | ------- | ---------------- | ----------------- | ------ | --------- |
 | update image | update profile image and have it reflected on profile and avatar | update with form | expected | pass |
@@ -296,7 +310,6 @@ while testing was conducted individually for each page, each page is identical i
 
 
 **profile list page**
-
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | ------- | ---------------- | ----------------- | ------ | --------- |
 | display list of all profiles on site | <-- | view | expected | pass |
@@ -318,7 +331,7 @@ failures in testing have been logged as bugs. no failures have had critical effe
 | prohibit login with invalid credentials | warnings raised on invalid data, prevent form submission | enter wrong/bad/no data into form and submit | user does not log in | pass |
 
 **Post page**
-failures in testing have been logged as bugs. no failures have had critical effect on site functionality
+failures in testing have been logged as bugs. No failures have had critical effect on site functionality.
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | ------- | ---------------- | ----------------- | ------ | --------- |
@@ -326,6 +339,12 @@ failures in testing have been logged as bugs. no failures have had critical effe
 | post a comment | add comment with comment form | use form and submit | comment posted | pass |
 | comment count increases upon successful commentting | <-- | comment submitted | coutn updates on page refresh | fail |
 | vote on comments | clicking on the vote icon votes on comment | clicked on | successful vote, count increases | pass |
-| remove vote from comment | clicking on the vote removes is | clicked on | if owned, comment decrements by one, but will falsely display 0 on front end, data stored on db is however, accurate | fail |
+| remove vote from comment | clicking on the vote removes it | clicked on | if owned, comment decrements by one, but will falsely display 0 on front end, data stored on db is however, accurate | fail |
 
 **Post Edit form**
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| ------- | ---------------- | ----------------- | ------ | --------- |
+| update image | updating image with form updates in preview and then changes on submit | image updated | image updated | pass |
+| prevent invalid data as replacement | adding invalid image restrictions or file type procs warning and prevents edit | attempted to change post to invalid data | warning appear for invalid data | pass |
+| update title | updating title reflected in post | use form to update title | title updated | pass |
+| update content | updating content reflected in post | use form to update content | content updated | pass |
