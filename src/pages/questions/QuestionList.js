@@ -38,7 +38,7 @@ const QuestionList = ({ message, filter }) => {
     }, [query, pathname, filter, setContextLoadStatus, currentUser]);
 
     return (
-        <Container fluid className={styles.QuestionContainer}>
+        <Container fluid>
             <Row>
                 <Col xs={{ span: 12 }} sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }}>
                     <FollowedProfiles />
