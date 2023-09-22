@@ -556,12 +556,34 @@ Elements of the "moments" walkthrough provided valuable snippets that help struc
 
 
 ## Visual Features
-**Log in**
-**Sign up**
-**Editing personal Details**
 **Navigation**
-**"App"**
+- search bar
+    - the background of the searchbar makes use of the filter backdrop blend css property. this allows for text to be legible while the background remains trasparent.
+- logged in avatar
+    - when hovered over or clicked the frame of the avatar shifts, indicatingit is an interactive element
+    - when clicked the dropdown menu appears below with the same angular deisgn as the avatar frame
+    - dropdown items are highlighted in white when hovered over, indicating interactive options
+
 **Post pages**
+-  followed profiles
+    - as the followed profiles all re-use the same `Profile` component, every profile adopts the same styles:
+        - when hovering a profile avatar the frame shifts like the owners avatar in the navbar
+        - when clicking on the avatar and dropdown pops up to display options
+    - the followed profiles are housed inside a `FollowedProfiles` component which layers a `overflow-x: scroll` rule with an `overflow-x: hidden` rule, which allows for a scrolling list of followed profiles while also stayaing inline with the main body column of the page.
+-`Question` component
+    - regardless of image dimesions, post images are fit to the `Question`'s conatiner dimensions using the `object-fit` property
+    - under the post title the post auther's name is present with an `Avatar` component, which has all of the same functionality as the places it is also rendered (like `FollowedProfiles`)
+    - when a post is liked, the heart icon for the like will change to be solid colour on click.
+    - whenever a user likes or comments on a post the count for these metrics update in real time on the page.
+    - if a user hasn't posted on a `Question`, a notice saying "No one's weighed in yet. get the ball rolling... " where the top comment would normally be, next to it will have a flashing comment icon, prompting the user make a comment if they feel inclined
+
+**Profile List**
+- displays the followed users just like in the post pages using the standard `FollowedProfiles` component
+- the smae component is re-used but passed a `listView` boolean which means it will display all profiles as a vertical list, style rules alter the structure of the profile components so that they sit nicer as a vertical list. all other functionality remains the same.
+
+
+**Editing personal Details**
+
 **Post detail**
 **Create post form**
 **Profile List**
